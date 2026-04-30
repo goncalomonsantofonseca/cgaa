@@ -619,7 +619,7 @@ export default function Home() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [activeSlide, timelineIndex, privateElementStep]);
+  }, [activeSlide, timelineIndex, privateElementStep, meioPart]);
 
   const slide = presentationSlides[activeSlide];
   const isImpactCaseSlide =

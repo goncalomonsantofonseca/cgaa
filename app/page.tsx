@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -52,6 +52,15 @@ const module6ElementSlideTargets = [
   "elemento-normativo",
   "elemento-sancionatorio",
 ] as const;
+const privateElementsTabs = ["Meio", "Resultado", "Intelectual", "Normativo", "Sancionatório"] as const;
+const timelineMoments = [
+  { year: "1999", text: "Versão Originária da CGAA.\n\nA Cláusula Geral Anti-Abuso é introduzida em Portugal em janeiro de 1999, no artigo 32.º-A do CPPT. Esta versão nunca chegou a ser utilizada, tendo sido rapidamente substituída em julho de 1999.\n\nFoi com esta atualização que a CGAA passou a constar no artigo 30.º/2 LGT, ficando ali até aos dias de hoje." },
+  { year: "2000", text: "Com a Lei n.º 30-G/2000, de 29 de dezembro, a CGAA passou a assumir contornos de eficácia no sistema fiscal português, tendo finalmente capacidade para ser utilizada." },
+  { year: "2012", text: "Começa a discussão no G20 acerca da necessidade de prevenção do BEPS. Deste momento histórico surgem vários contributos: a Ação 6 do BEPS, que introduz uma Cláusula Geral Anti-Abuso ao nível da OCDE, e o desenvolvimento do Principal Purpose Test (PPT).\n\nA convenção modelo da OCDE acabou por absorver este critério." },
+  { year: "2013-2015", text: "Entre os anos 2013 e 2015 houve um grande aumento de casos de CGAA em Portugal, face ao problema da transformação de sociedades por quotas em sociedades anónimas para beneficiar de regime mais favorável na transmissão." },
+  { year: "2016", text: "Em 2016 a ATAD estabelece um nível mínimo de proteção contra a elisão fiscal. Na ATAD surge a CGAA inspirada nos trabalhos da OCDE, com o objetivo de ser aplicada em todos os Estados-Membros.\n\nNeste momento o TJUE desempenhou um papel essencial na construção da atual CGAA Europeia." },
+  { year: "2019", text: "A transposição da ATAD para a legislação portuguesa fez surgir alterações que resultaram numa abrangência maior da cláusula, com menos requisitos para preencher os vários elementos." },
+];
 const privateClientCardImages: Partial<Record<string, string>> = {
   "cristina-ferreira": "/Cristina_Ferreira_1080X1920.png",
   "joana-vasconcelos": "/Joana_Vasconcelos_1080x1920.png",
@@ -128,7 +137,6 @@ const slides: Slide[] = [
     bullets: [
       "Liquidações Corretivas e Juros.",
       "Desconsideração de algumas deduções de custos.",
-      "Risco de litigância de má-fé.",
     ],
     footer: sharedFooter,
   },
@@ -205,7 +213,7 @@ const slides: Slide[] = [
     id: "autonomia-protecao-erario",
     kind: "content",
     kicker: "Conflitos",
-    heading: "Autonomia vs. Proteção do Erário",
+    heading: "Autonomia vs.\nProteção do Erário",
     bullets: [
       "Derrogação da autonomia para proteger o Estado.",
       "O conflito é entre a liberdade que deve ser conferida ao contribuinte e a necessidade de precaver situações em que a atuação do contribuinte coloca em risco os interesses do Estado",
@@ -255,17 +263,7 @@ const slides: Slide[] = [
     kind: "content",
     kicker: "Requisitos e Procedimento",
     heading: "Evolução da CGAA",
-    bullets: [
-      "Janeiro de 1999 Versão originária da CGAA 2019, na altura no artigo 32º-A do CPPT.",
-      "A CGAA na sua versão de janeiro de 1999 nunca foi utilizada, tendo sido rápidamente substituída em julho de 1999, passando a configurar no artigo 38º/2 LGT.",
-      " Só com a introdução da lei nº 30-G/2000, de 29 de dezembro, que a CGAA veio assumir contornos de eficácia no sistema fiscal português.",
-      "Em 2012 o G20 defendem a necessidade de prevensão do BEPS. A posterior Ação 6 do projeto BEPS da OCDE recomenda a implementação de cláusulas gerais anti-abuso. (Principal Pourpose Test - PPT).",
-      "Entre 2013 e 2015 houve um aumento de casos de CGAA em Portugal, face ao problema da transformação de sociedades por quotas em sociedades anónimas para beneficiar de regime fiscal mais favorável na transmissão.",
-      "A Convenção modelo da OCDE absorveu este critério.",
-      "Em 2016 a ATAD estabelece um nível minimo de proteção contra a elisão fiscal. Na ATAD surge a CGAA inspirada na OCDE, com o objetivo de ser aplicada em todos os EM.",
-      "O TJUE desempenhou um papel essencial na construção da atual CGAA europeia.",
-      "2019 - Transposição da ATAD 1 faz surgir a alteração da CGAA portuguesa.  ",
-    ],
+    bullets: [],
     footer: sharedFooter,
   },
   {
@@ -416,6 +414,14 @@ const slides: Slide[] = [
     footer: sharedFooter,
   },
   {
+    id: "fernando-santos-elementos",
+    kind: "content",
+    kicker: "Private Clients",
+    heading: "Fernando Santos",
+    bullets: [],
+    footer: sharedFooter,
+  },
+  {
     id: "manuel-luis-goucha",
     kind: "content",
     kicker: "Private Clients",
@@ -424,6 +430,14 @@ const slides: Slide[] = [
       "TEMA: [CGAA] Cariz pessoal das prestações sem justificação para a opção pela sociedade.",
       "Configuração como rendimentos pessoais (Categoria B) em vez de rendimentos empresariais (IRC).",
     ],
+    footer: sharedFooter,
+  },
+  {
+    id: "manuel-luis-goucha-elementos",
+    kind: "content",
+    kicker: "Private Clients",
+    heading: "Manuel Luís Goucha",
+    bullets: [],
     footer: sharedFooter,
   },
   {
@@ -551,18 +565,42 @@ export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [animatedAmount, setAnimatedAmount] = useState(0);
   const [stateLoopTick, setStateLoopTick] = useState(0);
+  const [timelineIndex, setTimelineIndex] = useState(0);
+  const [privateElementStep, setPrivateElementStep] = useState(0);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowRight" || event.key === " ") {
         event.preventDefault();
-        setActiveSlide((current) =>
-          Math.min(current + 1, presentationSlides.length - 1),
-        );
+        if (slide.kind === "content" && slide.id === "evolucao-cgaa" && timelineIndex < timelineMoments.length - 1) {
+          setTimelineIndex((v) => v + 1);
+          return;
+        }
+        if (
+          slide.kind === "content" &&
+          (slide.id === "fernando-santos-elementos" || slide.id === "manuel-luis-goucha-elementos") &&
+          privateElementStep < privateElementsTabs.length - 1
+        ) {
+          setPrivateElementStep((v) => v + 1);
+          return;
+        }
+        setActiveSlide((current) => Math.min(current + 1, presentationSlides.length - 1));
       }
 
       if (event.key === "ArrowLeft") {
         event.preventDefault();
+        if (slide.kind === "content" && slide.id === "evolucao-cgaa" && timelineIndex > 0) {
+          setTimelineIndex((v) => v - 1);
+          return;
+        }
+        if (
+          slide.kind === "content" &&
+          (slide.id === "fernando-santos-elementos" || slide.id === "manuel-luis-goucha-elementos") &&
+          privateElementStep > 0
+        ) {
+          setPrivateElementStep((v) => v - 1);
+          return;
+        }
         setActiveSlide((current) => Math.max(current - 1, 0));
       }
     };
@@ -572,7 +610,7 @@ export default function Home() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [activeSlide, timelineIndex, privateElementStep]);
 
   const slide = presentationSlides[activeSlide];
   const isImpactCaseSlide =
@@ -642,6 +680,11 @@ export default function Home() {
   );
   const privateClientCardImage =
     slide.kind === "content" ? privateClientCardImages[slide.id] : undefined;
+  const isTimelineSlide = slide.kind === "content" && slide.id === "evolucao-cgaa";
+  const isPrivateElementsSlide =
+    slide.kind === "content" &&
+    (slide.id === "fernando-santos-elementos" || slide.id === "manuel-luis-goucha-elementos");
+  const isAutonomiaProtecaoSlide = slide.kind === "content" && slide.id === "autonomia-protecao-erario";
   const formattedAmount =
     slide.kind === "content" && slide.highlightAmount
       ? `${new Intl.NumberFormat("pt-PT", {
@@ -847,7 +890,7 @@ export default function Home() {
                         : ""
                     }`}
                   >
-                    <h2>
+                    <h2 className={isAutonomiaProtecaoSlide ? "two-line-title" : ""}>
                       {isImpactOverviewSlide
                         ? "Pode impactar em..."
                         : isAutonomiaPrivadaSlide
@@ -1015,6 +1058,89 @@ export default function Home() {
                           <li key={bullet}>{bullet}</li>
                         ))}
                       </ul>
+                    ) : null}
+                    {isAutonomiaProtecaoSlide ? (
+                      <div className="correlation-board">
+                        <div className="corr-col">
+                          <p>liberdade</p>
+                          <input
+                            type="range"
+                            min={10}
+                            max={100}
+                            value={100 - stateFundsLevel}
+                            onChange={(e) => setStateLoopTick(Math.max(0, Math.min(5, Math.round(Number(e.target.value) / 20))))}
+                          />
+                          <div className="corr-bar"><span style={{height:`${100-stateFundsLevel}%`}}/></div>
+                        </div>
+                        <div className="corr-col">
+                          <p>segurança</p>
+                          <div className="corr-bar"><span style={{height:`${stateFundsLevel}%`}}/></div>
+                        </div>
+                      </div>
+                    ) : null}
+                    {isTimelineSlide ? (
+                      <div className="timeline-shell">
+                        <div className="timeline-head">
+                          <button type="button" onClick={() => setTimelineIndex((v) => Math.max(0, v - 1))}>◀</button>
+                          <p>{timelineMoments[timelineIndex].year}</p>
+                          <button type="button" onClick={() => setTimelineIndex((v) => Math.min(timelineMoments.length - 1, v + 1))}>▶</button>
+                        </div>
+                        <p className="timeline-text">{timelineMoments[timelineIndex].text}</p>
+                        {timelineMoments[timelineIndex].year === "2013-2015" ? (
+                          <div className="timeline-cards">
+                            <div>Lda.</div>
+                            <span>→</span>
+                            <div>S.A.</div>
+                          </div>
+                        ) : null}
+                      </div>
+                    ) : null}
+                    {slide.kind === "content" && slide.id === "preco-justica" ? (
+                      <div className="justice-scale" aria-hidden="true">
+                        <div className="justice-base" />
+                        <div className="justice-pillar" />
+                        <div className="justice-beam" />
+                        <div className="justice-pan justice-pan-left">JUSTIÇA</div>
+                        <div className="justice-pan justice-pan-right">SEGURANÇA JURÍDICA</div>
+                      </div>
+                    ) : null}
+                    {isPrivateElementsSlide ? (
+                      <div className="private-elements">
+                        <div className="private-elements-tabs">
+                          {privateElementsTabs.map((tab, idx) => (
+                            <button
+                              key={tab}
+                              type="button"
+                              className={idx === privateElementStep ? "active" : ""}
+                              onClick={() => setPrivateElementStep(idx)}
+                            >
+                              {tab}
+                            </button>
+                          ))}
+                        </div>
+                        <div className="private-elements-body">
+                          <h3>{privateElementsTabs[privateElementStep]}</h3>
+                          {slide.id === "fernando-santos-elementos" && privateElementStep === 0 ? (
+                            <div className="private-elements-columns">
+                              <div>
+                                <p>Argumento do Requerente: A Federação preferiu esta opção. O CAAD deu como não provado.</p>
+                                <p>A Federação definiu os treinadores no contrato com a sociedade.</p>
+                                <p>O contrato de direitos de imagem era intuitu personae e ligado ao selecionador Fernando Santos.</p>
+                                <p>A sociedade teve 4 funcionários em 2016 e 6 em 2017, maioritariamente relações familiares/pessoais.</p>
+                                <p>A sede era no domicílio familiar.</p>
+                              </div>
+                              <div>
+                                <p>Não havia estrutura humana e material adequada; o know-how estava nas pessoas.</p>
+                                <p>O CAAD rejeita o argumento de facilidade de resolução contratual.</p>
+                                <p>Os subcontratos dependiam do contrato base com a Federação.</p>
+                                <p>Os serviços foram prestados individualmente por Fernando Santos, sem função real da sociedade.</p>
+                                <p><strong className="conclusao">Conclusão:</strong> A função tangível da sociedade foi imputar obrigações tributárias na sua esfera.</p>
+                                <p><strong className="nota">NOTA:</strong> Não está em causa a artificialidade global da sociedade, mas a utilização artificiosa neste contrato.</p>
+                              </div>
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
                     ) : null}
                     {impactParagraph ? (
                       <p className="content-slide-body">{impactParagraph}</p>

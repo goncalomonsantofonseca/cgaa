@@ -53,6 +53,13 @@ const module6ElementSlideTargets = [
   "elemento-sancionatorio",
 ] as const;
 const privateElementsTabs = ["Meio", "Resultado", "Intelectual", "Normativo", "Sancionatório"] as const;
+const privateElementQuestions: Record<(typeof privateElementsTabs)[number], string> = {
+  Meio: "Foi usado um meio artificioso?",
+  Resultado: "O resultado foi uma vantagem fiscal?",
+  Intelectual: "Houve intenção de frustrar o direito?",
+  Normativo: "É uma atividade censurada pelo ordenamento jurídico?",
+  Sancionatório: "De que forma deve ser sancionado?",
+};
 const timelineMoments = [
   { year: "1999", text: "Versão Originária da CGAA.\n\nA Cláusula Geral Anti-Abuso é introduzida em Portugal em janeiro de 1999, no artigo 32.º-A do CPPT. Esta versão nunca chegou a ser utilizada, tendo sido rapidamente substituída em julho de 1999.\n\nFoi com esta atualização que a CGAA passou a constar no artigo 30.º/2 LGT, ficando ali até aos dias de hoje." },
   { year: "2000", text: "Com a Lei n.º 30-G/2000, de 29 de dezembro, a CGAA passou a assumir contornos de eficácia no sistema fiscal português, tendo finalmente capacidade para ser utilizada." },
@@ -186,30 +193,6 @@ const slides: Slide[] = [
     footer: sharedFooter,
   },
   {
-    id: "receita-vs-competitividade",
-    kind: "content",
-    kicker: "Conflitos",
-    heading: "Receita vs. Competitividade",
-    bullets: [
-      "O Estado é um competidor no mercado global.",
-      '"Não há nada abaixo do zero": A renúncia à tributação como estratégia de retenção de capital.',
-      
-    ],
-    footer: sharedFooter,
-  },
-  {
-    id: "mecanismos-invisiveis",
-    kind: "content",
-    kicker: "Conflitos",
-    heading: "Mecanismos Invisíveis",
-    bullets: [
-      "Países exportadores e a renúncia à tributação.",
-      "O Abuso de Direito pode ser previsivel, calculável e, por vezes, vantajoso.",
-      "O Objetivo dos grandes exportadores poderá ser: Evitar que as empresas procurem outros países com regimes fiscais mais favoráveis. Garantindo que as suas empresas não pagam imposto no estrangeiro, garantem que não mudam a sua estrutura para outros países.",
-    ],
-    footer: sharedFooter,
-  },
-  {
     id: "autonomia-protecao-erario",
     kind: "content",
     kicker: "Conflitos",
@@ -238,6 +221,7 @@ const slides: Slide[] = [
     kind: "content",
     kicker: "A Realidade nos Tribunais",
     heading: "Estatísticas CAAD (2013-2023)",
+    paragraph: "A amostra considerada corresponde a 91 casos analisados no CAAD.",
     table: [
       { label: "Favorável ao Contribuinte", value: "61%" },
       { label: "Desfavorável ao Contribuinte", value: "23%" },
@@ -253,7 +237,6 @@ const slides: Slide[] = [
     kicker: "A Realidade nos Tribunais",
     heading: "O Rigor dos Juízes",
     bullets: [
-      "Verificaram-se nos casos de aplicação da CGAA que os tribunais foram rígidos na verificação de requisitos cumulativos.",
       "A AT perde a maioria dos processos arbitrais devido a falhas na fundamentação ou prova dos elementos do abuso.",
     ],
     footer: sharedFooter,
@@ -272,18 +255,7 @@ const slides: Slide[] = [
     kicker: "Requisitos e Procedimento",
     heading: "Garantias do Contribuinte",
     bullets: [
-      "A utilização da Cláusula Geral Anti-Abuso por parte da AT carece de ser cumprido o Procedimento Próprio previsto no Art. 63.o do CPPT, que protege o contribuinte contra atos arbitrários e injustificados.",
-      "O contribuinte tem o Direito de audição prévia e a possibilidade de obter informações vinculativas que afastam a aplicação da cláusula",
-    ],
-    footer: sharedFooter,
-  },
-  {
-    id: "onus-prova",
-    kind: "content",
-    kicker: "Requisitos e Procedimento",
-    heading: "O Ónus da Prova",
-    bullets: [
-      "O ónus da prova cabe inteiramente à Autoridade Tributária, significa que deve ser por esta feita a demonstração dos pressupostos.",
+      "O contribuinte tem o Direito de audição prévia e a possibilidade de obeter informações vinculativas que afastam a aplicação da cláusula.",
       "É proibida a utilização de suposições ou presunções: A fundamentação deve ser clara, específica e circunstanciada, o que se pode verificar pela profundidade das inspeções tributárias levadas a cabo nos casos decididos contra o contribuinte.",
     ],
     footer: sharedFooter,
@@ -567,41 +539,78 @@ export default function Home() {
   const [stateLoopTick, setStateLoopTick] = useState(0);
   const [timelineIndex, setTimelineIndex] = useState(0);
   const [privateElementStep, setPrivateElementStep] = useState(0);
+  const [meioPart, setMeioPart] = useState<0 | 1>(0);
+  const [liberdadeLevel, setLiberdadeLevel] = useState(58);
+  const [isDraggingLiberdade, setIsDraggingLiberdade] = useState(false);
+
+  const goToSlide = (nextIndex: number) => {
+    const target = presentationSlides[nextIndex];
+    if (
+      target?.id === "fernando-santos-elementos" ||
+      target?.id === "manuel-luis-goucha-elementos"
+    ) {
+      setPrivateElementStep(0);
+      setMeioPart(0);
+    }
+    setActiveSlide(nextIndex);
+  };
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowRight" || event.key === " ") {
         event.preventDefault();
+        const isFernandoElements =
+          slide.kind === "content" && slide.id === "fernando-santos-elementos";
+        const isGouchaElements =
+          slide.kind === "content" && slide.id === "manuel-luis-goucha-elementos";
         if (slide.kind === "content" && slide.id === "evolucao-cgaa" && timelineIndex < timelineMoments.length - 1) {
           setTimelineIndex((v) => v + 1);
           return;
         }
-        if (
-          slide.kind === "content" &&
-          (slide.id === "fernando-santos-elementos" || slide.id === "manuel-luis-goucha-elementos") &&
-          privateElementStep < privateElementsTabs.length - 1
-        ) {
+        if (isFernandoElements && (privateElementStep < privateElementsTabs.length - 1 || (privateElementStep === 0 && meioPart === 0))) {
+          if (privateElementStep === 0 && meioPart === 0) {
+            setMeioPart(1);
+            return;
+          }
+          setPrivateElementStep((v) => v + 1);
+          setMeioPart(0);
+          return;
+        }
+        if (isGouchaElements && privateElementStep < privateElementsTabs.length - 1) {
           setPrivateElementStep((v) => v + 1);
           return;
         }
-        setActiveSlide((current) => Math.min(current + 1, presentationSlides.length - 1));
+        goToSlide(Math.min(activeSlide + 1, presentationSlides.length - 1));
       }
 
       if (event.key === "ArrowLeft") {
         event.preventDefault();
+        const isFernandoElements =
+          slide.kind === "content" && slide.id === "fernando-santos-elementos";
+        const isGouchaElements =
+          slide.kind === "content" && slide.id === "manuel-luis-goucha-elementos";
         if (slide.kind === "content" && slide.id === "evolucao-cgaa" && timelineIndex > 0) {
           setTimelineIndex((v) => v - 1);
           return;
         }
-        if (
-          slide.kind === "content" &&
-          (slide.id === "fernando-santos-elementos" || slide.id === "manuel-luis-goucha-elementos") &&
-          privateElementStep > 0
-        ) {
+        if (isFernandoElements && (privateElementStep > 0 || (privateElementStep === 0 && meioPart === 1))) {
+          if (privateElementStep === 1) {
+            setPrivateElementStep(0);
+            setMeioPart(1);
+            return;
+          }
+          if (privateElementStep === 0 && meioPart === 1) {
+            setMeioPart(0);
+            return;
+          }
           setPrivateElementStep((v) => v - 1);
           return;
         }
-        setActiveSlide((current) => Math.max(current - 1, 0));
+        if (isGouchaElements && privateElementStep > 0) {
+          setPrivateElementStep((v) => v - 1);
+          return;
+        }
+        goToSlide(Math.max(activeSlide - 1, 0));
       }
     };
 
@@ -672,7 +681,7 @@ export default function Home() {
       )
     : 0;
   const module6ActiveElement =
-    slide.kind === "content" && slide.kicker === "Módulo 6 | Os 5 Elementos"
+    slide.kind === "content" && slide.kicker === "Os 5 Elementos"
       ? getModule6ActiveElement(slide.heading)
       : null;
   const module6TargetIndexes = module6ElementSlideTargets.map((targetId) =>
@@ -692,6 +701,26 @@ export default function Home() {
           maximumFractionDigits: 2,
         }).format(animatedAmount)}\u20ac`
       : null;
+
+  useEffect(() => {
+    if (!isAutonomiaProtecaoSlide || isDraggingLiberdade) return;
+    let dir = 1;
+    const id = window.setInterval(() => {
+      setLiberdadeLevel((v) => {
+        const next = v + dir * 0.25;
+        if (next >= 82) {
+          dir = -1;
+          return 82;
+        }
+        if (next <= 26) {
+          dir = 1;
+          return 26;
+        }
+        return next;
+      });
+    }, 120);
+    return () => window.clearInterval(id);
+  }, [isAutonomiaProtecaoSlide, isDraggingLiberdade]);
 
   useEffect(() => {
     if (slide.kind !== "content" || !slide.highlightAmount) {
@@ -796,7 +825,7 @@ export default function Home() {
                           ? "module6-tab-active"
                           : ""
                       }`}
-                      onClick={() => setActiveSlide(module6TargetIndexes[index])}
+                      onClick={() => goToSlide(module6TargetIndexes[index])}
                       aria-pressed={module6ActiveElement === index}
                     >
                       <span className="module6-tab-label">{element}</span>
@@ -1046,8 +1075,57 @@ export default function Home() {
                         ))}
                       </div>
                     ) : null}
+                    {slide.id === "rigor-juizes" ? (
+                      <div className="rigor-visual">
+                        <p className="rigor-subtitle">
+                          Os tribunais têm sido muito rígidos e exigentes quanto à aplicação da CGAA
+                        </p>
+                        <div className="rigor-doc-wrap" aria-hidden="true">
+                          <div className="rigor-doc">
+                            <p className="rigor-doc-head">Autoridade Tributária</p>
+                            <p className="rigor-doc-title">Aplicação da CGAA</p>
+                            <p className="rigor-doc-body">Proposta de correção tributária</p>
+                          </div>
+                          <div className="rigor-stamp">REPROVADO · CAAD</div>
+                        </div>
+                        <p className="rigor-legend">
+                          A AT perde a maioria dos processos arbitrais devido a falhas na fundamentação ou prova dos elementos do abuso.
+                        </p>
+                      </div>
+                    ) : null}
+                    {slide.id === "valvula-seguranca" ? (
+                      <div className="valvula-highlight">
+                        <p className="valvula-subtitle">
+                          Será necessária uma Cláusula Geral?
+                        </p>
+                        <div className="valvula-cards" role="list">
+                          {slide.bullets?.slice(1).map((bullet) => (
+                            <article className="valvula-card" key={bullet} role="listitem">
+                              <p>{bullet}</p>
+                            </article>
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
+                    {slide.id === "garantias-contribuinte" ? (
+                      <div className="garantias-highlight">
+                        <p className="garantias-subtitle">
+                          A AT tem o Ónus da Prova, e a sua argumentação tem de seguir o artigo 63º CPPT.
+                        </p>
+                        <div className="garantias-cards" role="list">
+                          {slide.bullets?.map((bullet) => (
+                            <article className="garantias-card" key={bullet} role="listitem">
+                              <p>{bullet}</p>
+                            </article>
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
                     {slide.bullets &&
                     slide.id !== "fenomeno" &&
+                    slide.id !== "valvula-seguranca" &&
+                    slide.id !== "garantias-contribuinte" &&
+                    slide.id !== "rigor-juizes" &&
                     !isAutonomiaPrivadaSlide &&
                     !isDeverFundamentalSlide &&
                     !isHomoEconomicusSlide &&
@@ -1063,18 +1141,23 @@ export default function Home() {
                       <div className="correlation-board">
                         <div className="corr-col">
                           <p>liberdade</p>
-                          <input
-                            type="range"
-                            min={10}
-                            max={100}
-                            value={100 - stateFundsLevel}
-                            onChange={(e) => setStateLoopTick(Math.max(0, Math.min(5, Math.round(Number(e.target.value) / 20))))}
-                          />
-                          <div className="corr-bar"><span style={{height:`${100-stateFundsLevel}%`}}/></div>
+                          <div className="corr-bar corr-bar-liberdade">
+                            <input
+                              type="range"
+                              min={12}
+                              max={88}
+                              value={liberdadeLevel}
+                              onChange={(e) => setLiberdadeLevel(Number(e.target.value))}
+                              onPointerDown={() => setIsDraggingLiberdade(true)}
+                              onPointerUp={() => setIsDraggingLiberdade(false)}
+                              onMouseLeave={() => setIsDraggingLiberdade(false)}
+                            />
+                            <span style={{height:`${liberdadeLevel}%`}}/>
+                          </div>
                         </div>
                         <div className="corr-col">
                           <p>segurança</p>
-                          <div className="corr-bar"><span style={{height:`${stateFundsLevel}%`}}/></div>
+                          <div className="corr-bar corr-bar-seguranca"><span style={{height:`${100 - liberdadeLevel}%`}}/></div>
                         </div>
                       </div>
                     ) : null}
@@ -1085,7 +1168,16 @@ export default function Home() {
                           <p>{timelineMoments[timelineIndex].year}</p>
                           <button type="button" onClick={() => setTimelineIndex((v) => Math.min(timelineMoments.length - 1, v + 1))}>▶</button>
                         </div>
-                        <p className="timeline-text">{timelineMoments[timelineIndex].text}</p>
+                        {timelineIndex === 0 ? (
+                          <>
+                            <p className="timeline-subtitle">Versão Originária da CGAA.</p>
+                            <p className="timeline-text">
+                              {timelineMoments[timelineIndex].text.replace("Versão Originária da CGAA.\n\n", "")}
+                            </p>
+                          </>
+                        ) : (
+                          <p className="timeline-text">{timelineMoments[timelineIndex].text}</p>
+                        )}
                         {timelineMoments[timelineIndex].year === "2013-2015" ? (
                           <div className="timeline-cards">
                             <div>Lda.</div>
@@ -1119,23 +1211,96 @@ export default function Home() {
                           ))}
                         </div>
                         <div className="private-elements-body">
-                          <h3>{privateElementsTabs[privateElementStep]}</h3>
+                          <p className="private-elements-question">
+                            {privateElementQuestions[privateElementsTabs[privateElementStep]]}
+                          </p>
                           {slide.id === "fernando-santos-elementos" && privateElementStep === 0 ? (
-                            <div className="private-elements-columns">
+                            <div className="private-elements-columns private-elements-single meio-full">
                               <div>
+                                {meioPart === 0 ? (
+                                  <>
                                 <p>Argumento do Requerente: A Federação preferiu esta opção. O CAAD deu como não provado.</p>
                                 <p>A Federação definiu os treinadores no contrato com a sociedade.</p>
                                 <p>O contrato de direitos de imagem era intuitu personae e ligado ao selecionador Fernando Santos.</p>
                                 <p>A sociedade teve 4 funcionários em 2016 e 6 em 2017, maioritariamente relações familiares/pessoais.</p>
                                 <p>A sede era no domicílio familiar.</p>
-                              </div>
-                              <div>
+                                  </>
+                                ) : (
+                                  <>
                                 <p>Não havia estrutura humana e material adequada; o know-how estava nas pessoas.</p>
                                 <p>O CAAD rejeita o argumento de facilidade de resolução contratual.</p>
                                 <p>Os subcontratos dependiam do contrato base com a Federação.</p>
                                 <p>Os serviços foram prestados individualmente por Fernando Santos, sem função real da sociedade.</p>
                                 <p><strong className="conclusao">Conclusão:</strong> A função tangível da sociedade foi imputar obrigações tributárias na sua esfera.</p>
                                 <p><strong className="nota">NOTA:</strong> Não está em causa a artificialidade global da sociedade, mas a utilização artificiosa neste contrato.</p>
+                                  </>
+                                )}
+                              </div>
+                            </div>
+                          ) : null}
+                          {slide.id === "fernando-santos-elementos" && privateElementStep === 1 ? (
+                            <div className="private-elements-columns private-elements-single">
+                              <div>
+                                <p>
+                                  Uma vantagem fiscal corresponde a uma qualquer situação pela qual, em virtude da prática de determinados actos, se obtém uma carga tributária mais favorável ao contribuinte do que aquela que resultaria da prática dos actos normais e de efeito económico equivalente, sujeitos a tributação.
+                                </p>
+                                <p>
+                                  Conclui-se que a mesma prestação de serviços teria sido sujeita a uma carga tributária manifestamente mais elevada se o imposto, ao invés de ter sido apurado na esfera da Sociedade com base nas regras do IRC, tivesse sido determinado directa e pessoalmente na esfera jurídica do Requerente com base nas regras do IRS.
+                                </p>
+                                <p>
+                                  Quanto ao ano de 2016, o imposto total em IRC (determinado com base na matéria colectável apurada para a categoria B) seria de € 861.243,19, quando a colecta de IRS seria de € 1.894.919,65, o que equivale a uma vantagem fiscal de € 1.033.676,46. Relativamente ao ano de 2017, a quantia equivalente por referência ao IRC seria de € 848.478,45, e por referência ao IRS seria de € 1.860.157,50, o que corresponde a uma vantagem fiscal de € 1.011.679,05.
+                                </p>
+                                <p>
+                                  Em suma, e tal como invocou a Requerida, através da intervenção da sociedade na prestação dos serviços à Federação, o Requerente obteve uma vantagem fiscal de € 2.045.355,51.
+                                </p>
+                                <p>
+                                  O CAAD considera que o simples diferimento temporal de impostos é em si mesmo uma vantagem.
+                                </p>
+                              </div>
+                            </div>
+                          ) : null}
+                          {slide.id === "fernando-santos-elementos" && privateElementStep === 2 ? (
+                            <div className="private-elements-columns private-elements-single">
+                              <div>
+                                <p>
+                                  Acompanhando a redacção do artigo 38.º, n.º 2, da LGT, será necessário verificar se os actos ou negócios jurídicos praticados foram essencial ou principalmente dirigidos à redução, eliminação ou diferimento temporal de impostos (…) ou à obtenção de vantagens fiscais.
+                                </p>
+                                <p>
+                                  Sendo de prova difícil, AT e Tribunal são obrigados a recorrer a elementos indiciários e presuntivos, num contexto de razoabilidade e normalidade, extraindo, com razoável segurança, a vontade do sujeito dos actos celebrados.
+                                </p>
+                                <p>
+                                  O STA, em 2022, indica no Processo n.º 02507/15.6BEBRG que basta que a AT faça prova de que a operação realizada não tem um propósito racional à luz do ordenamento jurídico mobilizado; basta, no caso, provar que a operação não se enquadra nas razões que o direito societário apresenta (...) e que, por isso, o seu propósito se esgota no aforro fiscal a que conduz.
+                                </p>
+                                <p>
+                                  <strong className="conclusao">CONCLUSÃO:</strong> Da concatenação dos elementos resultado e meio conclui-se, para lá de qualquer dúvida razoável, pela proeminência da motivação fiscal sobre outros aspectos substanciais (essenciais) que pudessem ter potenciado a interposição da Sociedade nos negócios jurídicos celebrados com a Federação.
+                                </p>
+                              </div>
+                            </div>
+                          ) : null}
+                          {slide.id === "fernando-santos-elementos" && privateElementStep === 3 ? (
+                            <div className="private-elements-columns private-elements-single">
+                              <div>
+                                <p>
+                                  Como nota o CAAD no processo n.º 131/2014-T, se se exigisse que estivesse expressamente prevista a censura na lei, a Cláusula Geral Anti-Abuso seria muito restringida.
+                                </p>
+                                <p>
+                                  &quot;É forçoso concluir-se que o facto do requerente ter utilizado um meio desprovido de razões económico-empresariais válidas (...) com o objetivo proeminente de obter uma vantagem fiscal, implica que o comportamento em causa é anti-jurídico e merecedor de reprovação dogmática-sistemática.&quot;
+                                </p>
+                                <p>
+                                  <strong className="conclusao">Conclusão:</strong> O elemento normativo também está verificado. Considerar que o espírito do direito não censura estes comportamentos seria validar o planeamento fiscal extra-legem.
+                                </p>
+                              </div>
+                            </div>
+                          ) : null}
+                          {slide.id === "fernando-santos-elementos" && privateElementStep === 4 ? (
+                            <div className="private-elements-columns private-elements-single">
+                              <div>
+                                <p>
+                                  Consiste na manutenção dos efeitos civis e na desconsideração, apenas no âmbito tributário, das vantagens fiscais que tiverem sido indevidamente obtidas pelos contribuintes.
+                                </p>
+                                <p>
+                                  <strong className="conclusao">Conclusão:</strong> O Requerente vai ser tributado de acordo com as taxas e normas de IRS.
+                                </p>
                               </div>
                             </div>
                           ) : null}
@@ -1204,7 +1369,7 @@ export default function Home() {
             key={item.id}
             type="button"
             className={`slide-dot ${activeSlide === index ? "slide-dot-active" : ""}`}
-            onClick={() => setActiveSlide(index)}
+            onClick={() => goToSlide(index)}
             aria-label={`Ir para o slide ${index + 1}`}
             aria-current={activeSlide === index ? "true" : undefined}
           />
@@ -1213,12 +1378,3 @@ export default function Home() {
     </main>
   );
 }
-
-
-
-
-
-
-
-
-

@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type CoverSlide = {
   id: string;
@@ -378,7 +378,7 @@ const slides: Slide[] = [
     kicker: "Private Clients",
     heading: "Fernando Santos",
     bullets: [
-      "TEMA: [CGAA] Sociedade sem substância económica.",
+      "CGAA - Sociedade sem substância económica.",
       "Gastos não relacionados com a atividade prosseguida e atividade insuficiente para justificar a opção pela sociedade.",
       "A liberdade na prestação de serviços era limitada pelos contratos assinados com a Seleção.",
       "Sociedade como um mero veículo de contratação",
@@ -399,7 +399,7 @@ const slides: Slide[] = [
     kicker: "Private Clients",
     heading: "Manuel Luís Goucha",
     bullets: [
-      "TEMA: [CGAA] Cariz pessoal das prestações sem justificação para a opção pela sociedade.",
+      "CGAA - Cariz pessoal das prestações sem justificação para a opção pela sociedade.",
       "Configuração como rendimentos pessoais (Categoria B) em vez de rendimentos empresariais (IRC).",
     ],
     footer: sharedFooter,
@@ -418,7 +418,7 @@ const slides: Slide[] = [
     kicker: "Private Clients",
     heading: "Cristina Ferreira",
     bullets: [
-      "TEMA: Desconsideração de gastos como fiscalmente relevantes em sede de IRC.",
+      "DESCONSIDERAÇÃO DE GASTOS",
       "Tributação em IRS como rendimentos de capitais (Categoria E) devido à confusão de esferas pessoal e empresarial.",
     ],
     footer: sharedFooter,
@@ -429,7 +429,7 @@ const slides: Slide[] = [
     kicker: "Private Clients",
     heading: "Joana Vasconcelos",
     bullets: [
-      "TEMA: Consideração da sociedade como transparente.",
+      "TRANSPARÊNCIA FISCAL.",
       "Consequência: Imputação direta dos lucros aos sócios e tributação em sede de IRS.",
     ],
     footer: sharedFooter,
@@ -441,7 +441,7 @@ const slides: Slide[] = [
     kicker: "Por Resolver",
     heading: "O Dilema do Gestor",
     bullets: [
-      "Pergunta: Pode um gestor diligente ignorar o impacto fiscal das suas decisões?",
+      "Pode um gestor diligente ignorar o impacto fiscal das suas decisões?",
       "Escolher a via fiscalmente mais barata é sempre um indício de abuso?",
     ],
     footer: sharedFooter,
@@ -452,7 +452,7 @@ const slides: Slide[] = [
     kicker: "Por Resolver",
     heading: "Perfis Expostos",
     bullets: [
-      "Pergunta: Estão certas atividades (como artistas e desportistas) mais propensas a ser alvo da CGAA?",
+      "Estão certas atividades (como artistas e desportistas) mais propensas a ser alvo da CGAA?",
       "Onde termina o direito aos direitos de imagem e começam as razões comerciais legítimas?",
     ],
     footer: sharedFooter,
@@ -463,7 +463,7 @@ const slides: Slide[] = [
     kicker: "Por Resolver",
     heading: "O Futuro da Insegurança",
     bullets: [
-      'Pergunta: É o "mar de incerteza" evitável num sistema fiscal globalizado?',
+      'É o "mar de incerteza" evitável num sistema fiscal globalizado?',
       "Podemos garantir a justiça sem o uso de conceitos indeterminados e uma margem de discricionariedade para os tribunais?",
     ],
     footer: sharedFooter,
@@ -542,6 +542,28 @@ export default function Home() {
   const [meioPart, setMeioPart] = useState<0 | 1>(0);
   const [liberdadeLevel, setLiberdadeLevel] = useState(58);
   const [isDraggingLiberdade, setIsDraggingLiberdade] = useState(false);
+  const liberdadeBarRef = useRef<HTMLDivElement | null>(null);
+  const handleLiberdadeDrag = (clientY: number, element: HTMLDivElement) => {
+    const rect = element.getBoundingClientRect();
+    const relative = (rect.bottom - clientY) / rect.height;
+    const level = Math.max(12, Math.min(88, Math.round(relative * 100)));
+    setLiberdadeLevel(level);
+  };
+
+  useEffect(() => {
+    if (!isDraggingLiberdade) return;
+    const handleMove = (event: PointerEvent) => {
+      if (!liberdadeBarRef.current) return;
+      handleLiberdadeDrag(event.clientY, liberdadeBarRef.current);
+    };
+    const handleUp = () => setIsDraggingLiberdade(false);
+    window.addEventListener("pointermove", handleMove);
+    window.addEventListener("pointerup", handleUp);
+    return () => {
+      window.removeEventListener("pointermove", handleMove);
+      window.removeEventListener("pointerup", handleUp);
+    };
+  }, [isDraggingLiberdade]);
 
   const goToSlide = (nextIndex: number) => {
     const target = presentationSlides[nextIndex];
@@ -693,6 +715,9 @@ export default function Home() {
   const isPrivateElementsSlide =
     slide.kind === "content" &&
     (slide.id === "fernando-santos-elementos" || slide.id === "manuel-luis-goucha-elementos");
+  const isFinalQuestionsSlide =
+    slide.kind === "content" &&
+    ["dilema-gestor", "perfis-expostos", "futuro-inseguranca"].includes(slide.id);
   const isAutonomiaProtecaoSlide = slide.kind === "content" && slide.id === "autonomia-protecao-erario";
   const formattedAmount =
     slide.kind === "content" && slide.highlightAmount
@@ -902,12 +927,28 @@ export default function Home() {
                     </div>
                     <div className="private-client-card-copy">
                       <h2>{slide.heading}</h2>
-                      {slide.bullets ? (
-                        <ul className="content-slide-list">
-                          {slide.bullets.map((bullet) => (
-                            <li key={bullet}>{bullet}</li>
+                      {slide.bullets?.[0] ? (
+                        <p className="private-client-subtitle tema-line">
+                          {slide.bullets[0]
+                            .replace(/^TEMA:\s*/, "")
+                            .split(" ")
+                            .map((word, index) => (
+                              <span key={`${word}-${index}`}>
+                                {word === word.toUpperCase() && /[A-Z]/.test(word) ? (
+                                  <strong className="caps-strong">{word}</strong>
+                                ) : (
+                                  word
+                                )}{" "}
+                              </span>
+                            ))}
+                        </p>
+                      ) : null}
+                      {slide.bullets && slide.bullets.length > 1 ? (
+                        <div className="private-client-paragraphs">
+                          {slide.bullets.slice(1).map((bullet) => (
+                            <p key={bullet}>{bullet}</p>
                           ))}
-                        </ul>
+                        </div>
                       ) : null}
                     </div>
                   </div>
@@ -1121,11 +1162,21 @@ export default function Home() {
                         </div>
                       </div>
                     ) : null}
+                    {isFinalQuestionsSlide ? (
+                      <div className="final-questions">
+                        {slide.bullets?.map((bullet) => (
+                          <article className="final-question-card" key={bullet}>
+                            <p>{bullet}</p>
+                          </article>
+                        ))}
+                      </div>
+                    ) : null}
                     {slide.bullets &&
                     slide.id !== "fenomeno" &&
                     slide.id !== "valvula-seguranca" &&
                     slide.id !== "garantias-contribuinte" &&
                     slide.id !== "rigor-juizes" &&
+                    !isFinalQuestionsSlide &&
                     !isAutonomiaPrivadaSlide &&
                     !isDeverFundamentalSlide &&
                     !isHomoEconomicusSlide &&
@@ -1142,17 +1193,21 @@ export default function Home() {
                         <div className="corr-col">
                           <p>liberdade</p>
                           <div className="corr-bar corr-bar-liberdade">
-                            <input
-                              type="range"
-                              min={12}
-                              max={88}
-                              value={liberdadeLevel}
-                              onChange={(e) => setLiberdadeLevel(Number(e.target.value))}
-                              onPointerDown={() => setIsDraggingLiberdade(true)}
-                              onPointerUp={() => setIsDraggingLiberdade(false)}
-                              onMouseLeave={() => setIsDraggingLiberdade(false)}
+                            <div
+                              ref={liberdadeBarRef}
+                              className="corr-drag-surface"
+                              onPointerDown={(e) => {
+                                setIsDraggingLiberdade(true);
+                                handleLiberdadeDrag(e.clientY, e.currentTarget);
+                                e.preventDefault();
+                              }}
                             />
                             <span style={{height:`${liberdadeLevel}%`}}/>
+                            <i
+                              className="corr-handle"
+                              style={{ bottom: `calc(${liberdadeLevel}% - 11px)` }}
+                              aria-hidden="true"
+                            />
                           </div>
                         </div>
                         <div className="corr-col">
@@ -1251,10 +1306,10 @@ export default function Home() {
                                   Quanto ao ano de 2016, o imposto total em IRC (determinado com base na matéria colectável apurada para a categoria B) seria de € 861.243,19, quando a colecta de IRS seria de € 1.894.919,65, o que equivale a uma vantagem fiscal de € 1.033.676,46. Relativamente ao ano de 2017, a quantia equivalente por referência ao IRC seria de € 848.478,45, e por referência ao IRS seria de € 1.860.157,50, o que corresponde a uma vantagem fiscal de € 1.011.679,05.
                                 </p>
                                 <p>
-                                  Em suma, e tal como invocou a Requerida, através da intervenção da sociedade na prestação dos serviços à Federação, o Requerente obteve uma vantagem fiscal de € 2.045.355,51.
+                                  <strong className="conclusao">Conclusão:</strong> Tal como invocou a Requerida, através da intervenção da sociedade na prestação dos serviços à Federação, o Requerente obteve uma vantagem fiscal de € 2.045.355,51.
                                 </p>
                                 <p>
-                                  O CAAD considera que o simples diferimento temporal de impostos é em si mesmo uma vantagem.
+                                  <strong className='nota'>NOTA:</strong> O CAAD considera que o simples diferimento temporal de impostos é em si mesmo uma vantagem.
                                 </p>
                               </div>
                             </div>
@@ -1272,7 +1327,7 @@ export default function Home() {
                                   O STA, em 2022, indica no Processo n.º 02507/15.6BEBRG que basta que a AT faça prova de que a operação realizada não tem um propósito racional à luz do ordenamento jurídico mobilizado; basta, no caso, provar que a operação não se enquadra nas razões que o direito societário apresenta (...) e que, por isso, o seu propósito se esgota no aforro fiscal a que conduz.
                                 </p>
                                 <p>
-                                  <strong className="conclusao">CONCLUSÃO:</strong> Da concatenação dos elementos resultado e meio conclui-se, para lá de qualquer dúvida razoável, pela proeminência da motivação fiscal sobre outros aspectos substanciais (essenciais) que pudessem ter potenciado a interposição da Sociedade nos negócios jurídicos celebrados com a Federação.
+                                  <strong className="conclusao">Conclusão:</strong> Da concatenação dos elementos resultado e meio conclui-se, para lá de qualquer dúvida razoável, pela proeminência da motivação fiscal sobre outros aspectos substanciais (essenciais) que pudessem ter potenciado a interposição da Sociedade nos negócios jurídicos celebrados com a Federação.
                                 </p>
                               </div>
                             </div>
@@ -1301,6 +1356,48 @@ export default function Home() {
                                 <p>
                                   <strong className="conclusao">Conclusão:</strong> O Requerente vai ser tributado de acordo com as taxas e normas de IRS.
                                 </p>
+                              </div>
+                            </div>
+                          ) : null}
+                          {slide.id === "manuel-luis-goucha-elementos" && privateElementStep === 0 ? (
+                            <div className="private-elements-columns private-elements-single">
+                              <div>
+                                <p>O Requerente alegou que a sociedade tem substância económica e que gera resultados económicos reais que não decorrem da pessoa do legislador.</p>
+                                <p>O CAAD concluiu que o que estava em causa não era a genuinidade da sociedade, mas antes a transferência para esta de direitos intuitu personae, como os direitos de imagem e voz do requerente.</p>
+                                <p>Todos os serviços serem sobre a pessoa física do Requerente e os rendimentos se circunscreverem à sua atividade individual parece, tal como mencionado no voto vencido, insuficiente para demonstrar o preenchimento do elemento meio.</p>
+                                <p>A linha traça-se no facto de o CAAD ter considerado a sociedade como &quot;oca&quot;, na medida em que não tinha uma estrutura material capaz da prestação de serviços. Todos os serviços necessários eram contratados a terceiros.</p>
+                                <p><strong className="conclusao">Conclusão:</strong> Se a sociedade não tem estrutura para realizar os serviços, então é desnecessária e o único motivo da sua existência é fiscal.</p>
+                              </div>
+                            </div>
+                          ) : null}
+                          {slide.id === "manuel-luis-goucha-elementos" && privateElementStep === 1 ? (
+                            <div className="private-elements-columns private-elements-single">
+                              <div>
+                                <p>Se fosse tributado em IRS pagaria aproximadamente 48% de imposto. Em IRC foi pago aproximadamente 28%.</p>
+                                <p>Apesar de estes rendimentos voltarem a ser tributados aquando da distribuição aos sócios, o Tribunal considerou que, no caso em apreço, era provável um longo diferimento dessa distribuição, uma vez que a sociedade pretendia reinvestir o dinheiro na sua atividade &quot;genuína&quot;, agrícola/pecuária.</p>
+                                <p><strong className="conclusao">Conclusão:</strong> Não só o diferimento é visto como uma vantagem, como no caso em apreço se previa que os valores nunca viessem a ser distribuídos.</p>
+                              </div>
+                            </div>
+                          ) : null}
+                          {slide.id === "manuel-luis-goucha-elementos" && privateElementStep === 2 ? (
+                            <div className="private-elements-columns private-elements-single">
+                              <div>
+                                <p>O Tribunal considerou que &quot;O Requerente sabe que a constituição da sociedade e o seu uso para faturar os rendimentos oriundos da sua atividade (que antes obtinha a título individual) aumentou significativamente o seu rendimento líquido, e que tal decorre do pagamento de menos impostos. Vantagem com que o Recorrente, no mínimo, se conformou.&quot;</p>
+                                <p><strong className="conclusao">Conclusão:</strong> Está preenchido o Elemento Intelectual.</p>
+                              </div>
+                            </div>
+                          ) : null}
+                          {slide.id === "manuel-luis-goucha-elementos" && privateElementStep === 3 ? (
+                            <div className="private-elements-columns private-elements-single">
+                              <div>
+                                <p>Foram elididas normas de IRS ao transferir as obrigações para o âmbito do IRC. O Direito reprova esta transmissão na medida em que estes rendimentos deviam ter sido tributados a título individual.</p>
+                              </div>
+                            </div>
+                          ) : null}
+                          {slide.id === "manuel-luis-goucha-elementos" && privateElementStep === 4 ? (
+                            <div className="private-elements-columns private-elements-single">
+                              <div>
+                                <p>Levantou-se a questão de não ter a AT deduzido os impostos já pagos em IRC do valor da liquidação adicional. O Tribunal referiu que a AT provavelmente teria de acertar os valores já pagos, mas que não era competência deste tribunal pronunciar-se quanto a essa questão.</p>
                               </div>
                             </div>
                           ) : null}

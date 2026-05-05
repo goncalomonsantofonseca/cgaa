@@ -53,12 +53,12 @@ const module6ElementSlideTargets = [
   "elemento-sancionatorio",
 ] as const;
 const module6ElementSubtitles: Partial<Record<string, string>> = {
-  "elemento-meio": "Forma Utilizada Pelo Constribuinte",
+  "elemento-meio": "Forma Utilizada Pelo Contribuinte",
   "step-transaction": "Uma Construção Pode Ser Constituída Por Mais Do Que Uma Etapa Ou Parte",
-  "teste-genuinidade": "É Artificial Se For Uma Construção \"Não Genuína\" => Ausência De Razões Económicas Válidas .",
+  "teste-genuinidade": "É Artificial Se For Uma Construção \"Não Genuína\" => Ausência De Razões Económicas Válidas.",
   "elemento-resultado": "Vantagem Fiscal Obtida",
   "elemento-intelectual": "A Intenção Do Contribuinte",
-  "elemento-normativo": "A Contratiedade Ao Espirito Das Normas",
+  "elemento-normativo": "A Contrariedade Ao Espírito Das Normas",
   "elemento-sancionatorio": "A ATAD Dá Liberdade Aos E.M. Para Definirem Um Elemento Sancionatório",
 };
 const privateElementsTabs = ["Meio", "Resultado", "Intelectual", "Normativo", "Sancionatório"] as const;
@@ -66,7 +66,7 @@ const privateElementQuestions: Record<(typeof privateElementsTabs)[number], stri
   Meio: "Foi usado um meio artificioso?",
   Resultado: "O resultado foi uma vantagem fiscal?",
   Intelectual: "Houve intenção de frustrar o direito?",
-  Normativo: "É uma atividade censurada pelo ordenamento jurídico?",
+  Normativo: "É uma actividade censurada pelo ordenamento jurídico?",
   Sancionatório: "De que forma deve ser sancionado?",
 };
 const timelineMoments = [
@@ -74,7 +74,7 @@ const timelineMoments = [
   { year: "2000", text: "Com a Lei n.º 30-G/2000, de 29 de dezembro, a CGAA passou a assumir contornos de eficácia no sistema fiscal português, tendo finalmente capacidade para ser utilizada" },
   { year: "2012", text: "Começa a discussão no G20 acerca da necessidade de prevenção do BEPS. Deste momento histórico surgem vários contributos: a Ação 6 do BEPS, que introduz uma Cláusula Geral Anti-Abuso ao nível da OCDE, e o desenvolvimento do Principal Purpose Test (PPT).\n\nA convenção modelo da OCDE acabou por absorver este critério" },
   { year: "2013-2015", text: "Entre os anos 2013 e 2015 houve um grande aumento de casos de CGAA em Portugal, face ao problema da transformação de sociedades por quotas em sociedades anónimas para beneficiar de regime mais favorável na transmissão" },
-  { year: "2016", text: "Em 2016 a ATAD estabelece um nível mínimo de proteção contra a elisão fiscal. Na ATAD surge a CGAA inspirada nos trabalhos da OCDE, com o objetivo de ser aplicada em todos os Estados-Membros.\n\nNeste momento o TJUE desempenhou um papel essencial na construção da atual CGAA Europeia" },
+  { year: "2016", text: "Em 2016 a ATAD estabelece um nível mínimo de proteção contra a elisão fiscal. Na ATAD surge a CGAA inspirada nos trabalhos da OCDE, com o objectivo de ser aplicada em todos os Estados-Membros.\n\nNeste momento o TJUE desempenhou um papel essencial na construção da atual CGAA Europeia" },
   { year: "2019", text: "A transposição da ATAD para a legislação portuguesa fez surgir alterações que resultaram numa abrangência maior da cláusula, com menos requisitos para preencher os vários elementos" },
 ];
 const timelineYears = ["1999", "2000", "2012", "2013-2015", "2016", "2019"] as const;
@@ -129,7 +129,7 @@ const slides: Slide[] = [
     highlightAmount: 4492494.2,
     bullets: [
       "Desconsideração da estrutura societária",
-      "Consequência: Tributação direta na esfera do IRS",
+      "Consequência: Tributação directa na esfera do IRS",
       "O tribunal considerou que os serviços eram prestados pessoalmente, faltando substância económica à estrutura utilizada para justificar a tributação em sede de IRC [cite: 1, p. 35, 38]",
     ],
     footer: sharedFooter,
@@ -142,7 +142,7 @@ const slides: Slide[] = [
     highlightAmount: 1171006.3,
     bullets: [
       "Prestação de serviços: Pessoal vs. Formal",
-      "O conflito de esferas: A dificuldade de dissociar a atividade da figura pública da atividade da sociedade controlada pela própria [cite: 1, p. 39-40]",
+      "O conflito de esferas: A dificuldade de dissociar a actividade da figura pública da actividade da sociedade controlada pela própria [cite: 1, p. 39-40]",
     ],
     footer: sharedFooter,
   },
@@ -265,7 +265,7 @@ const slides: Slide[] = [
     bullets: [
       "Critério: A estrutura deve refletir a substância económica e comercial real, não sendo puramente artificial",
       "Na versão anterior tinha de ser Fraudulenta ou Artificiosa",
-      "Acordão do TJUE - Foggia ajuda-nos a compreender que “razões económicas válidas” correspondem a construções que vão para lá da simples tentativa de obter uma vantagem fiscal. Esta doutrina do acórdão foggia, no entanto, já está desatualizada na medida em que se exige hoje apenas que uma das finalidades principais seja a de obter uma vantagem fiscal, como veremos quanto ao elemento Intelectual.  ",
+      "Acórdão do TJUE - Foggia ajuda-nos a compreender que “razões económicas válidas” correspondem a construções que vão para lá da simples tentativa de obter uma vantagem fiscal. Esta doutrina do acórdão foggia, no entanto, já está desatualizada na medida em que se exige hoje apenas que uma das finalidades principais seja a de obter uma vantagem fiscal, como veremos quanto ao elemento Intelectual.  ",
 
     ],
     footer: sharedFooter,
@@ -289,7 +289,7 @@ const slides: Slide[] = [
     heading: "Elemento 3: Intelectual (PPT)",
     bullets: [
       'Com a transposição da ATAD, adota-se o critério de PPT desenvolvido pela OCDE: Basta que "Uma das finalidades principais" seja obter a vantagem fiscal.',
-      "É um critério mais abrangente em relação à versão anterior, onde a vantagem tinha de ser o objetivo ou finalidade principais",
+      "É um critério mais abrangente em relação à versão anterior, onde a vantagem tinha de ser o objectivo ou finalidade principais",
       "Esta nova formulação está muito orientada por uma preocupação global de combater a elisão fiscal e pelo reconhecimento de que não estender o âmbito de aplicação da CGAA poderia levar a uma aplicação muito mitigada deste instituto",
       "Uma interpretação extensiva deste critério pode levar a uma aplicação discricionária da CGAA. Por esse motivo todos estes elementos devem ser considerados em conjunto",
     ],
@@ -301,7 +301,7 @@ const slides: Slide[] = [
     kicker: "Os 5 Elementos",
     heading: 'A "Prova Diabólica"',
     bullets: [
-      'Podemos estar petante uma "Prova Diabólica", pelo exercício de uma análise e juízo de probabilidade da vontade do contribuinte que, por vezes, se poderá configurar um exercício impossível',
+      'Podemos estar perante uma "Prova Diabólica", pelo exercício de uma análise e juízo de probabilidade da vontade do contribuinte que, por vezes, se poderá configurar um exercício impossível',
       "Entendimento do STA: Basta que a AT faça prova de que a operação realizada não tem um propósito racional à luz do ordenamento jurídico mobilizado (...), [que] o seu propósito se esgota no aforro fiscal a que conduz",
     ],
     footer: sharedFooter,
@@ -337,7 +337,7 @@ const slides: Slide[] = [
     kicker: "Requisitos e Procedimento",
     heading: "Garantias do Contribuinte",
     bullets: [
-      "O contribuinte tem o Direito de audição prévia e a possibilidade de obeter informações vinculativas que afastam a aplicação da cláusula",
+      "O contribuinte tem o Direito de audição prévia e a possibilidade de obter informações vinculativas que afastam a aplicação da cláusula",
       "É proibida a utilização de suposições ou presunções: A fundamentação deve ser clara, específica e circunstanciada, o que se pode verificar pela profundidade das inspeções tributárias levadas a cabo nos casos decididos contra o contribuinte",
     ],
     footer: sharedFooter,
@@ -357,7 +357,7 @@ const slides: Slide[] = [
     heading: "Fernando Santos",
     bullets: [
       "CGAA - Sociedade sem substância económica",
-      "Gastos não relacionados com a atividade prosseguida e atividade insuficiente para justificar a opção pela sociedade",
+      "Gastos não relacionados com a actividade prosseguida e actividade insuficiente para justificar a opção pela sociedade",
       "A liberdade na prestação de serviços era limitada pelos contratos assinados com a Seleção",
       "Sociedade como um mero veículo de contratação",
     ],
@@ -402,28 +402,41 @@ const slides: Slide[] = [
     footer: sharedFooter,
   },
   {
+    id: "cristina-ferreira-concretizacao",
+    kind: "content",
+    kicker: "Private Clients",
+    heading: "Cristina Ferreira",
+    bullets: [],
+    footer: sharedFooter,
+  },
+  {
     id: "joana-vasconcelos",
     kind: "content",
     kicker: "Private Clients",
     heading: "Joana Vasconcelos",
     bullets: [
       "TRANSPARÊNCIA FISCAL",
-      "Consequência: Imputação direta dos lucros aos sócios e tributação em sede de IRS",
+      "Consequência: Imputação directa dos lucros aos sócios e tributação em sede de IRS",
     ],
+    footer: sharedFooter,
+  },
+  {
+    id: "joana-vasconcelos-concretizacao",
+    kind: "content",
+    kicker: "Private Clients",
+    heading: "Joana Vasconcelos",
+    bullets: [],
+    footer: sharedFooter,
+  },
+  {
+    id: "figuras-proximas",
+    kind: "content",
+    kicker: "Private Clients",
+    heading: "Figuras Próximas",
+    bullets: [],
     footer: sharedFooter,
   },
 
-  {
-    id: "dilema-gestor",
-    kind: "content",
-    kicker: "Por Resolver",
-    heading: "O Dilema do Gestor",
-    bullets: [
-      "Pode um gestor diligente ignorar o impacto fiscal das suas decisões?",
-      "Escolher a via fiscalmente mais barata é sempre um indício de abuso?",
-    ],
-    footer: sharedFooter,
-  },
   {
     id: "estatisticas-caad",
     kind: "content",
@@ -450,12 +463,23 @@ const slides: Slide[] = [
     footer: sharedFooter,
   },
   {
+    id: "dilema-gestor",
+    kind: "content",
+    kicker: "Por Resolver",
+    heading: "O Dilema do Gestor",
+    bullets: [
+      "Pode um gestor diligente ignorar o impacto fiscal das suas decisões?",
+      "Escolher a via fiscalmente mais barata é sempre um indício de abuso?",
+    ],
+    footer: sharedFooter,
+  },
+  {
     id: "perfis-expostos",
     kind: "content",
     kicker: "Por Resolver",
     heading: "Perfis Expostos",
     bullets: [
-      "Estão certas atividades (como artistas e desportistas) mais propensas a ser alvo da CGAA?",
+      "Estão certas actividades (como artistas e desportistas) mais propensas a ser alvo da CGAA?",
       "Onde termina o direito aos direitos de imagem e começam as razões comerciais legítimas?",
     ],
     footer: sharedFooter,
@@ -676,7 +700,7 @@ export default function Home() {
   const isHomoEconomicusSlide =
     slide.kind === "content" && slide.id === "homo-economicus";
   const impactParagraph = isImpactCaseSlide
-    ? "Consequ\u00eancia: Tributa\u00e7\u00e3o direta na esfera do IRS"
+    ? "Consequ\u00eancia: Tributa\u00e7\u00e3o directa na esfera do IRS"
     : slide.kind === "content"
       ? slide.paragraph
       : undefined;
@@ -985,7 +1009,7 @@ export default function Home() {
                         </p>
                         <div
                           className="phenomenon-split"
-                          aria-label="Comparação entre atividade pessoal e estrutura societária"
+                          aria-label="Comparação entre actividade pessoal e estrutura societária"
                         >
                           <div className="phenomenon-card">
                             <div className="phenomenon-icon phenomenon-icon-person" aria-hidden="true">
@@ -1133,11 +1157,28 @@ export default function Home() {
                             <p className="rigor-doc-title">Aplicação da CGAA</p>
                             <p className="rigor-doc-body">Proposta de correção tributária</p>
                           </div>
-                          <div className="rigor-stamp">REPROVADO · CAAD</div>
+                          <div className="rigor-stop-mark">
+                            <span className="rigor-stop-icon">🛑</span>
+                            <span className="rigor-stop-text">TRAVADO PELO TRIBUNAL</span>
+                          </div>
                         </div>
                         <p className="rigor-legend">
-                          A AT perde a maioria dos processos arbitrais devido a falhas na fundamentação ou prova dos elementos do abuso.
+                          Dos 91 casos analisados
                         </p>
+                        <div className="rigor-stats">
+                          <article className="rigor-stat-card">
+                            <strong>56</strong>
+                            <span>negação da aplicação da CGAA</span>
+                          </article>
+                          <article className="rigor-stat-card">
+                            <strong>21</strong>
+                            <span>aplicação apenas parcial</span>
+                          </article>
+                          <article className="rigor-stat-card">
+                            <strong>14</strong>
+                            <span>decisão nos exatos termos da AT</span>
+                          </article>
+                        </div>
                       </div>
                     ) : null}
                     {slide.id === "valvula-seguranca" ? (
@@ -1301,25 +1342,111 @@ export default function Home() {
                         </div>
                       </div>
                     ) : null}
+                    {slide.id === "cristina-ferreira-concretizacao" ? (
+                      <div className="cristina-detail">
+                        <div className="cristina-card">
+                          <p>
+                            Há duas questões discutidas no acórdão
+                          </p>
+                          <p>
+                            1. Violação do art 23º CIRC, resultando na desconsideração como gastos das quantias utilizadas para realizações do foro pessoal
+                          </p>
+                          <p>
+                            2. Aplicação do artigo 5º/2 alínea h) - presumir a distribuição desses rendimentos e fazer operar a tributação em sede de IRS
+                          </p>
+                        </div>
+                        <p className="cristina-question">
+                          Estariam preenchidos os elementos da CGAA?
+                        </p>
+                        <div className="cristina-grid">
+                          <article className="cristina-point">
+                            <h4>Elemento Meio (Certo)</h4>
+                            <p>A utilização da sociedade para gastos pessoais é uma construção não genuína</p>
+                          </article>
+                          <article className="cristina-point">
+                            <h4>Elemento Resultado (Certo)</h4>
+                            <p>Há uma vantagem fiscal, a dedutibilidade dos gastos e não distribuição</p>
+                          </article>
+                          <article className="cristina-point">
+                            <h4>Elemento Intelectual (Certo)</h4>
+                            <p>Uma interpretação conforme a jurisprudência leva-nos a considerar que sim</p>
+                          </article>
+                          <article className="cristina-point">
+                            <h4>Elemento Normativo (Certo)</h4>
+                            <p>É um caso que a lei claramente reprova, especialmente por estar <strong>formalmente previsto</strong></p>
+                          </article>
+                        </div>
+                        <p className="cristina-diff">
+                          A diferença para uma aplicabilidade da CGAA é que neste caso foram violadas directamente normas fiscais
+                        </p>
+                      </div>
+                    ) : null}
+                    {slide.id === "joana-vasconcelos-concretizacao" ? (
+                      <div className="cristina-detail">
+                        <div className="joana-pill">
+                          <p>
+                            Discutiu-se se a artista estava sujeita ou não ao regime da transparência fiscal
+                          </p>
+                        </div>
+                        <p className="cristina-card">
+                          Artigo 6º/1 b) - Sociedades de Profissionais
+                        </p>
+                        <div className="joana-checklist">
+                          <p>✅ 1 - Actividade prevista na lista</p>
+                          <p>✅ 2 - + 75% dos rendimentos provém dessa actividade</p>
+                          <p>✅ 3 - 2 Sócios (&lt;5 sócios)</p>
+                          <p>✅ 4 - +75% detido pela Requerente</p>
+                        </div>
+                        <p className="cristina-diff">
+                          Conclui-se estarem preenchidos os pressupostos de aplicação da transparência fiscal
+                        </p>
+                        <p className="joana-bottom-note">
+                          No caso Manue Luís Goucha, verificam-se todos os pressupostos da Transparência excepto a inclusão da actividade na lista de actividades sujeitas a transparência fiscal. Pode a CGAA operar como uma extensora deste regime para casos de abuso?
+                        </p>
+                      </div>
+                    ) : null}
+                    {slide.id === "figuras-proximas" ? (
+                      <div className="figuras-proximas">
+                        <p className="figuras-proximas-highlight">
+                          Como vimos ao longo da exposição, existem figuras afins no direito que se aproximam da ratio de aplicação da CGAA
+                        </p>
+                        <article className="figuras-proximas-card">
+                          <p>
+                            Não é estranho se entendermos a CGAA como uma extensão das normas de proibição do Planeamento Fiscal Abusivo. Significa que, regra geral, ao se violar directamente uma lei de proteção contra o abuso, estarão preenchidos os pressupostos da CGAA
+                          </p>
+                          <p>
+                            É esse o caso da dedução indevida de gastos e tributação dos rendimentos em sede de IRS, como vimos
+                          </p>
+                        </article>
+                        <article className="figuras-proximas-card">
+                          <p>
+                            Quanto aos casos de Transparência Fiscal, sendo que a razão de ser deste regime não é exclusivamente o combate à fraude ou elisão de tributação, nem sempre serão casos em que se preenche a CGAA
+                          </p>
+                          <p>
+                            No entanto, a CGAA consegue ir mais além e tributar casos como o do Manuel Luís Goucha, em que parecem preenchidos todos os pressupostos da Transparência Fiscal, excepto o da actividade estar na lista de actividades previstas para este regime, ao que se soma, logicamente, um planeamento fiscal abusivo
+                          </p>
+                        </article>
+                      </div>
+                    ) : null}
                     {slide.id === "alteracao-cgaa" ? (
                       <div className="alteracao-cgaa">
                         <p className="alteracao-cgaa-subtitle">provocada pela transposição da ATAD</p>
                         <div className="alteracao-cgaa-grid">
                           <article className="alteracao-cgaa-card">
-                            <h3>Pré ATAD</h3>
+                            <h3>Pré-ATAD</h3>
                             <p>
                               2 - São ineficazes no âmbito tributário os <span className="alteracao-removed">actos ou negócios jurídicos essencial ou principalmente dirigidos</span>, por <span className="alteracao-removed">meios artificiosos ou fraudulentos e com abuso das formas jurídicas</span>, à redução, eliminação ou diferimento temporal de impostos que seriam devidos em resultado de factos, actos ou negócios jurídicos de idêntico fim económico, ou à obtenção de vantagens fiscais que não seriam alcançadas, total ou parcialmente, sem utilização desses meios, efectuando-se então a tributação de acordo com as normas aplicáveis na sua ausência e não se produzindo as vantagens fiscais referidas
                             </p>
                           </article>
                           <article className="alteracao-cgaa-card">
-                            <h3>Pós ATAD</h3>
+                            <h3>Pós-ATAD</h3>
                             <p>
-                              2 - <span className="alteracao-added">As construções ou séries de construções</span> que, tendo sido realizadas com a finalidade principal ou <span className="alteracao-added">uma das finalidades principais</span> de obter uma vantagem fiscal que frustre o objeto ou a finalidade do direito fiscal aplicável, sejam realizadas com abuso das formas jurídicas <span className="alteracao-added">ou não sejam consideradas genuínas</span>, tendo em conta todos os factos e circunstâncias relevantes, são desconsideradas para efeitos tributários, efetuando-se a tributação de acordo com as normas aplicáveis aos negócios ou atos que correspondam à substância ou realidade económica e não se produzindo as vantagens fiscais pretendidas
+                              2 - <span className="alteracao-added">As construções ou séries de construções</span> que, tendo sido realizadas com a finalidade principal ou <span className="alteracao-added">uma das finalidades principais</span> de obter uma vantagem fiscal que frustre o objeto ou a finalidade do direito fiscal aplicável, sejam realizadas com abuso das formas jurídicas <span className="alteracao-added">ou não sejam consideradas genuínas</span>, tendo em conta todos os factos e circunstâncias relevantes, são desconsideradas para efeitos tributários, efectuando-se a tributação de acordo com as normas aplicáveis aos negócios ou atos que correspondam à substância ou realidade económica e não se produzindo as vantagens fiscais pretendidas
                             </p>
                           </article>
                         </div>
                         <p className="alteracao-cgaa-footer-note">
-                          Esta alteração extendeu o âmbito de aplicação da CGAA
+                          Esta alteração estendeu o âmbito de aplicação da CGAA
                         </p>
                       </div>
                     ) : null}
@@ -1467,7 +1594,7 @@ export default function Home() {
                                   Como nota o CAAD no processo n.º 131/2014-T, se se exigisse que estivesse expressamente prevista a censura na lei, a Cláusula Geral Anti-Abuso seria muito restringida.
                                 </p>
                                 <p>
-                                  &quot;É forçoso concluir-se que o facto do requerente ter utilizado um meio desprovido de razões económico-empresariais válidas (...) com o objetivo proeminente de obter uma vantagem fiscal, implica que o comportamento em causa é anti-jurídico e merecedor de reprovação dogmática-sistemática.&quot;
+                                  &quot;É forçoso concluir-se que o facto do requerente ter utilizado um meio desprovido de razões económico-empresariais válidas (...) com o objectivo proeminente de obter uma vantagem fiscal, implica que o comportamento em causa é anti-jurídico e merecedor de reprovação dogmática-sistemática.&quot;
                                 </p>
                                 <p>
                                   <strong className="conclusao">Conclusão:</strong> O elemento normativo também está verificado. Considerar que o espírito do direito não censura estes comportamentos seria validar o planeamento fiscal extra-legem.
@@ -1492,7 +1619,7 @@ export default function Home() {
                               <div>
                                 <p>O Requerente alegou que a sociedade tem substância económica e que gera resultados económicos reais que não decorrem da pessoa do legislador.</p>
                                 <p>O CAAD concluiu que o que estava em causa não era a genuinidade da sociedade, mas antes a transferência para esta de direitos intuitu personae, como os direitos de imagem e voz do requerente.</p>
-                                <p>Todos os serviços serem sobre a pessoa física do Requerente e os rendimentos se circunscreverem à sua atividade individual parece, tal como mencionado no voto vencido, insuficiente para demonstrar o preenchimento do elemento meio.</p>
+                                <p>Todos os serviços serem sobre a pessoa física do Requerente e os rendimentos se circunscreverem à sua actividade individual parece, tal como mencionado no voto vencido, insuficiente para demonstrar o preenchimento do elemento meio.</p>
                                 <p>A linha traça-se no facto de o CAAD ter considerado a sociedade como &quot;oca&quot;, na medida em que não tinha uma estrutura material capaz da prestação de serviços. Todos os serviços necessários eram contratados a terceiros.</p>
                                 <p><strong className="conclusao">Conclusão:</strong> Se a sociedade não tem estrutura para realizar os serviços, então é desnecessária e o único motivo da sua existência é fiscal.</p>
                               </div>
@@ -1502,7 +1629,7 @@ export default function Home() {
                             <div className="private-elements-columns private-elements-single">
                               <div>
                                 <p>Se fosse tributado em IRS pagaria aproximadamente 48% de imposto. Em IRC foi pago aproximadamente 28%.</p>
-                                <p>Apesar de estes rendimentos voltarem a ser tributados aquando da distribuição aos sócios, o Tribunal considerou que, no caso em apreço, era provável um longo diferimento dessa distribuição, uma vez que a sociedade pretendia reinvestir o dinheiro na sua atividade &quot;genuína&quot;, agrícola/pecuária.</p>
+                                <p>Apesar de estes rendimentos voltarem a ser tributados aquando da distribuição aos sócios, o Tribunal considerou que, no caso em apreço, era provável um longo diferimento dessa distribuição, uma vez que a sociedade pretendia reinvestir o dinheiro na sua actividade &quot;genuína&quot;, agrícola/pecuária.</p>
                                 <p><strong className="conclusao">Conclusão:</strong> Não só o diferimento é visto como uma vantagem, como no caso em apreço se previa que os valores nunca viessem a ser distribuídos.</p>
                               </div>
                             </div>
@@ -1510,7 +1637,7 @@ export default function Home() {
                           {slide.id === "manuel-luis-goucha-elementos" && privateElementStep === 2 ? (
                             <div className="private-elements-columns private-elements-single">
                               <div>
-                                <p>O Tribunal considerou que &quot;O Requerente sabe que a constituição da sociedade e o seu uso para faturar os rendimentos oriundos da sua atividade (que antes obtinha a título individual) aumentou significativamente o seu rendimento líquido, e que tal decorre do pagamento de menos impostos. Vantagem com que o Recorrente, no mínimo, se conformou.&quot;</p>
+                                <p>O Tribunal considerou que &quot;O Requerente sabe que a constituição da sociedade e o seu uso para faturar os rendimentos oriundos da sua actividade (que antes obtinha a título individual) aumentou significativamente o seu rendimento líquido, e que tal decorre do pagamento de menos impostos. Vantagem com que o Recorrente, no mínimo, se conformou.&quot;</p>
                                 <p><strong className="conclusao">Conclusão:</strong> Está preenchido o Elemento Intelectual.</p>
                               </div>
                             </div>
@@ -1603,4 +1730,5 @@ export default function Home() {
     </main>
   );
 }
+
 

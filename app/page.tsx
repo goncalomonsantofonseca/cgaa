@@ -57,9 +57,9 @@ const module6ElementSubtitles: Partial<Record<string, string>> = {
   "step-transaction": "Uma construção pode ser constituída por mais do que uma etapa ou parte",
   "teste-genuinidade": "É artificial se for uma construção \"Não Genuína\" => Ausência De Razões Económicas Válidas",
   "elemento-resultado": "Vantagem Fiscal Obtida",
-  "elemento-intelectual": "A Intenção Do Contribuinte",
-  "elemento-normativo": "A Contrariedade Ao Espírito Das Normas",
-  "elemento-sancionatorio": "A ATAD Dá Liberdade Aos E.M. Para Definirem Um Elemento Sancionatório",
+  "elemento-intelectual": "A intenção do contribuinte",
+  "elemento-normativo": "A contrariedade ao espírito das normas",
+  "elemento-sancionatorio": "A ATAD dá liberdade aos E.M. para definirem um elemento sancionatório",
 };
 const privateElementsTabs = ["Meio", "Resultado", "Intelectual", "Normativo", "Sancionatório"] as const;
 const privateElementQuestions: Record<(typeof privateElementsTabs)[number], string> = {
@@ -74,7 +74,7 @@ const timelineMoments = [
   { year: "2000", text: "Com a Lei n.º 30-G/2000, de 29 de dezembro, a CGAA passou a assumir contornos de eficácia no sistema fiscal português, tendo finalmente capacidade para ser utilizada" },
   { year: "2012", text: "Começa a discussão no G20 acerca da necessidade de prevenção do BEPS. Deste momento histórico surgem vários contributos: a Ação 6 do BEPS, que introduz uma Cláusula Geral Anti-Abuso ao nível da OCDE, e o desenvolvimento do Principal Purpose Test (PPT)\n\nA convenção modelo da OCDE acabou por absorver este critério" },
   { year: "2013-2015", text: "Entre os anos 2013 e 2015 houve um grande aumento de casos de CGAA em Portugal, face ao problema da transformação de sociedades por quotas em sociedades anónimas para beneficiar de regime mais favorável na transmissão" },
-  { year: "2016", text: "Em 2016 a ATAD estabelece um nível mínimo de proteção contra a elisão fiscal. Na ATAD surge a CGAA inspirada nos trabalhos da OCDE, com o objectivo de ser aplicada em todos os Estados-Membros\n\nNeste momento o TJUE desempenhou um papel essencial na construção da atual CGAA Europeia" },
+  { year: "2016", text: "Em 2016 a ATAD estabelece um nível mínimo de protecção contra a elisão fiscal. Na ATAD surge a CGAA inspirada nos trabalhos da OCDE, com o objectivo de ser aplicada em todos os Estados-Membros\n\nNeste momento o TJUE desempenhou um papel essencial na construção da atual CGAA Europeia" },
   { year: "2019", text: "A transposição da ATAD para a legislação portuguesa fez surgir alterações que resultaram numa abrangência maior da cláusula, com menos requisitos para preencher os vários elementos" },
 ];
 const timelineYears = ["1999", "2000", "2012", "2013-2015", "2016", "2019"] as const;
@@ -161,7 +161,7 @@ const slides: Slide[] = [
     id: "autonomia-protecao-erario",
     kind: "content",
     kicker: "Conflitos",
-    heading: "Autonomia vs.\nProteção do Erário",
+    heading: "Autonomia vs.\n Protecção do Erário",
     bullets: [
       "Derrogação da autonomia para proteger o Estado",
       "O conflito é entre a liberdade que deve ser conferida ao contribuinte e a necessidade de precaver situações em que a actuação do contribuinte coloca em risco os interesses do Estado",
@@ -275,7 +275,7 @@ const slides: Slide[] = [
     kicker: "Os 5 Elementos",
     heading: "Elemento 2: Resultado",
     bullets: [
-      "Tem de ser uma vantagem fiscal indevida (redução, eliminação ou diferimento) que frustre o objeto ou a finalidade do direito fiscal aplicável",
+      "Tem de ser uma vantagem fiscal indevida (redução, eliminação ou diferimento) que frustre o objecto ou a finalidade do direito fiscal aplicável",
       "A elisão fiscal decorre imediatamente disto, na medida em que consiste na prática de comportamentos não desejados pelo legislador no espírito das suas normas",
       "Com a transposição da ATAD, o Elemento Resultado, já não encontra tantas limitações como antes"
     ],
@@ -325,7 +325,7 @@ const slides: Slide[] = [
     bullets: [
       "O Elemento Sancionatório está estabelecido na estatuição da norma e apenas se verificará se os elementos anteriores estiverem todos preenchidos",
       "O Efeito normal é a ineficácia tributária dos atos e negócios. Ou seja, a desconsideração da construção, consequente ineficácia da mesma",
-      'A isto segue-se a Reconstrução: Tributação de acordo com os negócios ou atos ("construção") que correspondam à substância económica real.',
+      'A isto segue-se a Reconstrução: Tributação de acordo com os negócios ou atos ("construção") que correspondam à substância económica real',
     ],
     footer: sharedFooter,
   },
@@ -919,10 +919,10 @@ export default function Home() {
                       <div className="cases-visual">
                         <div className="cases-visual-image-wrap" aria-hidden="true">
                           <div className="cases-visual-label cases-visual-label-left">
-                            correções sem CGAA
+                            correcções sem CGAA
                           </div>
                           <div className="cases-visual-label cases-visual-label-right">
-                            Correções pela CGAA
+                            Correcções pela CGAA
                           </div>
                           <Image
                             src="/Privados.png"
@@ -1153,7 +1153,7 @@ export default function Home() {
                           <div className="rigor-doc">
                             <p className="rigor-doc-head">Autoridade Tributária</p>
                             <p className="rigor-doc-title">Aplicação da CGAA</p>
-                            <p className="rigor-doc-body">Proposta de correção tributária</p>
+                            <p className="rigor-doc-body">Proposta de correcção tributária</p>
                           </div>
                           <div className="rigor-stop-mark">
                             <span className="rigor-stop-icon">🛑</span>
@@ -1439,7 +1439,7 @@ export default function Home() {
                           <article className="alteracao-cgaa-card">
                             <h3>Pós-ATAD</h3>
                             <p>
-                              2 - <span className="alteracao-added">As construções ou séries de construções</span> que, tendo sido realizadas com a finalidade principal ou <span className="alteracao-added">uma das finalidades principais</span> de obter uma vantagem fiscal que frustre o objeto ou a finalidade do direito fiscal aplicável, sejam realizadas com abuso das formas jurídicas <span className="alteracao-added">ou não sejam consideradas genuínas</span>, tendo em conta todos os factos e circunstâncias relevantes, são desconsideradas para efeitos tributários, efectuando-se a tributação de acordo com as normas aplicáveis aos negócios ou atos que correspondam à substância ou realidade económica e não se produzindo as vantagens fiscais pretendidas
+                              2 - <span className="alteracao-added">As construções ou séries de construções</span> que, tendo sido realizadas com a finalidade principal ou <span className="alteracao-added">uma das finalidades principais</span> de obter uma vantagem fiscal que frustre o objecto ou a finalidade do direito fiscal aplicável, sejam realizadas com abuso das formas jurídicas <span className="alteracao-added">ou não sejam consideradas genuínas</span>, tendo em conta todos os factos e circunstâncias relevantes, são desconsideradas para efeitos tributários, efectuando-se a tributação de acordo com as normas aplicáveis aos negócios ou atos que correspondam à substância ou realidade económica e não se produzindo as vantagens fiscais pretendidas
                             </p>
                           </article>
                         </div>
@@ -1550,19 +1550,19 @@ export default function Home() {
                             <div className="private-elements-columns private-elements-single">
                               <div>
                                 <p>
-                                  Uma vantagem fiscal corresponde a uma qualquer situação pela qual, em virtude da prática de determinados actos, se obtém uma carga tributária mais favorável ao contribuinte do que aquela que resultaria da prática dos actos normais e de efeito económico equivalente, sujeitos a tributação.
+                                  Uma vantagem fiscal corresponde a uma qualquer situação pela qual, em virtude da prática de determinados actos, se obtém uma carga tributária mais favorável ao contribuinte do que aquela que resultaria da prática dos actos normais e de efeito económico equivalente, sujeitos a tributação
                                 </p>
                                 <p>
-                                  Conclui-se que a mesma prestação de serviços teria sido sujeita a uma carga tributária manifestamente mais elevada se o imposto, ao invés de ter sido apurado na esfera da Sociedade com base nas regras do IRC, tivesse sido determinado directa e pessoalmente na esfera jurídica do Requerente com base nas regras do IRS.
+                                  Conclui-se que a mesma prestação de serviços teria sido sujeita a uma carga tributária manifestamente mais elevada se o imposto, ao invés de ter sido apurado na esfera da Sociedade com base nas regras do IRC, tivesse sido determinado directa e pessoalmente na esfera jurídica do Requerente com base nas regras do IRS
                                 </p>
                                 <p>
-                                  Quanto ao ano de 2016, o imposto total em IRC (determinado com base na matéria colectável apurada para a categoria B) seria de € 861.243,19, quando a colecta de IRS seria de € 1.894.919,65, o que equivale a uma vantagem fiscal de € 1.033.676,46. Relativamente ao ano de 2017, a quantia equivalente por referência ao IRC seria de € 848.478,45, e por referência ao IRS seria de € 1.860.157,50, o que corresponde a uma vantagem fiscal de € 1.011.679,05.
+                                  Quanto ao ano de 2016, o imposto total em IRC (determinado com base na matéria colectável apurada para a categoria B) seria de € 861.243,19, quando a colecta de IRS seria de € 1.894.919,65, o que equivale a uma vantagem fiscal de € 1.033.676,46. Relativamente ao ano de 2017, a quantia equivalente por referência ao IRC seria de € 848.478,45, e por referência ao IRS seria de € 1.860.157,50, o que corresponde a uma vantagem fiscal de € 1.011.679,05
                                 </p>
                                 <p>
-                                  <strong className="conclusao">Conclusão:</strong> Tal como invocou a Requerida, através da intervenção da sociedade na prestação dos serviços à Federação, o Requerente obteve uma vantagem fiscal de € 2.045.355,51.
+                                  <strong className="conclusao">Conclusão:</strong> Tal como invocou a Requerida, através da intervenção da sociedade na prestação dos serviços à Federação, o Requerente obteve uma vantagem fiscal de € 2.045.355,51
                                 </p>
                                 <p>
-                                  <strong className='nota'>NOTA:</strong> O CAAD considera que o simples diferimento temporal de impostos é em si mesmo uma vantagem.
+                                  <strong className='nota'>NOTA:</strong> O CAAD considera que o simples diferimento temporal de impostos é em si mesmo uma vantagem
                                 </p>
                               </div>
                             </div>
@@ -1571,16 +1571,16 @@ export default function Home() {
                             <div className="private-elements-columns private-elements-single">
                               <div>
                                 <p>
-                                  Acompanhando a redacção do artigo 38.º, n.º 2, da LGT, será necessário verificar se os actos ou negócios jurídicos praticados foram essencial ou principalmente dirigidos à redução, eliminação ou diferimento temporal de impostos (…) ou à obtenção de vantagens fiscais.
+                                  Acompanhando a redacção do artigo 38.º, n.º 2, da LGT, será necessário verificar se os actos ou negócios jurídicos praticados foram essencial ou principalmente dirigidos à redução, eliminação ou diferimento temporal de impostos (…) ou à obtenção de vantagens fiscais
                                 </p>
                                 <p>
-                                  Sendo de prova difícil, AT e Tribunal são obrigados a recorrer a elementos indiciários e presuntivos, num contexto de razoabilidade e normalidade, extraindo, com razoável segurança, a vontade do sujeito dos actos celebrados.
+                                  Sendo de prova difícil, AT e Tribunal são obrigados a recorrer a elementos indiciários e presuntivos, num contexto de razoabilidade e normalidade, extraindo, com razoável segurança, a vontade do sujeito dos actos celebrados
                                 </p>
                                 <p>
-                                  O STA, em 2022, indica no Processo n.º 02507/15.6BEBRG que basta que a AT faça prova de que a operação realizada não tem um propósito racional à luz do ordenamento jurídico mobilizado; basta, no caso, provar que a operação não se enquadra nas razões que o direito societário apresenta (...) e que, por isso, o seu propósito se esgota no aforro fiscal a que conduz.
+                                  O STA, em 2022, indica no Processo n.º 02507/15.6BEBRG que basta que a AT faça prova de que a operação realizada não tem um propósito racional à luz do ordenamento jurídico mobilizado; basta, no caso, provar que a operação não se enquadra nas razões que o direito societário apresenta (...) e que, por isso, o seu propósito se esgota no aforro fiscal a que conduz
                                 </p>
                                 <p>
-                                  <strong className="conclusao">Conclusão:</strong> Da concatenação dos elementos resultado e meio conclui-se, para lá de qualquer dúvida razoável, pela proeminência da motivação fiscal sobre outros aspectos substanciais (essenciais) que pudessem ter potenciado a interposição da Sociedade nos negócios jurídicos celebrados com a Federação.
+                                  <strong className="conclusao">Conclusão:</strong> Da concatenação dos elementos resultado e meio conclui-se, para lá de qualquer dúvida razoável, pela proeminência da motivação fiscal sobre outros aspectos substanciais (essenciais) que pudessem ter potenciado a interposição da Sociedade nos negócios jurídicos celebrados com a Federação
                                 </p>
                               </div>
                             </div>
@@ -1589,13 +1589,13 @@ export default function Home() {
                             <div className="private-elements-columns private-elements-single">
                               <div>
                                 <p>
-                                  Como nota o CAAD no processo n.º 131/2014-T, se se exigisse que estivesse expressamente prevista a censura na lei, a Cláusula Geral Anti-Abuso seria muito restringida.
+                                  Como nota o CAAD no processo n.º 131/2014-T, se se exigisse que estivesse expressamente prevista a censura na lei, a Cláusula Geral Anti-Abuso seria muito restringida
                                 </p>
                                 <p>
                                   &quot;É forçoso concluir-se que o facto do requerente ter utilizado um meio desprovido de razões económico-empresariais válidas (...) com o objectivo proeminente de obter uma vantagem fiscal, implica que o comportamento em causa é anti-jurídico e merecedor de reprovação dogmática-sistemática.&quot;
                                 </p>
                                 <p>
-                                  <strong className="conclusao">Conclusão:</strong> O elemento normativo também está verificado. Considerar que o espírito do direito não censura estes comportamentos seria validar o planeamento fiscal extra-legem.
+                                  <strong className="conclusao">Conclusão:</strong> O elemento normativo também está verificado. Considerar que o espírito do direito não censura estes comportamentos seria validar o planeamento fiscal extra-legem
                                 </p>
                               </div>
                             </div>
@@ -1604,10 +1604,10 @@ export default function Home() {
                             <div className="private-elements-columns private-elements-single">
                               <div>
                                 <p>
-                                  Consiste na manutenção dos efeitos civis e na desconsideração, apenas no âmbito tributário, das vantagens fiscais que tiverem sido indevidamente obtidas pelos contribuintes.
+                                  Consiste na manutenção dos efeitos civis e na desconsideração, apenas no âmbito tributário, das vantagens fiscais que tiverem sido indevidamente obtidas pelos contribuintes
                                 </p>
                                 <p>
-                                  <strong className="conclusao">Conclusão:</strong> O Requerente vai ser tributado de acordo com as taxas e normas de IRS.
+                                  <strong className="conclusao">Conclusão:</strong> O Requerente vai ser tributado de acordo com as taxas e normas de IRS
                                 </p>
                               </div>
                             </div>

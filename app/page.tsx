@@ -53,9 +53,9 @@ const module6ElementSlideTargets = [
   "elemento-sancionatorio",
 ] as const;
 const module6ElementSubtitles: Partial<Record<string, string>> = {
-  "elemento-meio": "Forma Utilizada Pelo Contribuinte",
-  "step-transaction": "Uma Construção Pode Ser Constituída Por Mais Do Que Uma Etapa Ou Parte",
-  "teste-genuinidade": "É Artificial Se For Uma Construção \"Não Genuína\" => Ausência De Razões Económicas Válidas.",
+  "elemento-meio": "forma utilizada pelo contribuinte",
+  "step-transaction": "Uma construção pode ser constituída por mais do que uma etapa ou parte",
+  "teste-genuinidade": "É artificial se for uma construção \"Não Genuína\" => Ausência De Razões Económicas Válidas",
   "elemento-resultado": "Vantagem Fiscal Obtida",
   "elemento-intelectual": "A Intenção Do Contribuinte",
   "elemento-normativo": "A Contrariedade Ao Espírito Das Normas",
@@ -164,7 +164,7 @@ const slides: Slide[] = [
     heading: "Autonomia vs.\nProteção do Erário",
     bullets: [
       "Derrogação da autonomia para proteger o Estado",
-      "O conflito é entre a liberdade que deve ser conferida ao contribuinte e a necessidade de precaver situações em que a atuação do contribuinte coloca em risco os interesses do Estado",
+      "O conflito é entre a liberdade que deve ser conferida ao contribuinte e a necessidade de precaver situações em que a actuação do contribuinte coloca em risco os interesses do Estado",
     ],
     footer: sharedFooter,
   },
@@ -174,10 +174,9 @@ const slides: Slide[] = [
     kicker: "Conflitos",
     heading: "O Preço da Justiça",
     bullets: [
-      "A CGAA foi criada para promover a segurança jurídica através da estabilidade legislativa. No entanto, a criação do direito pelo aplicador tem sido forçosamente uma fonte de insegurança jurídica, especialmente face ao uso constante de conceitos indeterminados",
+      'A CGAA é o expoente máximo do abandono da lei típica e rígida que caracterizava a legislação fiscal até aos anos 90. A mudança foi motivada por razões de Segurança Jurídica. Por outro lado, serão temas de segurança jurídica que se levantarão precisamente ao deslocar, sem mecanismos de estabilidade e critérios uniformizadores concretos, o conteúdo normativo do campo da criacção do Direito para o de aplicação do Direito',
       "Será a insegurança jurídica uma condição necessária? Ou uma jurisprudência uniformizada e robusta pode mitigar este problema?",
       "Justiça material vs. Previsibilidade",
-      "Que valor pesa mais na balança?",
     ],
     footer: sharedFooter,
   },
@@ -240,7 +239,7 @@ const slides: Slide[] = [
     kicker: "Os 5 Elementos",
     heading: "Elemento 1: Meio",
     bullets: [
-      "São as Construções ou séries de construções realizadas com abuso das formas jurídicas ou que não sejam consideradas genuinas",
+      "São construções ou séries de construções realizadas com abuso das formas jurídicas ou que não sejam consideradas genuinas",
       "A escolha de uma via anómala ou supérflua para alcançar o resultado económico",
       'Antes da transposição da ATAD exigia-se que fossem praticados "atos ou negócios jurídicos” em vez de “construção”, a redação atual é mais ampla e abrange qualquer tipo de comportamento por parte do contribuinte.',
     ],
@@ -264,8 +263,8 @@ const slides: Slide[] = [
     heading: "O Teste da Genuinidade",
     bullets: [
       "Critério: A estrutura deve refletir a substância económica e comercial real, não sendo puramente artificial",
-      "Na versão anterior tinha de ser Fraudulenta ou Artificiosa",
-      "Acórdão do TJUE - Foggia ajuda-nos a compreender que “razões económicas válidas” correspondem a construções que vão para lá da simples tentativa de obter uma vantagem fiscal. Esta doutrina do acórdão foggia, no entanto, já está desatualizada na medida em que se exige hoje apenas que uma das finalidades principais seja a de obter uma vantagem fiscal, como veremos quanto ao elemento Intelectual.  ",
+      "Na versão anterior à transposição da ATAD (pré 2019) tinha de ser Fraudulenta ou Artificiosa",
+      "Acórdão do TJUE - Foggia (Processo C-126/10 - Novembro 2011) ajuda-nos a compreender que “razões económicas válidas” correspondem a construções que vão para lá da simples tentativa de obter uma vantagem fiscal. Esta doutrina do Acórdão Foggia, no entanto, não t na medida em que se exige hoje apenas que uma das finalidades principais seja a de obter uma vantagem fiscal, como veremos quanto ao elemento Intelectual.  ",
 
     ],
     footer: sharedFooter,
@@ -290,7 +289,6 @@ const slides: Slide[] = [
     bullets: [
       'Com a transposição da ATAD, adota-se o critério de PPT desenvolvido pela OCDE: Basta que "Uma das finalidades principais" seja obter a vantagem fiscal.',
       "É um critério mais abrangente em relação à versão anterior, onde a vantagem tinha de ser o objectivo ou finalidade principais",
-      "Esta nova formulação está muito orientada por uma preocupação global de combater a elisão fiscal e pelo reconhecimento de que não estender o âmbito de aplicação da CGAA poderia levar a uma aplicação muito mitigada deste instituto",
       "Uma interpretação extensiva deste critério pode levar a uma aplicação discricionária da CGAA. Por esse motivo todos estes elementos devem ser considerados em conjunto",
     ],
     footer: sharedFooter,
@@ -302,7 +300,7 @@ const slides: Slide[] = [
     heading: 'A "Prova Diabólica"',
     bullets: [
       'Podemos estar perante uma "Prova Diabólica", pelo exercício de uma análise e juízo de probabilidade da vontade do contribuinte que, por vezes, se poderá configurar um exercício impossível',
-      "Entendimento do STA: Basta que a AT faça prova de que a operação realizada não tem um propósito racional à luz do ordenamento jurídico mobilizado (...), [que] o seu propósito se esgota no aforro fiscal a que conduz",
+      "Entendimento do STA (2022 - Processo C-126/10): Basta que a AT faça prova de que a operação realizada não tem um propósito racional à luz do ordenamento jurídico mobilizado (...), [que] o seu propósito se esgota no aforro fiscal a que conduz",
     ],
     footer: sharedFooter,
   },
@@ -432,7 +430,7 @@ const slides: Slide[] = [
     id: "figuras-proximas",
     kind: "content",
     kicker: "Private Clients",
-    heading: "Figuras Próximas",
+    heading: "A Transparência Fiscal",
     bullets: [],
     footer: sharedFooter,
   },
@@ -1312,6 +1310,13 @@ export default function Home() {
                             <li key={bullet}>{bullet}</li>
                           ))}
                         </ul>
+                        {slide.id === "elemento-intelectual" ? (
+                          <article className="ppt-reflection-card">
+                            <p>
+                              Teria utilizado aquela estrutura se o regime fiscal fosse diferente? Uma alteração da lei fiscal no futuro alteraria a construção do contribuinte?
+                            </p>
+                          </article>
+                        ) : null}
                       </>
                     ) : null}
                     {isAutonomiaProtecaoSlide ? (
@@ -1408,19 +1413,12 @@ export default function Home() {
                     {slide.id === "figuras-proximas" ? (
                       <div className="figuras-proximas">
                         <p className="figuras-proximas-highlight">
-                          Como vimos ao longo da exposição, existem figuras afins no direito que se aproximam da ratio de aplicação da CGAA
+                          A CGAA como veículo para aplicar o regime da Transparência Fiscal
                         </p>
+    
                         <article className="figuras-proximas-card">
                           <p>
-                            Não é estranho se entendermos a CGAA como uma extensão das normas de proibição do Planeamento Fiscal Abusivo. Significa que, regra geral, ao se violar directamente uma lei de proteção contra o abuso, estarão preenchidos os pressupostos da CGAA
-                          </p>
-                          <p>
-                            É esse o caso da dedução indevida de gastos e tributação dos rendimentos em sede de IRS, como vimos
-                          </p>
-                        </article>
-                        <article className="figuras-proximas-card">
-                          <p>
-                            Quanto aos casos de Transparência Fiscal, sendo que a razão de ser deste regime não é exclusivamente o combate à fraude ou elisão de tributação, nem sempre serão casos em que se preenche a CGAA
+                            Nos casos de Transparência Fiscal, tendo em conta que a razão de ser deste regime não é exclusivamente o combate à fraude ou elisão fiscal, nem sempre serão casos em que se preenche a CGAA
                           </p>
                           <p>
                             No entanto, a CGAA consegue ir mais além e tributar casos como o do Manuel Luís Goucha, em que parecem preenchidos todos os pressupostos da Transparência Fiscal, excepto o da actividade estar na lista de actividades previstas para este regime, ao que se soma, logicamente, um planeamento fiscal abusivo

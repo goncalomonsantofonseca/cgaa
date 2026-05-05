@@ -1723,6 +1723,23 @@ body {
   top: 0;
 }
 
+.ppt-reflection-card {
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(31, 94, 132, 0.22);
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 8px 18px rgba(14, 38, 56, 0.08);
+}
+
+.ppt-reflection-card p {
+  margin: 0;
+  color: #1f5e84;
+  font-size: clamp(0.92rem, 1.08vw, 1.02rem);
+  font-weight: 800;
+  line-height: 1.4;
+}
+
 .content-slide-table {
   border-top: 1px solid rgba(17, 17, 17, 0.14);
   display: grid;

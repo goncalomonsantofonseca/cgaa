@@ -65,7 +65,7 @@ const privateElementsTabs = ["Meio", "Resultado", "Intelectual", "Normativo", "S
 const privateElementQuestions: Record<(typeof privateElementsTabs)[number], string> = {
   Meio: "Foi usado um meio artificioso?",
   Resultado: "O resultado foi uma vantagem fiscal?",
-  Intelectual: "Houve intenção de frustrar o direito?",
+  Intelectual: "Houve intenção de frustrar o Direito?",
   Normativo: "É uma actividade censurada pelo ordenamento jurídico?",
   Sancionatório: "De que forma deve ser sancionado?",
 };
@@ -177,6 +177,7 @@ const slides: Slide[] = [
       'A CGAA é o expoente máximo do abandono da lei típica e rígida que caracterizava a legislação fiscal até aos anos 90. A mudança foi motivada por razões de Segurança Jurídica. Por outro lado, serão temas de segurança jurídica que se levantarão precisamente ao deslocar, sem mecanismos de estabilidade e critérios uniformizadores concretos, o conteúdo normativo do campo da criacção do Direito para o de aplicação do Direito',
       "Será a insegurança jurídica uma condição necessária? Ou uma jurisprudência uniformizada e robusta pode mitigar este problema?",
       "Justiça material vs. Previsibilidade",
+      "A CGAA exige concretização e controlo pelos tribunais",
     ],
     footer: sharedFooter,
   },
@@ -239,9 +240,9 @@ const slides: Slide[] = [
     kicker: "Os 5 Elementos",
     heading: "Elemento 1: Meio",
     bullets: [
-      "São construções ou séries de construções realizadas com abuso das formas jurídicas ou que não sejam consideradas genuinas",
+      "São construções ou séries de construções realizadas com abuso das formas jurídicas ou que não sejam consideradas genuínas",
       "A escolha de uma via anómala ou supérflua para alcançar o resultado económico",
-      'Antes da transposição da ATAD exigia-se que fossem praticados "atos ou negócios jurídicos” em vez de “construção”, a redação atual é mais ampla e abrange qualquer tipo de comportamento por parte do contribuinte.',
+      'Antes da transposição da ATAD exigia-se que fossem praticados "actos ou negócios jurídicos” em vez de “construção”, a redação atual é mais ampla e abrange qualquer tipo de comportamento por parte do contribuinte',
     ],
     footer: sharedFooter,
   },
@@ -252,7 +253,7 @@ const slides: Slide[] = [
     heading: "Step Transaction Doctrine",
     bullets: [
       "Artigo 38º/3 b) LGT - Análise de várias etapas coordenadas temporalmente",
-      "Conexão de atos para obter uma vantagem que não seria alcançada numa transação única",
+      "Conexão de actos para obter uma vantagem que não seria alcançada numa transação única",
     ],
     footer: sharedFooter,
   },
@@ -324,9 +325,17 @@ const slides: Slide[] = [
     heading: "Elemento 5: Sancionatório",
     bullets: [
       "O Elemento Sancionatório está estabelecido na estatuição da norma e apenas se verificará se os elementos anteriores estiverem todos preenchidos",
-      "O Efeito normal é a ineficácia tributária dos atos e negócios. Ou seja, a desconsideração da construção, consequente ineficácia da mesma",
-      'A isto segue-se a Reconstrução: Tributação de acordo com os negócios ou atos ("construção") que correspondam à substância económica real',
+      "O efeito normal é a ineficácia tributária dos actos e negócios. Ou seja, a desconsideração da construção, consequente ineficácia da mesma",
+      'A isto segue-se a reconstrução: Tributação de acordo com os negócios ou actos ("construção") que correspondam à substância económica real',
     ],
+    footer: sharedFooter,
+  },
+  {
+    id: "elemento-reflexao",
+    kind: "content",
+    kicker: "Os 5 Elementos",
+    heading: "Reflexões Finais",
+    bullets: [],
     footer: sharedFooter,
   },
   {
@@ -356,8 +365,8 @@ const slides: Slide[] = [
     bullets: [
       "CGAA - Sociedade sem substância económica",
       "Gastos não relacionados com a actividade prosseguida e actividade insuficiente para justificar a opção pela sociedade",
-      "A liberdade na prestação de serviços era limitada pelos contractos assinados com a Seleção",
-      "Sociedade como um mero veículo de contractação",
+      "A liberdade na prestação de serviços era limitada pelos contratos assinados com a FPF",
+      "Sociedade como um mero veículo de contratação",
     ],
     footer: sharedFooter,
   },
@@ -376,7 +385,7 @@ const slides: Slide[] = [
     heading: "Manuel Luís Goucha",
     bullets: [
       "CGAA - Cariz pessoal das prestações sem justificação para a opção pela sociedade",
-      "Configuração como rendimentos pessoais (Categoria B) em vez de rendimentos empresariais (IRC)",
+      "Configuração como rendimentos pessoais (Categoria B) / Transparência Fiscal em vez de rendimentos empresariais (IRC)",
     ],
     footer: sharedFooter,
   },
@@ -478,7 +487,9 @@ const slides: Slide[] = [
     heading: "Perfis Expostos",
     bullets: [
       "Estão certas actividades (como artistas e desportistas) mais propensas a ser alvo da CGAA?",
-      "Onde termina o direito aos direitos de imagem e começam as razões comerciais legítimas?",
+      'Onde se inserem os "Influencers" e contratos de parceria?',
+      "Onde se inserem os médicos que constituem sociedade e que contratam directamente desta para com os hospitais?",
+      "Estarão estas personalidades mais expostas que outros casos potencialmente mais gravosos para o Estado => Holdings e Permutas sociais?",
     ],
     footer: sharedFooter,
   },
@@ -593,13 +604,14 @@ export default function Home() {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      const currentSlide = presentationSlides[activeSlide];
       if (event.key === "ArrowRight" || event.key === " ") {
         event.preventDefault();
         const isFernandoElements =
-          slide.kind === "content" && slide.id === "fernando-santos-elementos";
+          currentSlide.kind === "content" && currentSlide.id === "fernando-santos-elementos";
         const isGouchaElements =
-          slide.kind === "content" && slide.id === "manuel-luis-goucha-elementos";
-        if (slide.kind === "content" && slide.id === "evolucao-cgaa" && timelineIndex < timelineMoments.length - 1) {
+          currentSlide.kind === "content" && currentSlide.id === "manuel-luis-goucha-elementos";
+        if (currentSlide.kind === "content" && currentSlide.id === "evolucao-cgaa" && timelineIndex < timelineMoments.length - 1) {
           setTimelineIndex((v) => v + 1);
           return;
         }
@@ -622,10 +634,10 @@ export default function Home() {
       if (event.key === "ArrowLeft") {
         event.preventDefault();
         const isFernandoElements =
-          slide.kind === "content" && slide.id === "fernando-santos-elementos";
+          currentSlide.kind === "content" && currentSlide.id === "fernando-santos-elementos";
         const isGouchaElements =
-          slide.kind === "content" && slide.id === "manuel-luis-goucha-elementos";
-        if (slide.kind === "content" && slide.id === "evolucao-cgaa" && timelineIndex > 0) {
+          currentSlide.kind === "content" && currentSlide.id === "manuel-luis-goucha-elementos";
+        if (currentSlide.kind === "content" && currentSlide.id === "evolucao-cgaa" && timelineIndex > 0) {
           setTimelineIndex((v) => v - 1);
           return;
         }
@@ -908,10 +920,10 @@ export default function Home() {
                       <div className="cases-visual">
                         <div className="cases-visual-image-wrap" aria-hidden="true">
                           <div className="cases-visual-label cases-visual-label-left">
-                            correcções sem CGAA
+                            correcções sem recurso à CGAA
                           </div>
                           <div className="cases-visual-label cases-visual-label-right">
-                            Correcções pela CGAA
+                            Correcções com recurso à CGAA
                           </div>
                           <Image
                             src="/Privados.png"
@@ -1138,7 +1150,7 @@ export default function Home() {
                     {slide.id === "rigor-juizes" ? (
                       <div className="rigor-visual">
                         <p className="rigor-subtitle">
-                          Os tribunais têm sido muito rígidos e exigentes quanto à aplicação da CGAA
+                          Apesar do aumento da utilização da CGAA pela AT, os tribunais continuam a dar mais vezes razão ao contribuinte
                         </p>
                         <div className="rigor-doc-wrap" aria-hidden="true">
                           <div className="rigor-doc">
@@ -1215,7 +1227,7 @@ export default function Home() {
                           <p>
                             <strong>26/28 E.M.</strong>
                             <br />
-                            já tinham cláusulas anti-abuso gerais ou específicas pré-ATAD
+                            Já tinham cláusulas anti-abuso gerais ou específicas pré-ATAD
                           </p>
                           <p className="contexto-europeu-footnote">
                             No entanto, estas não eram suficientes para colmatar os problemas de planeamento fiscal abusivo, porque eram limitadas na sua aplicação subjectiva, por só se aplicarem a determinados impostos, ou por não estarem harmonizadas
@@ -1298,17 +1310,35 @@ export default function Home() {
                         ) : null}
                         <ul className="content-slide-list">
                           {slide.bullets.map((bullet) => (
-                            <li key={bullet}>{bullet}</li>
+                            <li key={bullet}>
+                              {slide.id === "elemento-resultado" && bullet.includes("diferimento")
+                                ? bullet.split("diferimento").map((part, idx, arr) => (
+                                    <span key={`${idx}-${part}`}>
+                                      {part}
+                                      {idx < arr.length - 1 ? (
+                                        <strong className="word-highlight-blue">diferimento</strong>
+                                      ) : null}
+                                    </span>
+                                  ))
+                                : bullet}
+                            </li>
                           ))}
                         </ul>
-                        {slide.id === "elemento-intelectual" ? (
-                          <article className="ppt-reflection-card">
-                            <p>
-                              Teria utilizado aquela estrutura se o regime fiscal fosse diferente? Uma alteração da lei fiscal no futuro alteraria a construção do contribuinte?
-                            </p>
-                          </article>
-                        ) : null}
                       </>
+                    ) : null}
+                    {slide.id === "elemento-reflexao" ? (
+                      <div className="ppt-reflection-stack">
+                        <article className="ppt-reflection-card">
+                          <p>
+                            Teria utilizado aquela estrutura se o regime fiscal fosse diferente? Uma alteração da lei fiscal no futuro alteraria a construção do contribuinte?
+                          </p>
+                        </article>
+                        <article className="ppt-reflection-card">
+                          <p>
+                            O paradoxo entre a ficção societária e a verdade da ficção
+                          </p>
+                        </article>
+                      </div>
                     ) : null}
                     {isAutonomiaProtecaoSlide ? (
                       <div className="correlation-board">
@@ -1345,7 +1375,7 @@ export default function Home() {
                             Há duas questões discutidas no acórdão
                           </p>
                           <p>
-                            1. Violação do art 23º CIRC, resultando na desconsideração como gastos das quantias utilizadas para realizações do foro pessoal
+                            1. Violação do art 23º CIRC, resultando na desconsideração como gastos das quantias utilizadas para realizações do foro pessoal (Viagens a Familiares, Obras na HPP, etc)
                           </p>
                           <p>
                             2. Aplicação do artigo 5º/2 alínea h) - presumir a distribuição desses rendimentos e fazer operar a tributação em sede de IRS
@@ -1375,6 +1405,9 @@ export default function Home() {
                         <p className="cristina-diff">
                           A diferença para uma aplicabilidade da CGAA é que neste caso foram violadas directamente normas fiscais
                         </p>
+                        <p className="cristina-alert-note">
+                          Terá sido inocente a não aplicação da CGAA? Haviam outras alternativas -&gt; Categoria A/B
+                        </p>
                       </div>
                     ) : null}
                     {slide.id === "joana-vasconcelos-concretizacao" ? (
@@ -1388,16 +1421,16 @@ export default function Home() {
                           Artigo 6º/1 b) - Sociedades de Profissionais
                         </p>
                         <div className="joana-checklist">
-                          <p>✅ 1 - Actividade prevista na lista</p>
-                          <p>✅ 2 - + 75% dos rendimentos provém dessa actividade</p>
-                          <p>✅ 3 - 2 Sócios (&lt;5 sócios)</p>
-                          <p>✅ 4 - +75% detido pela Requerente</p>
+                          <p>✅ Actividade prevista na lista</p>
+                          <p>✅ + 75% dos rendimentos provém dessa actividade</p>
+                          <p>✅ 2 Sócios (&lt;5 sócios)</p>
+                          <p>✅ +75% detido pela Requerente</p>
                         </div>
                         <p className="cristina-diff">
-                          Conclui-se estarem preenchidos os pressupostos de aplicação da transparência fiscal
+                          Concluiu-se estarem preenchidos os pressupostos de aplicação da transparência fiscal
                         </p>
                         <p className="joana-bottom-note">
-                          No caso Manue Luís Goucha, verificam-se todos os pressupostos da Transparência excepto a inclusão da actividade na lista de actividades sujeitas a transparência fiscal. Pode a CGAA operar como uma extensora deste regime para casos de abuso?
+                          No caso Manuel Luís Goucha, verificam-se todos os pressupostos da Transparência excepto a inclusão da actividade na lista de actividades sujeitas a transparência fiscal. Pode a CGAA operar como uma extensora deste regime para casos de abuso?
                         </p>
                       </div>
                     ) : null}
@@ -1417,14 +1450,14 @@ export default function Home() {
                         </article>
                         <article className="figuras-proximas-card figuras-proximas-card-strong">
                           <p>
-                            A receita substâncial das empresas de Fernando Santos e Manuel Luís Goucha derivava de um só contracto com uma determinada entidade, e na qual o carácter personalizante da prestação era determinante
+                            A receita substâncial das empresas de Fernando Santos e Manuel Luís Goucha derivava de um só contrato com uma determinada entidade, e na qual o carácter personalizante da prestação era determinante
                           </p>
                         </article>
                       </div>
                     ) : null}
                     {slide.id === "alteracao-cgaa" ? (
                       <div className="alteracao-cgaa">
-                        <p className="alteracao-cgaa-subtitle">provocada pela transposição da ATAD</p>
+                        <p className="alteracao-cgaa-subtitle">Provocada pela transposição da ATAD</p>
                         <div className="alteracao-cgaa-grid">
                           <article className="alteracao-cgaa-card">
                             <h3>Pré-ATAD</h3>
@@ -1523,20 +1556,20 @@ export default function Home() {
                               <div>
                                 {meioPart === 0 ? (
                                   <>
-                                <p>Argumento do Requerente: A Federação preferiu esta opção. O CAAD deu como não provado</p>
-                                <p>A Federação definiu os treinadores no contracto com a sociedade</p>
-                                <p>O contracto de direitos de imagem era intuitu personae e ligado ao selecionador Fernando Santos</p>
+                                <p>Argumento do Requerente: A Federação preferiu esta opção. O tribunal considerou irrelavante</p>
+                                <p>A Federação definiu os treinadores no contrato com a sociedade</p>
+                                <p>O contrato de direitos de imagem era intuitu personae e ligado ao selecionador Fernando Santos</p>
                                 <p>A sociedade teve 4 funcionários em 2016 e 6 em 2017, maioritariamente relações familiares/pessoais</p>
                                 <p>A sede era no domicílio familiar</p>
                                   </>
                                 ) : (
                                   <>
-                                <p>Não havia estrutura humana e material adequada; o know-how estava nas pessoas</p>
-                                <p>O CAAD rejeita o argumento de facilidade de resolução contratual</p>
-                                <p>Os subcontractos dependiam do contracto base com a Federação</p>
+                                <p>Não havia estrutura humana e material adequada; o know-how estava na própria pessoa do Selecionador</p>
+                                <p>O Tribunal rejeita o argumento de facilidade de resolução contratual</p>
+                                <p>Os subcontratos dependiam do contrato base com a Federação</p>
                                 <p>Os serviços foram prestados individualmente por Fernando Santos, sem função real da sociedade</p>
                                 <p><strong className="conclusao">Conclusão:</strong> A função tangível da sociedade foi imputar obrigações tributárias na sua esfera</p>
-                                <p><strong className="nota">NOTA:</strong> Não está em causa a artificialidade global da sociedade, mas a utilização artificiosa neste contracto</p>
+                                <p><strong className="nota">NOTA:</strong> Não está em causa a artificialidade global da sociedade, mas a utilização artificiosa neste contrato</p>
                                   </>
                                 )}
                               </div>
@@ -1549,7 +1582,7 @@ export default function Home() {
                                   Uma vantagem fiscal corresponde a uma qualquer situação pela qual, em virtude da prática de determinados actos, se obtém uma carga tributária mais favorável ao contribuinte do que aquela que resultaria da prática dos actos normais e de efeito económico equivalente, sujeitos a tributação
                                 </p>
                                 <p>
-                                  Conclui-se que a mesma prestação de serviços teria sido sujeita a uma carga tributária manifestamente mais elevada se o imposto, ao invés de ter sido apurado na esfera da Sociedade com base nas regras do IRC, tivesse sido determinado directa e pessoalmente na esfera jurídica do Requerente com base nas regras do IRS
+                                  Concluiu-se que a mesma prestação de serviços teria sido sujeita a uma carga tributária manifestamente mais elevada se o imposto, ao invés de ter sido apurado na esfera da Sociedade com base nas regras do IRC, tivesse sido determinado directa e pessoalmente na esfera jurídica do Requerente com base nas regras do IRS
                                 </p>
                                 <p>
                                   Quanto ao ano de 2016, o imposto total em IRC (determinado com base na matéria colectável apurada para a categoria B) seria de € 861.243,19, quando a colecta de IRS seria de € 1.894.919,65, o que equivale a uma vantagem fiscal de € 1.033.676,46. Relativamente ao ano de 2017, a quantia equivalente por referência ao IRC seria de € 848.478,45, e por referência ao IRS seria de € 1.860.157,50, o que corresponde a uma vantagem fiscal de € 1.011.679,05
@@ -1558,7 +1591,7 @@ export default function Home() {
                                   <strong className="conclusao">Conclusão:</strong> Tal como invocou a Requerida, através da intervenção da sociedade na prestação dos serviços à Federação, o Requerente obteve uma vantagem fiscal de € 2.045.355,51
                                 </p>
                                 <p>
-                                  <strong className='nota'>NOTA:</strong> O CAAD considera que o simples diferimento temporal de impostos é em si mesmo uma vantagem
+                                  <strong className='nota'>NOTA:</strong> O Tribunal considera que o simples diferimento temporal de impostos é em si mesmo uma vantagem
                                 </p>
                               </div>
                             </div>
@@ -1585,7 +1618,7 @@ export default function Home() {
                             <div className="private-elements-columns private-elements-single">
                               <div>
                                 <p>
-                                  Como nota o CAAD no processo n.º 131/2014-T, se se exigisse que estivesse expressamente prevista a censura na lei, a Cláusula Geral Anti-Abuso seria muito restringida
+                                  Como nota o Tribunal no processo n.º 131/2014-T, se a censura tivesse que estar prevista formalmente, a Cláusula Geral Anti-Abuso seria muito restringida
                                 </p>
                                 <p>
                                   &quot;É forçoso concluir-se que o facto do requerente ter utilizado um meio desprovido de razões económico-empresariais válidas (...) com o objectivo proeminente de obter uma vantagem fiscal, implica que o comportamento em causa é anti-jurídico e merecedor de reprovação dogmática-sistemática.&quot;
@@ -1612,9 +1645,9 @@ export default function Home() {
                             <div className="private-elements-columns private-elements-single">
                               <div>
                                 <p>O Requerente alegou que a sociedade tem substância económica e que gera resultados económicos reais que não decorrem da pessoa do legislador</p>
-                                <p>O CAAD concluiu que o que estava em causa não era a genuinidade da sociedade, mas antes a transferência para esta de direitos intuitu personae, como os direitos de imagem e voz do requerente</p>
-                                <p>Todos os serviços serem sobre a pessoa física do Requerente e os rendimentos se circunscreverem à sua actividade individual parece, tal como mencionado no voto vencido, insuficiente para demonstrar o preenchimento do elemento meio</p>
-                                <p>A linha traça-se no facto de o CAAD ter considerado a sociedade como &quot;oca&quot;, na medida em que não tinha uma estrutura material capaz da prestação de serviços. Todos os serviços necessários eram contractados a terceiros</p>
+                                <p>O Tribunal concluiu que o que estava em causa não era a genuinidade da sociedade, mas antes a transferência para esta de direitos intuitu personae, como os direitos de imagem e voz do requerente</p>
+                                <p> O próprio Tribunal demonstra que o simples facto de os serviços serem sobre a pessoa física do Requerente e os rendimentos se circunscreverem à sua actividade individual, como mencionado também no voto vencido, é insuficiente para demonstrar o preenchimento do elemento meio</p>
+                                <p>A linha traça-se no facto de o Tribunal ter considerado parte da sociedade como &quot;oca&quot;, na medida em que não tinha uma estrutura material capaz da prestação de serviços. Todos os serviços necessários eram contratados a terceiros</p>
                                 <p><strong className="conclusao">Conclusão:</strong> Se a sociedade não tem estrutura para realizar os serviços, então é desnecessária e o único motivo da sua existência é fiscal</p>
                               </div>
                             </div>
@@ -1622,7 +1655,7 @@ export default function Home() {
                           {slide.id === "manuel-luis-goucha-elementos" && privateElementStep === 1 ? (
                             <div className="private-elements-columns private-elements-single">
                               <div>
-                                <p>Se fosse tributado em IRS pagaria aproximadamente 48% de imposto. Em IRC foi pago aproximadamente 28%</p>
+                                <p>Se fosse tributado em IRS pagaria aproximadamente 48% de imposto. Em IRC foi pago aproximadamente 21%</p>
                                 <p>Apesar de estes rendimentos voltarem a ser tributados aquando da distribuição aos sócios, o Tribunal considerou que, no caso em apreço, era provável um longo diferimento dessa distribuição, uma vez que a sociedade pretendia reinvestir o dinheiro na sua actividade &quot;genuína&quot;, agrícola/pecuária</p>
                                 <p><strong className="conclusao">Conclusão:</strong> Não só o diferimento é visto como uma vantagem, como no caso em apreço se previa que os valores nunca viessem a ser distribuídos</p>
                               </div>
@@ -1632,21 +1665,25 @@ export default function Home() {
                             <div className="private-elements-columns private-elements-single">
                               <div>
                                 <p>O Tribunal considerou que &quot;O Requerente sabe que a constituição da sociedade e o seu uso para faturar os rendimentos oriundos da sua actividade (que antes obtinha a título individual) aumentou significativamente o seu rendimento líquido, e que tal decorre do pagamento de menos impostos. Vantagem com que o Recorrente, no mínimo, se conformou.&quot;</p>
-                                <p><strong className="conclusao">Conclusão:</strong> Está preenchido o Elemento Intelectual</p>
+                                <p><strong className="conclusao">Conclusão:</strong> O Tribunal considerou verificado o Elemento Intelectual</p>
                               </div>
                             </div>
                           ) : null}
                           {slide.id === "manuel-luis-goucha-elementos" && privateElementStep === 3 ? (
                             <div className="private-elements-columns private-elements-single">
                               <div>
-                                <p>Foram elididas normas de IRS ao transferir as obrigações para o âmbito do IRC. O Direito reprova esta transmissão na medida em que estes rendimentos deviam ter sido tributados a título individual</p>
+                                <p>O Tribunal considerou que foram elididas normas de IRS ao transferir as obrigações para o âmbito do IRC. O Direito reprova esta transmissão na medida em que estes rendimentos deviam ter sido tributados a título individual</p>
                               </div>
                             </div>
                           ) : null}
                           {slide.id === "manuel-luis-goucha-elementos" && privateElementStep === 4 ? (
                             <div className="private-elements-columns private-elements-single">
                               <div>
-                                <p>Levantou-se a questão de não ter a AT deduzido os impostos já pagos em IRC do valor da liquidação adicional. O Tribunal referiu que a AT provavelmente teria de acertar os valores já pagos, mas que não era competência deste tribunal pronunciar-se quanto a essa questão</p>
+                                <p>O Requerente levantou a questão de não ter a AT deduzido os impostos já pagos em IRC do valor da liquidação adicional</p>
+                                <p>O tribunal considerou que:</p>
+                                <p className="private-elements-quote">
+                                  &quot;A competência deste tribunal, em razão da matéria, esgota-se na apreciação da legalidade da liquidação (de IRS) impugnada, limitada à análise dos vícios invocados pela Requerente. As consequências desta aplicação da CGAA em matéria de IRC (uma outra questão, distinta da legalidade da liquidação de IRS) extravasam claramente o objecto deste processo em que, aliás, a sociedade B... não é parte. Este tribunal admite como provável que, em resultado da “transposição” da maioria dos rendimentos declarados pela sociedade para a esfera jurídica do Requerente, o IRC pago por aquela se mostre excessivo, que possa haver lugar à obrigação da AT de restituir o indevido, eventualmente acrescido de juros indemnizatórios. Mas – repete-se- tal não é uma questão de que este tribunal possa conhecer. A ser o caso, para fazer valer o direito à restituição do indevido que invoca, o Requerente terá ao seu dispor os meios que a lei prevê, eventualmente a ação administrativa, a ser interposta nos tribunais estaduais.&quot;
+                                </p>
                               </div>
                             </div>
                           ) : null}
@@ -1691,6 +1728,11 @@ export default function Home() {
                     ) : null}
                     {slide.conclusion ? (
                       <p className="content-slide-conclusion">{slide.conclusion}</p>
+                    ) : null}
+                    {slide.id === "estatisticas-caad" ? (
+                      <div className="litigancia-bubble" aria-hidden="true">
+                        <span>Bolha de Litigância</span>
+                      </div>
                     ) : null}
                   </div>
                 )}

@@ -412,6 +412,12 @@ body {
   display: none;
 }
 .private-elements-columns p { margin:0 0 8px; font-size: clamp(.88rem,1vw,1rem); line-height:1.35; }
+.private-elements-columns p { text-align: justify; text-justify: inter-word; }
+.private-elements-quote {
+  border-left: 3px solid rgba(31, 94, 132, 0.35);
+  padding-left: 10px;
+  color: rgba(17, 17, 17, 0.88);
+}
 .meio-full p {
   font-size: clamp(0.96rem, 1.08vw, 1.08rem);
   line-height: 1.52;
@@ -849,6 +855,8 @@ body {
   color: rgba(17, 17, 17, 0.9);
   font-size: clamp(0.9rem, 1.04vw, 1rem);
   line-height: 1.5;
+  text-align: justify;
+  text-justify: inter-word;
 }
 .alteracao-inline-note {
   margin-top: 10px !important;
@@ -891,6 +899,8 @@ body {
   color: rgba(17, 17, 17, 0.9);
   font-size: clamp(0.92rem, 1.05vw, 1rem);
   line-height: 1.42;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .cristina-question {
@@ -926,6 +936,14 @@ body {
   border-left: 3px solid #1f5e84;
   padding-left: 10px;
   font-weight: 700;
+}
+
+.cristina-alert-note {
+  margin: 2px 0 0;
+  color: #b3261e;
+  font-size: clamp(0.92rem, 1.08vw, 1.02rem);
+  font-weight: 900;
+  line-height: 1.32;
 }
 
 .joana-pill {
@@ -998,6 +1016,8 @@ body {
   color: rgba(17, 17, 17, 0.9);
   font-size: clamp(0.92rem, 1.06vw, 1rem);
   line-height: 1.45;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .figuras-proximas-card-strong {
@@ -1452,6 +1472,34 @@ body {
   max-width: 46rem;
 }
 
+.litigancia-bubble {
+  position: relative;
+  justify-self: end;
+  margin-top: 8px;
+  width: clamp(96px, 9vw, 128px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.14) 36%, rgba(210, 233, 246, 0.2) 65%, rgba(172, 212, 233, 0.28) 100%);
+  border: 1px solid rgba(31, 94, 132, 0.34);
+  box-shadow:
+    inset 0 0 22px rgba(255, 255, 255, 0.5),
+    0 10px 24px rgba(22, 53, 74, 0.14);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.litigancia-bubble span {
+  color: #1f5e84;
+  font-size: clamp(0.72rem, 0.9vw, 0.86rem);
+  font-weight: 900;
+  line-height: 1.2;
+  padding: 0 10px;
+}
+
 .content-slide-amount {
   color: #b5484d;
   font-size: clamp(2.4rem, 6vw, 6.2rem);
@@ -1702,7 +1750,9 @@ body {
   font-size: clamp(0.9rem, 1.15vw, 1.1rem);
   font-weight: 900;
   position: absolute;
-  text-transform: uppercase;
+  text-transform: none !important;
+  font-variant-caps: normal;
+  letter-spacing: 0;
   top: 18px;
   z-index: 2;
 }
@@ -1757,6 +1807,16 @@ body {
   font-size: clamp(0.92rem, 1.08vw, 1.02rem);
   font-weight: 800;
   line-height: 1.4;
+}
+
+.ppt-reflection-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.word-highlight-blue {
+  color: #1f5e84 !important;
+  font-weight: 900;
 }
 
 .content-slide-table {
@@ -2528,6 +2588,11 @@ body {
 
 .slide-dot-active {
   background: rgba(17, 17, 17, 0.74);
+}
+
+/* Force normal casing for module 7 image labels */
+.cases-visual-label {
+  text-transform: none !important;
 }
 
 @media (max-width: 760px) {

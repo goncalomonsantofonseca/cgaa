@@ -70,8 +70,8 @@ const privateElementQuestions: Record<(typeof privateElementsTabs)[number], stri
   Sancionatório: "De que forma deve ser sancionado?",
 };
 const timelineMoments = [
-  { year: "1999", text: "Versão Originária da CGAA\n\nA Cláusula Geral Anti-Abuso é introduzida em Portugal em janeiro de 1999, no artigo 32.º-A do CPPT. Esta versão nunca chegou a ser utilizada, tendo sido rapidamente substituída em julho de 1999\n\nFoi com esta atualização atualização que a CGAA passou a constar no artigo 38.º/2 LGT, ficando ali até aos dias de hoje" },
-  { year: "2000", text: "Com a Lei n.º 30-G/2000, de 29 de dezembro, a CGAA passou a assumir contornos de eficácia no sistema fiscal português, tendo finalmente capacidade para ser utilizada" },
+  { year: "1999", text: "Versão Originária da CGAA\n\nA Cláusula Geral Anti-Abuso é introduzida em Portugal em Janeiro de 1999, no artigo 32.º-A do CPPT. Esta versão nunca chegou a ser utilizada, tendo sido rapidamente substituída em julho de 1999\n\nFoi com esta atualização atualização que a CGAA passou a constar no artigo 38.º/2 LGT, ficando ali até aos dias de hoje" },
+  { year: "2000", text: "Com a Lei n.º 30-G/2000, de 29 de Dezembro, a CGAA passou a assumir contornos de eficácia no sistema fiscal português, tendo finalmente capacidade para ser utilizada" },
   { year: "2012", text: "Começa a discussão no G20 acerca da necessidade de prevenção do BEPS. Deste momento histórico surgem vários contributos: a Acção 6 do BEPS, que introduz uma Cláusula Geral Anti-Abuso ao nível da OCDE, e o desenvolvimento do Principal Purpose Test (PPT)\n\nA convenção modelo da OCDE acabou por absorver este critério" },
   { year: "2013-2015", text: "Entre os anos 2013 e 2015 houve um grande aumento de casos de CGAA em Portugal, face ao problema da transformação de sociedades por quotas em sociedades anónimas para beneficiar de regime mais favorável na transmissão" },
   { year: "2016", text: "Em 2016 a ATAD estabelece um nível mínimo de protecção contra a elisão fiscal. Na ATAD surge a CGAA inspirada nos trabalhos da OCDE, com o objectivo de ser aplicada em todos os Estados-Membros\n\nNeste momento o TJUE desempenhou um papel essencial na construção da atual CGAA Europeia" },
@@ -174,7 +174,7 @@ const slides: Slide[] = [
     kicker: "Conflitos",
     heading: "O Preço da Justiça",
     bullets: [
-      'A CGAA é o expoente máximo do abandono da lei típica e rígida que caracterizava a legislação fiscal até aos anos 90. A mudança foi motivada por razões de Segurança Jurídica. Por outro lado, serão temas de segurança jurídica que se levantarão precisamente ao deslocar, sem mecanismos de estabilidade e critérios uniformizadores concretos, o conteúdo normativo do campo da criacção do Direito para o de aplicação do Direito',
+      'A CGAA é o expoente máximo do abandono da lei típica e rígida que caracterizava a legislação fiscal até aos anos 90. A mudança foi motivada por razões de Segurança Jurídica. Por outro lado, serão precisamente temas de segurança jurídica que se levantarão precisamente ao deslocar, sem mecanismos de estabilidade e critérios uniformizadores concretos, o conteúdo normativo do campo da criação do Direito para o de aplicação do Direito',
       "Será a insegurança jurídica uma condição necessária? Ou uma jurisprudência uniformizada e robusta pode mitigar este problema?",
       "Justiça material vs. Previsibilidade",
       "A CGAA exige concretização e controlo pelos tribunais",
@@ -920,10 +920,10 @@ export default function Home() {
                       <div className="cases-visual">
                         <div className="cases-visual-image-wrap" aria-hidden="true">
                           <div className="cases-visual-label cases-visual-label-left">
-                            correcções sem recurso à CGAA
+                            Correções sem recurso à CGAA
                           </div>
                           <div className="cases-visual-label cases-visual-label-right">
-                            Correcções com recurso à CGAA
+                            Correções com recurso à CGAA
                           </div>
                           <Image
                             src="/Privados.png"
@@ -1406,7 +1406,7 @@ export default function Home() {
                           A diferença para uma aplicabilidade da CGAA é que neste caso foram violadas directamente normas fiscais
                         </p>
                         <p className="cristina-alert-note">
-                          Terá sido inocente a não aplicação da CGAA? Haviam outras alternativas -&gt; Categoria A/B
+                          Terá sido inocente a não aplicação da CGAA? Haviam outras alternativas -&gt; Categoria A/B?
                         </p>
                       </div>
                     ) : null}
@@ -1609,7 +1609,7 @@ export default function Home() {
                                   O STA, em 2022, indica no Processo n.º 02507/15.6BEBRG que basta que a AT faça prova de que a operação realizada não tem um propósito racional à luz do ordenamento jurídico mobilizado; basta, no caso, provar que a operação não se enquadra nas razões que o direito societário apresenta (...) e que, por isso, o seu propósito se esgota no aforro fiscal a que conduz
                                 </p>
                                 <p>
-                                  <strong className="conclusao">Conclusão:</strong> Da concatenação dos elementos resultado e meio conclui-se, para lá de qualquer dúvida razoável, pela proeminência da motivação fiscal sobre outros aspectos substanciais (essenciais) que pudessem ter potenciado a interposição da Sociedade nos negócios jurídicos celebrados com a Federação
+                                  <strong className="conclusao">Conclusão:</strong> Da concatenação dos elementos resultado e meio concluiu-se, para lá de qualquer dúvida razoável, pela proeminência da motivação fiscal sobre outros aspectos substanciais (essenciais) que pudessem ter potenciado a interposição da Sociedade nos negócios jurídicos celebrados com a Federação
                                 </p>
                               </div>
                             </div>

@@ -471,6 +471,8 @@ body {
 .valvula-highlight {
   display: grid;
   gap: 14px;
+  justify-items: start;
+  text-align: left;
 }
 .valvula-subtitle {
   margin: 0;
@@ -478,6 +480,9 @@ body {
   font-size: clamp(1.2rem, 1.8vw, 1.7rem);
   font-weight: 900;
   line-height: 1.2;
+  text-align: center;
+  width: 100%;
+  justify-self: center;
 }
 .valvula-alert {
   margin: 2px 0 2px;
@@ -485,10 +490,15 @@ body {
   font-size: clamp(0.96rem, 1.2vw, 1.14rem);
   font-weight: 900;
   line-height: 1.22;
+  text-align: center;
+  width: 100%;
+  justify-self: center;
 }
 .valvula-alert-points {
   display: grid;
   gap: 6px;
+  justify-items: start;
+  width: 100%;
 }
 .valvula-alert-points p {
   margin: 0;
@@ -496,6 +506,9 @@ body {
   font-size: clamp(0.9rem, 1.08vw, 1rem);
   font-weight: 700;
   line-height: 1.35;
+  text-align: justify;
+  text-justify: inter-word;
+  width: 100%;
 }
 .valvula-alert-note {
   margin: 4px 0 8px;
@@ -503,6 +516,9 @@ body {
   font-size: clamp(1.08rem, 1.42vw, 1.24rem);
   line-height: 1.42;
   font-weight: 700;
+  text-align: justify;
+  text-justify: inter-word;
+  width: 100%;
 }
 .valvula-alert-note strong {
   color: #b42318;
@@ -522,6 +538,8 @@ body {
   margin: 0;
   font-size: clamp(0.96rem, 1.1vw, 1.06rem);
   line-height: 1.45;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .rigor-visual {
@@ -1473,14 +1491,13 @@ body {
 }
 
 .litigancia-bubble {
-  position: relative;
-  justify-self: end;
-  align-self: start;
-  margin-top: 10px;
-  margin-right: 4px;
-  width: 132px;
-  min-width: 132px;
-  height: 132px;
+  position: fixed;
+  left: 66%;
+  transform: translateX(-50%);
+  bottom: max(64px, calc(env(safe-area-inset-bottom) + 54px));
+  width: min(132px, 28vw);
+  min-width: 94px;
+  height: auto;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   background:
@@ -1492,12 +1509,12 @@ body {
   display: grid;
   place-items: center;
   text-align: center;
-  z-index: 6;
+  z-index: 55;
   pointer-events: none;
 }
 
 .litigancia-bubble span {
-  color: #1f5e84;
+  color: #b3261e;
   font-size: clamp(0.72rem, 0.9vw, 0.86rem);
   font-weight: 900;
   line-height: 1.2;

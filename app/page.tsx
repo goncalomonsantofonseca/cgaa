@@ -164,7 +164,7 @@ const slides: Slide[] = [
     heading: "Autonomia vs.\n Protecção do Erário",
     bullets: [
       "Derrogação da autonomia para proteger o Estado",
-      "O conflito é entre a liberdade que deve ser conferida ao contribuinte e a necessidade de precaver situações em que a actuação do contribuinte coloca em risco os interesses do Estado",
+      "Conflito entre a liberdade do contribuinte e a necessidade de garantir as receitas do estado  e precaver situações em que a actuação do contribuinte coloca em risco os interesses do Estado (Matthew Effect) ",
     ],
     footer: sharedFooter,
   },
@@ -1004,6 +1004,7 @@ export default function Home() {
                               <span className="phenomenon-person-body" />
                             </div>
                             <span className="phenomenon-label">Individual</span>
+                            <span className="phenomenon-example">Jo Malone / Zara</span>
                           </div>
                           <div className="phenomenon-divider" aria-hidden="true" />
                           <div className="phenomenon-card">
@@ -1017,6 +1018,7 @@ export default function Home() {
                               </span>
                             </div>
                             <span className="phenomenon-label">Sociedade</span>
+                            <span className="phenomenon-example">Estée Lauder</span>
                           </div>
                         </div>
                         <p className="phenomenon-implicated">

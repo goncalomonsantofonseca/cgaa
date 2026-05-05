@@ -1567,6 +1567,15 @@ body {
   text-transform: uppercase;
 }
 
+.phenomenon-example {
+  color: rgba(17, 17, 17, 0.7);
+  font-size: clamp(0.74rem, 0.95vw, 0.86rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: -10px;
+  text-align: center;
+}
+
 .phenomenon-icon {
   align-items: center;
   display: grid;

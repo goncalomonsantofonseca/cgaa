@@ -264,7 +264,7 @@ const slides: Slide[] = [
     bullets: [
       "Critério: A estrutura deve refletir a substância económica e comercial real, não sendo puramente artificial",
       "Na versão anterior à transposição da ATAD (pré 2019) tinha de ser Fraudulenta ou Artificiosa",
-      "Acórdão do TJUE - Foggia (Processo C-126/10 - Novembro 2011) ajuda-nos a compreender que “razões económicas válidas” correspondem a construções que vão para lá da simples tentativa de obter uma vantagem fiscal. Esta doutrina do Acórdão Foggia, no entanto, não t na medida em que se exige hoje apenas que uma das finalidades principais seja a de obter uma vantagem fiscal, como veremos quanto ao elemento Intelectual.  ",
+      "Acórdão do TJUE - Foggia (Processo C-126/10 - Novembro 2011) ajuda-nos a compreender que “razões económicas válidas” correspondem a construções que vão para lá da simples tentativa de obter uma vantagem fiscal. Esta doutrina do Acórdão Foggia, no entanto, aplica a versão anterior do PPT, sendo que hoje se exige apenas que uma das finalidades principais seja a de obter uma vantagem fiscal, como veremos quanto ao elemento Intelectual.  ",
 
     ],
     footer: sharedFooter,
@@ -356,8 +356,8 @@ const slides: Slide[] = [
     bullets: [
       "CGAA - Sociedade sem substância económica",
       "Gastos não relacionados com a actividade prosseguida e actividade insuficiente para justificar a opção pela sociedade",
-      "A liberdade na prestação de serviços era limitada pelos contratos assinados com a Seleção",
-      "Sociedade como um mero veículo de contratação",
+      "A liberdade na prestação de serviços era limitada pelos contractos assinados com a Seleção",
+      "Sociedade como um mero veículo de contractação",
     ],
     footer: sharedFooter,
   },
@@ -479,17 +479,6 @@ const slides: Slide[] = [
     bullets: [
       "Estão certas actividades (como artistas e desportistas) mais propensas a ser alvo da CGAA?",
       "Onde termina o direito aos direitos de imagem e começam as razões comerciais legítimas?",
-    ],
-    footer: sharedFooter,
-  },
-  {
-    id: "futuro-inseguranca",
-    kind: "content",
-    kicker: "Por Resolver",
-    heading: "O Futuro da Insegurança",
-    bullets: [
-      'É o "mar de incerteza" evitável num sistema fiscal globalizado?',
-      "Podemos garantir a justiça sem o uso de conceitos indeterminados e uma margem de discricionariedade para os tribunais?",
     ],
     footer: sharedFooter,
   },
@@ -1227,7 +1216,7 @@ export default function Home() {
                             já tinham cláusulas anti-abuso gerais ou específicas pré-ATAD
                           </p>
                           <p className="contexto-europeu-footnote">
-                            No entanto, estas não eram suficientes para colmatar os problemas de planeamento fiscal abusivo, porque eram limitadas na sua aplicação subjetiva, porque só se aplicavam a determinados impostos, ou por não estarem harmonizadas
+                            No entanto, estas não eram suficientes para colmatar os problemas de planeamento fiscal abusivo, porque eram limitadas na sua aplicação subjectiva, por só se aplicarem a determinados impostos, ou por não estarem harmonizadas
                           </p>
                         </div>
                       </div>
@@ -1365,19 +1354,19 @@ export default function Home() {
                         </p>
                         <div className="cristina-grid">
                           <article className="cristina-point">
-                            <h4>Elemento Meio (Certo)</h4>
+                            <h4>Elemento Meio ✅</h4>
                             <p>A utilização da sociedade para gastos pessoais é uma construção não genuína</p>
                           </article>
                           <article className="cristina-point">
-                            <h4>Elemento Resultado (Certo)</h4>
+                            <h4>Elemento Resultado ✅</h4>
                             <p>Há uma vantagem fiscal, a dedutibilidade dos gastos e não distribuição</p>
                           </article>
                           <article className="cristina-point">
-                            <h4>Elemento Intelectual (Certo)</h4>
+                            <h4>Elemento Intelectual ✅</h4>
                             <p>Uma interpretação conforme a jurisprudência leva-nos a considerar que sim</p>
                           </article>
                           <article className="cristina-point">
-                            <h4>Elemento Normativo (Certo)</h4>
+                            <h4>Elemento Normativo ✅</h4>
                             <p>É um caso que a lei claramente reprova, especialmente por estar <strong>formalmente previsto</strong></p>
                           </article>
                         </div>
@@ -1426,7 +1415,7 @@ export default function Home() {
                         </article>
                         <article className="figuras-proximas-card figuras-proximas-card-strong">
                           <p>
-                            A receita substâncial das empresas de Fernando Santos e Manuel Luís Goucha derivava de um só contrato com uma determinada entidade, e na qual o carácter personalizante da prestação era determinante
+                            A receita substâncial das empresas de Fernando Santos e Manuel Luís Goucha derivava de um só contracto com uma determinada entidade, e na qual o carácter personalizante da prestação era determinante
                           </p>
                         </article>
                       </div>
@@ -1533,8 +1522,8 @@ export default function Home() {
                                 {meioPart === 0 ? (
                                   <>
                                 <p>Argumento do Requerente: A Federação preferiu esta opção. O CAAD deu como não provado</p>
-                                <p>A Federação definiu os treinadores no contrato com a sociedade</p>
-                                <p>O contrato de direitos de imagem era intuitu personae e ligado ao selecionador Fernando Santos</p>
+                                <p>A Federação definiu os treinadores no contracto com a sociedade</p>
+                                <p>O contracto de direitos de imagem era intuitu personae e ligado ao selecionador Fernando Santos</p>
                                 <p>A sociedade teve 4 funcionários em 2016 e 6 em 2017, maioritariamente relações familiares/pessoais</p>
                                 <p>A sede era no domicílio familiar</p>
                                   </>
@@ -1542,10 +1531,10 @@ export default function Home() {
                                   <>
                                 <p>Não havia estrutura humana e material adequada; o know-how estava nas pessoas</p>
                                 <p>O CAAD rejeita o argumento de facilidade de resolução contratual</p>
-                                <p>Os subcontratos dependiam do contrato base com a Federação</p>
+                                <p>Os subcontractos dependiam do contracto base com a Federação</p>
                                 <p>Os serviços foram prestados individualmente por Fernando Santos, sem função real da sociedade</p>
                                 <p><strong className="conclusao">Conclusão:</strong> A função tangível da sociedade foi imputar obrigações tributárias na sua esfera</p>
-                                <p><strong className="nota">NOTA:</strong> Não está em causa a artificialidade global da sociedade, mas a utilização artificiosa neste contrato</p>
+                                <p><strong className="nota">NOTA:</strong> Não está em causa a artificialidade global da sociedade, mas a utilização artificiosa neste contracto</p>
                                   </>
                                 )}
                               </div>
@@ -1623,7 +1612,7 @@ export default function Home() {
                                 <p>O Requerente alegou que a sociedade tem substância económica e que gera resultados económicos reais que não decorrem da pessoa do legislador</p>
                                 <p>O CAAD concluiu que o que estava em causa não era a genuinidade da sociedade, mas antes a transferência para esta de direitos intuitu personae, como os direitos de imagem e voz do requerente</p>
                                 <p>Todos os serviços serem sobre a pessoa física do Requerente e os rendimentos se circunscreverem à sua actividade individual parece, tal como mencionado no voto vencido, insuficiente para demonstrar o preenchimento do elemento meio</p>
-                                <p>A linha traça-se no facto de o CAAD ter considerado a sociedade como &quot;oca&quot;, na medida em que não tinha uma estrutura material capaz da prestação de serviços. Todos os serviços necessários eram contratados a terceiros</p>
+                                <p>A linha traça-se no facto de o CAAD ter considerado a sociedade como &quot;oca&quot;, na medida em que não tinha uma estrutura material capaz da prestação de serviços. Todos os serviços necessários eram contractados a terceiros</p>
                                 <p><strong className="conclusao">Conclusão:</strong> Se a sociedade não tem estrutura para realizar os serviços, então é desnecessária e o único motivo da sua existência é fiscal</p>
                               </div>
                             </div>

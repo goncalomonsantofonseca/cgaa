@@ -52,6 +52,15 @@ const module6ElementSlideTargets = [
   "elemento-normativo",
   "elemento-sancionatorio",
 ] as const;
+const module6ElementSubtitles: Partial<Record<string, string>> = {
+  "elemento-meio": "Forma Utilizada Pelo Constribuinte",
+  "step-transaction": "Uma Construção Pode Ser Constituída Por Mais Do Que Uma Etapa Ou Parte",
+  "teste-genuinidade": "É Artificial Se For Uma Construção \"Não Genuína\" => Ausência De Razões Económicas Válidas .",
+  "elemento-resultado": "Vantagem Fiscal Obtida",
+  "elemento-intelectual": "A Intenção Do Contribuinte",
+  "elemento-normativo": "A Contratiedade Ao Espirito Das Normas",
+  "elemento-sancionatorio": "A ATAD Dá Liberdade Aos E.M. Para Definirem Um Elemento Sancionatório",
+};
 const privateElementsTabs = ["Meio", "Resultado", "Intelectual", "Normativo", "Sancionatório"] as const;
 const privateElementQuestions: Record<(typeof privateElementsTabs)[number], string> = {
   Meio: "Foi usado um meio artificioso?",
@@ -178,7 +187,7 @@ const slides: Slide[] = [
     kicker: "Princípios",
     heading: 'O "Homo Economicus"',
     bullets: [
-      "A procura legítima pela via menos onerosa",
+      "MAIS CUSTOS DE TRANSPORTE E MENOS IMPOSTO, OU MENOS CUSTOS DE TRANSPORTE E MAIS IMPOSTO. O QUE DEVE O HOMO ECONOMICUS ESCOLHER?",
       `Citação: "O contribuinte agindo como um 'homo economicus' que procura maximizar os seus proveitos vai estar permanentemente atento às consequências fiscais e económicas dos seus negócios" [cite: 1, p. 9]`,
     ],
     footer: sharedFooter,
@@ -192,14 +201,20 @@ const slides: Slide[] = [
     footer: sharedFooter,
   },
   {
+    id: "contexto-europeu-mapa",
+    kind: "content",
+    kicker: "Princípios",
+    heading: "O contexto Europeu",
+    bullets: [],
+    footer: sharedFooter,
+  },
+  {
     id: "valvula-seguranca",
     kind: "content",
     kicker: "Princípios",
     heading: 'A "Válvula de Segurança"',
     bullets: [
-      "Será necessária uma Cláusula Geral?",
-      "Problema: Os mecanismos de elisão fiscal são de desenvolvimento mais rápido que o processo legislativo que os visa combater",
-      "Combater a elisão onde a lei específica falha: A CGAA permite ao Estado reagir a montagens artificiais que frustram o espírito da lei, mesmo que respeitem formalmente a sua letra",
+      "THERE IS NO WAY BACK",
     ],
     footer: sharedFooter,
   },
@@ -212,12 +227,19 @@ const slides: Slide[] = [
     footer: sharedFooter,
   },
   {
+    id: "alteracao-cgaa",
+    kind: "content",
+    kicker: "Requisitos e Procedimento",
+    heading: "Alteração da CGAA",
+    bullets: [],
+    footer: sharedFooter,
+  },
+  {
     id: "elemento-meio",
     kind: "content",
     kicker: "Os 5 Elementos",
     heading: "Elemento 1: Meio",
     bullets: [
-      "O Elemento Meio é a forma utilizada pelo constribuinte",
       "São as Construções ou séries de construções realizadas com abuso das formas jurídicas ou que não sejam consideradas genuinas",
       "A escolha de uma via anómala ou supérflua para alcançar o resultado económico",
       'Antes da transposição da ATAD exigia-se que fossem praticados "atos ou negócios jurídicos” em vez de “construção”, a redação atual é mais ampla e abrange qualquer tipo de comportamento por parte do contribuinte.',
@@ -231,7 +253,6 @@ const slides: Slide[] = [
     heading: "Step Transaction Doctrine",
     bullets: [
       "Artigo 38º/3 b) LGT - Análise de várias etapas coordenadas temporalmente",
-      "Uma construção pode ser constituída por mais do que uma etapa ou parte",
       "Conexão de atos para obter uma vantagem que não seria alcançada numa transação única",
     ],
     footer: sharedFooter,
@@ -242,9 +263,7 @@ const slides: Slide[] = [
     kicker: "Os 5 Elementos",
     heading: "O Teste da Genuinidade",
     bullets: [
-      "Ausência de razões económicas válidas",
       "Critério: A estrutura deve refletir a substância económica e comercial real, não sendo puramente artificial",
-      'Será artificial se for uma construção "não genuína".',
       "Na versão anterior tinha de ser Fraudulenta ou Artificiosa",
       "Acordão do TJUE - Foggia ajuda-nos a compreender que “razões económicas válidas” correspondem a construções que vão para lá da simples tentativa de obter uma vantagem fiscal. Esta doutrina do acórdão foggia, no entanto, já está desatualizada na medida em que se exige hoje apenas que uma das finalidades principais seja a de obter uma vantagem fiscal, como veremos quanto ao elemento Intelectual.  ",
 
@@ -257,7 +276,6 @@ const slides: Slide[] = [
     kicker: "Os 5 Elementos",
     heading: "Elemento 2: Resultado",
     bullets: [
-      "O Elemento Resultado é a vantagem fiscal obtida",
       "Tem de ser uma vantagem fiscal indevida (redução, eliminação ou diferimento) que frustre o objeto ou a finalidade do direito fiscal aplicável",
       "A elisão fiscal decorre imediatamente disto, na medida em que consiste na prática de comportamentos não desejados pelo legislador no espírito das suas normas",
       "Com a transposição da ATAD, o Elemento Resultado, já não encontra tantas limitações como antes"
@@ -270,10 +288,10 @@ const slides: Slide[] = [
     kicker: "Os 5 Elementos",
     heading: "Elemento 3: Intelectual (PPT)",
     bullets: [
-      'Lei após ATAD: "Uma das finalidades principais" de obter vantagem fiscal. Adota o PPT desenvolvido pela OCDE',
-      "Mudança para um cariz mais abrangente em relação à versão anterior, onde a vantagem tinha de ser o objetivo principal",
+      'Com a transposição da ATAD, adota-se o critério de PPT desenvolvido pela OCDE: Basta que "Uma das finalidades principais" seja obter a vantagem fiscal.',
+      "É um critério mais abrangente em relação à versão anterior, onde a vantagem tinha de ser o objetivo ou finalidade principais",
       "Esta nova formulação está muito orientada por uma preocupação global de combater a elisão fiscal e pelo reconhecimento de que não estender o âmbito de aplicação da CGAA poderia levar a uma aplicação muito mitigada deste instituto",
-      "No entanto, é um dado lógico e adquirido por qualquer país que entre duas opções igualmente custosas para o SP ele escolherá aquela que tenha uma vantagem fiscal, sendo até essa mesma a intenção do legislador muitas vezes. Por esse motivo todos estes elementos têm de ser considerados em conjunto",
+      "Uma interpretação extensiva deste critério pode levar a uma aplicação discricionária da CGAA. Por esse motivo todos estes elementos devem ser considerados em conjunto",
     ],
     footer: sharedFooter,
   },
@@ -283,9 +301,8 @@ const slides: Slide[] = [
     kicker: "Os 5 Elementos",
     heading: 'A "Prova Diabólica"',
     bullets: [
-      "O Elemento Intelectual é a intenção do contribuinte",
-      "É muito difícil de provar a intenção subjetiva do contribuinte",
-      "Há o risco de a norma abranger decisões lícitas de gestão tomadas com eficiência fiscal em mente",
+      'Podemos estar petante uma "Prova Diabólica", pelo exercício de uma análise e juízo de probabilidade da vontade do contribuinte que, por vezes, se poderá configurar um exercício impossível',
+      "Entendimento do STA: Basta que a AT faça prova de que a operação realizada não tem um propósito racional à luz do ordenamento jurídico mobilizado (...), [que] o seu propósito se esgota no aforro fiscal a que conduz",
     ],
     footer: sharedFooter,
   },
@@ -308,7 +325,6 @@ const slides: Slide[] = [
     kicker: "Os 5 Elementos",
     heading: "Elemento 5: Sancionatório",
     bullets: [
-      "A ATAD dá liberdade aos EM para definirem um elemento sancionatório",
       "O Elemento Sancionatório está estabelecido na estatuição da norma e apenas se verificará se os elementos anteriores estiverem todos preenchidos",
       "O Efeito normal é a ineficácia tributária dos atos e negócios. Ou seja, a desconsideração da construção, consequente ineficácia da mesma",
       'A isto segue-se a Reconstrução: Tributação de acordo com os negócios ou atos ("construção") que correspondam à substância económica real.',
@@ -868,6 +884,10 @@ export default function Home() {
                   privateClientCardImage
                     ? "content-slide-layout-private-client"
                     : ""
+                } ${
+                  slide.id === "contexto-europeu"
+                    ? "content-slide-layout-context-tight"
+                    : ""
                 }`}
               >
                 {slide.kind === "module" ? (
@@ -1002,7 +1022,7 @@ export default function Home() {
                     {isHomoEconomicusSlide ? (
                       <div className="homo-slide">
                         <p className="homo-slide-subtitle">
-                          A procura legitima pela via menos onerosa
+                          MAIS CUSTOS DE TRANSPORTE E MENOS IMPOSTO, OU MENOS CUSTOS DE TRANSPORTE E MAIS IMPOSTO. O QUE DEVE O HOMO ECONOMICUS ESCOLHER?
                         </p>
                         <div className="homo-slide-image-wrap">
                           <Image
@@ -1016,8 +1036,7 @@ export default function Home() {
                         </div>
                         <p className="homo-slide-quote">
                           O contribuinte agindo como um &apos;homo economicus&apos;
-                          que procura maximizar os seus proveitos vai estar
-                          permanentemente atento às consequências fiscais e
+                          deve estar permanentemente atento às consequências fiscais e
                           económicas dos seus negócios
                         </p>
                       </div>
@@ -1124,7 +1143,18 @@ export default function Home() {
                     {slide.id === "valvula-seguranca" ? (
                       <div className="valvula-highlight">
                         <p className="valvula-subtitle">
-                          Será necessária uma Cláusula Geral?
+                          THERE IS NO WAY BACK
+                        </p>
+                        <p className="valvula-alert">
+                          O que é que significa uma harmonização da CGAA?
+                        </p>
+                        <div className="valvula-alert-points">
+                          <p>→ Todos os EM têm de ter uma CGAA formal</p>
+                          <p>→ Todos os EM têm de cumprir os requisitos mínimos estabelecidos na Diretiva</p>
+                          <p>→ Todos os EM estão sujeitos a uma interpretação conforme ao Direito Europeu</p>
+                        </div>
+                        <p className="valvula-alert-note">
+                          <strong>NOTA:</strong> Diferentes interpretações da cláusula por diferentes EM pode levar a discriminações. O papel do TJUE é determinante na fixação de sentido a dar à norma
                         </p>
                         <div className="valvula-cards" role="list">
                           {slide.bullets?.slice(1).map((bullet) => (
@@ -1150,7 +1180,7 @@ export default function Home() {
                       </div>
                     ) : null}
                     {slide.id === "contexto-europeu" ? (
-                      <div className="contexto-europeu">
+                      <div className="contexto-europeu contexto-europeu-left-only contexto-europeu-tight">
                         <div className="contexto-europeu-left">
                           <p>
                             <strong>26/28 E.M.</strong>
@@ -1158,10 +1188,15 @@ export default function Home() {
                             já tinham cláusulas anti-abuso gerais ou específicas pré-ATAD
                           </p>
                           <p className="contexto-europeu-footnote">
-                            No entanto, estas não eram suficientes para colmatar os problemas de planeamento fiscal abusivo, ou porque eram limitadas na sua aplicação subjetiva, ou porque só se aplicavam a determinados casos, ou por não estarem harmonizadas
+                            No entanto, estas não eram suficientes para colmatar os problemas de planeamento fiscal abusivo, porque eram limitadas na sua aplicação subjetiva, porque só se aplicavam a determinados impostos, ou por não estarem harmonizadas
                           </p>
                         </div>
+                      </div>
+                    ) : null}
+                    {slide.id === "contexto-europeu-mapa" ? (
+                      <div className="contexto-europeu">
                         <div className="contexto-europeu-right">
+                          <p className="contexto-europeu-subtitle">Pré-ATAD</p>
                           <div className="venn-eu">
                             <div className="venn-circle venn-circle-a">
                               <p>CGAA não formais</p>
@@ -1217,6 +1252,7 @@ export default function Home() {
                     slide.id !== "valvula-seguranca" &&
                     slide.id !== "garantias-contribuinte" &&
                     slide.id !== "contexto-europeu" &&
+                    slide.id !== "contexto-europeu-mapa" &&
                     slide.id !== "rigor-juizes" &&
                     !isFinalQuestionsSlide &&
                     !isAutonomiaPrivadaSlide &&
@@ -1224,11 +1260,18 @@ export default function Home() {
                     !isHomoEconomicusSlide &&
                     slide.id !== "choque-financeiro" &&
                     !isImpactCaseSlide ? (
-                      <ul className="content-slide-list">
-                        {slide.bullets.map((bullet) => (
-                          <li key={bullet}>{bullet}</li>
-                        ))}
-                      </ul>
+                      <>
+                        {module6ElementSubtitles[slide.id] ? (
+                          <p className="module6-element-subtitle-box">
+                            {module6ElementSubtitles[slide.id]}
+                          </p>
+                        ) : null}
+                        <ul className="content-slide-list">
+                          {slide.bullets.map((bullet) => (
+                            <li key={bullet}>{bullet}</li>
+                          ))}
+                        </ul>
+                      </>
                     ) : null}
                     {isAutonomiaProtecaoSlide ? (
                       <div className="correlation-board">
@@ -1256,6 +1299,28 @@ export default function Home() {
                           <p>Receita</p>
                           <div className="corr-bar corr-bar-seguranca"><span style={{height:`${100 - liberdadeLevel}%`}}/></div>
                         </div>
+                      </div>
+                    ) : null}
+                    {slide.id === "alteracao-cgaa" ? (
+                      <div className="alteracao-cgaa">
+                        <p className="alteracao-cgaa-subtitle">provocada pela transposição da ATAD</p>
+                        <div className="alteracao-cgaa-grid">
+                          <article className="alteracao-cgaa-card">
+                            <h3>Pré ATAD</h3>
+                            <p>
+                              2 - São ineficazes no âmbito tributário os <span className="alteracao-removed">actos ou negócios jurídicos essencial ou principalmente dirigidos</span>, por <span className="alteracao-removed">meios artificiosos ou fraudulentos e com abuso das formas jurídicas</span>, à redução, eliminação ou diferimento temporal de impostos que seriam devidos em resultado de factos, actos ou negócios jurídicos de idêntico fim económico, ou à obtenção de vantagens fiscais que não seriam alcançadas, total ou parcialmente, sem utilização desses meios, efectuando-se então a tributação de acordo com as normas aplicáveis na sua ausência e não se produzindo as vantagens fiscais referidas
+                            </p>
+                          </article>
+                          <article className="alteracao-cgaa-card">
+                            <h3>Pós ATAD</h3>
+                            <p>
+                              2 - <span className="alteracao-added">As construções ou séries de construções</span> que, tendo sido realizadas com a finalidade principal ou <span className="alteracao-added">uma das finalidades principais</span> de obter uma vantagem fiscal que frustre o objeto ou a finalidade do direito fiscal aplicável, sejam realizadas com abuso das formas jurídicas <span className="alteracao-added">ou não sejam consideradas genuínas</span>, tendo em conta todos os factos e circunstâncias relevantes, são desconsideradas para efeitos tributários, efetuando-se a tributação de acordo com as normas aplicáveis aos negócios ou atos que correspondam à substância ou realidade económica e não se produzindo as vantagens fiscais pretendidas
+                            </p>
+                          </article>
+                        </div>
+                        <p className="alteracao-cgaa-footer-note">
+                          Esta alteração extendeu o âmbito de aplicação da CGAA
+                        </p>
                       </div>
                     ) : null}
                     {isTimelineSlide ? (

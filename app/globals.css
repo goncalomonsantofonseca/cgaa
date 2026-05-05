@@ -564,7 +564,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  min-height: 280px;
+  min-height: 380px;
   position: relative;
 }
 .contexto-europeu-left,
@@ -591,13 +591,13 @@ body {
 .contexto-europeu-left p {
   margin: 0;
   color: #1f5e84;
-  font-size: clamp(1.28rem, 1.95vw, 1.9rem);
+  font-size: clamp(1.62rem, 2.7vw, 2.6rem);
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.2;
 }
 .contexto-europeu-left p strong {
   display: inline-block;
-  font-size: clamp(2.35rem, 3.5vw, 3.4rem);
+  font-size: clamp(3rem, 4.9vw, 4.8rem);
   font-weight: 950;
   line-height: 1;
   color: #143f5c;
@@ -606,9 +606,9 @@ body {
 .contexto-europeu-footnote {
   margin: 12px 0 0;
   color: rgba(17, 17, 17, 0.68) !important;
-  font-size: clamp(0.82rem, 1.02vw, 0.98rem) !important;
+  font-size: clamp(1rem, 1.35vw, 1.28rem) !important;
   font-weight: 500 !important;
-  line-height: 1.32 !important;
+  line-height: 1.35 !important;
 }
 .contexto-europeu-right {
   position: relative;
@@ -616,16 +616,18 @@ body {
 }
 .venn-eu {
   position: relative;
-  width: 100%;
-  height: 320px;
+  width: 680px;
+  max-width: 100%;
+  height: 420px;
+  margin-inline: auto;
 }
 .venn-circle {
   position: absolute;
-  width: 210px;
-  height: 210px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
   border: 1px solid rgba(17, 17, 17, 0.22);
-  background: transparent;
+  background: rgba(31, 94, 132, 0.08);
   display: grid;
   align-content: center;
   justify-items: center;
@@ -634,23 +636,40 @@ body {
 }
 .venn-circle p {
   margin: 0 0 8px;
-  font-size: 0.8rem;
+  font-size: 1.06rem;
   font-weight: 800;
 }
 .venn-circle span {
-  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Twemoji Mozilla", sans-serif;
   font-size: 1.12rem;
   line-height: 1.45;
   letter-spacing: 0.02em;
 }
+.venn-flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+}
+.venn-flags img {
+  border-radius: 3px;
+  object-fit: cover;
+}
 .venn-circle-a { left: 0; top: 58px; }
-.venn-circle-b { left: 170px; top: 20px; }
-.venn-circle-c { left: 340px; top: 58px; }
+.venn-circle-b { left: 210px; top: 18px; }
+.venn-circle-c { left: 420px; top: 58px; }
 .venn-note {
   margin: 10px 0 0;
-  font-size: 0.8rem;
+  font-size: 1.06rem;
   color: rgba(17,17,17,.78);
   text-align: center;
+  width: 680px;
+  max-width: 100%;
+  margin-inline: auto;
+}
+.venn-flags img {
+  width: 28px !important;
+  height: 28px !important;
 }
 
 .final-questions {

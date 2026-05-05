@@ -1165,15 +1165,38 @@ export default function Home() {
                           <div className="venn-eu">
                             <div className="venn-circle venn-circle-a">
                               <p>CGAA não formais</p>
-                              <span>🇩🇰 🇳🇱 🇵🇱</span>
+                              <span className="venn-flags">
+                                <Image src="/denmark.png" alt="Dinamarca" width={22} height={22} />
+                                <Image src="/netherlands.png" alt="Holanda" width={22} height={22} />
+                                <Image src="/poland.png" alt="Polónia" width={22} height={22} />
+                              </span>
                             </div>
                             <div className="venn-circle venn-circle-b">
                               <p>CGAA formais</p>
-                              <span>🇫🇷 🇪🇸 🇷🇴 🇦🇹 🇵🇹 🇧🇪 🇩🇪 🇸🇰 🇫🇮 🇮🇹 🇸🇪 🇮🇪 🇬🇧</span>
+                              <span className="venn-flags">
+                                <Image src="/france.png" alt="França" width={20} height={20} />
+                                <Image src="/spain.png" alt="Espanha" width={20} height={20} />
+                                <Image src="/romania.png" alt="Roménia" width={20} height={20} />
+                                <Image src="/austria.png" alt="Áustria" width={20} height={20} />
+                                <Image src="/portugal.png" alt="Portugal" width={20} height={20} />
+                                <Image src="/belgium.png" alt="Bélgica" width={20} height={20} />
+                                <Image src="/germany.png" alt="Alemanha" width={20} height={20} />
+                                <Image src="/slovakia.png" alt="Eslováquia" width={20} height={20} />
+                                <Image src="/finland.png" alt="Finlândia" width={20} height={20} />
+                                <Image src="/italy.png" alt="Itália" width={20} height={20} />
+                                <Image src="/sweden.png" alt="Suécia" width={20} height={20} />
+                                <Image src="/ireland.png" alt="Irlanda" width={20} height={20} />
+                                <Image src="/united-kingdom.png" alt="Reino Unido" width={20} height={20} />
+                              </span>
                             </div>
                             <div className="venn-circle venn-circle-c">
                               <p>Princípios anti-abuso codificados</p>
-                              <span>🇭🇷 🇨🇿 🇭🇺 🇸🇮</span>
+                              <span className="venn-flags">
+                                <Image src="/croatia.png" alt="Croácia" width={22} height={22} />
+                                <Image src="/czech-republic.png" alt="Chéquia" width={22} height={22} />
+                                <Image src="/hungary.png" alt="Hungria" width={22} height={22} />
+                                <Image src="/slovenia.png" alt="Eslovénia" width={22} height={22} />
+                              </span>
                             </div>
                           </div>
                           <p className="venn-note">Outros Países: casos com princípios não codificados</p>

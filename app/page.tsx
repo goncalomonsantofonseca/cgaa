@@ -70,11 +70,11 @@ const privateElementQuestions: Record<(typeof privateElementsTabs)[number], stri
   Sancionatório: "De que forma deve ser sancionado?",
 };
 const timelineMoments = [
-  { year: "1999", text: "Versão Originária da CGAA.\n\nA Cláusula Geral Anti-Abuso é introduzida em Portugal em janeiro de 1999, no artigo 32.º-A do CPPT. Esta versão nunca chegou a ser utilizada, tendo sido rapidamente substituída em julho de 1999\n\nFoi com esta atualização atualização que a CGAA passou a constar no artigo 38.º/2 LGT, ficando ali até aos dias de hoje" },
+  { year: "1999", text: "Versão Originária da CGAA\n\nA Cláusula Geral Anti-Abuso é introduzida em Portugal em janeiro de 1999, no artigo 32.º-A do CPPT. Esta versão nunca chegou a ser utilizada, tendo sido rapidamente substituída em julho de 1999\n\nFoi com esta atualização atualização que a CGAA passou a constar no artigo 38.º/2 LGT, ficando ali até aos dias de hoje" },
   { year: "2000", text: "Com a Lei n.º 30-G/2000, de 29 de dezembro, a CGAA passou a assumir contornos de eficácia no sistema fiscal português, tendo finalmente capacidade para ser utilizada" },
-  { year: "2012", text: "Começa a discussão no G20 acerca da necessidade de prevenção do BEPS. Deste momento histórico surgem vários contributos: a Ação 6 do BEPS, que introduz uma Cláusula Geral Anti-Abuso ao nível da OCDE, e o desenvolvimento do Principal Purpose Test (PPT).\n\nA convenção modelo da OCDE acabou por absorver este critério" },
+  { year: "2012", text: "Começa a discussão no G20 acerca da necessidade de prevenção do BEPS. Deste momento histórico surgem vários contributos: a Ação 6 do BEPS, que introduz uma Cláusula Geral Anti-Abuso ao nível da OCDE, e o desenvolvimento do Principal Purpose Test (PPT)\n\nA convenção modelo da OCDE acabou por absorver este critério" },
   { year: "2013-2015", text: "Entre os anos 2013 e 2015 houve um grande aumento de casos de CGAA em Portugal, face ao problema da transformação de sociedades por quotas em sociedades anónimas para beneficiar de regime mais favorável na transmissão" },
-  { year: "2016", text: "Em 2016 a ATAD estabelece um nível mínimo de proteção contra a elisão fiscal. Na ATAD surge a CGAA inspirada nos trabalhos da OCDE, com o objectivo de ser aplicada em todos os Estados-Membros.\n\nNeste momento o TJUE desempenhou um papel essencial na construção da atual CGAA Europeia" },
+  { year: "2016", text: "Em 2016 a ATAD estabelece um nível mínimo de proteção contra a elisão fiscal. Na ATAD surge a CGAA inspirada nos trabalhos da OCDE, com o objectivo de ser aplicada em todos os Estados-Membros\n\nNeste momento o TJUE desempenhou um papel essencial na construção da atual CGAA Europeia" },
   { year: "2019", text: "A transposição da ATAD para a legislação portuguesa fez surgir alterações que resultaram numa abrangência maior da cláusula, com menos requisitos para preencher os vários elementos" },
 ];
 const timelineYears = ["1999", "2000", "2012", "2013-2015", "2016", "2019"] as const;
@@ -1460,7 +1460,7 @@ export default function Home() {
                           </div>
                           {timelineIndex === 0 ? (
                             <>
-                              <p className="timeline-subtitle">Versão Originária da CGAA.</p>
+                              <p className="timeline-subtitle">Versão Originária da CGAA</p>
                               <p className="timeline-text">
                                 {timelineMoments[timelineIndex].text.replace("Versão Originária da CGAA.\n\n", "")}
                               </p>
@@ -1529,20 +1529,20 @@ export default function Home() {
                               <div>
                                 {meioPart === 0 ? (
                                   <>
-                                <p>Argumento do Requerente: A Federação preferiu esta opção. O CAAD deu como não provado.</p>
-                                <p>A Federação definiu os treinadores no contrato com a sociedade.</p>
-                                <p>O contrato de direitos de imagem era intuitu personae e ligado ao selecionador Fernando Santos.</p>
-                                <p>A sociedade teve 4 funcionários em 2016 e 6 em 2017, maioritariamente relações familiares/pessoais.</p>
-                                <p>A sede era no domicílio familiar.</p>
+                                <p>Argumento do Requerente: A Federação preferiu esta opção. O CAAD deu como não provado</p>
+                                <p>A Federação definiu os treinadores no contrato com a sociedade</p>
+                                <p>O contrato de direitos de imagem era intuitu personae e ligado ao selecionador Fernando Santos</p>
+                                <p>A sociedade teve 4 funcionários em 2016 e 6 em 2017, maioritariamente relações familiares/pessoais</p>
+                                <p>A sede era no domicílio familiar</p>
                                   </>
                                 ) : (
                                   <>
-                                <p>Não havia estrutura humana e material adequada; o know-how estava nas pessoas.</p>
-                                <p>O CAAD rejeita o argumento de facilidade de resolução contratual.</p>
-                                <p>Os subcontratos dependiam do contrato base com a Federação.</p>
-                                <p>Os serviços foram prestados individualmente por Fernando Santos, sem função real da sociedade.</p>
-                                <p><strong className="conclusao">Conclusão:</strong> A função tangível da sociedade foi imputar obrigações tributárias na sua esfera.</p>
-                                <p><strong className="nota">NOTA:</strong> Não está em causa a artificialidade global da sociedade, mas a utilização artificiosa neste contrato.</p>
+                                <p>Não havia estrutura humana e material adequada; o know-how estava nas pessoas</p>
+                                <p>O CAAD rejeita o argumento de facilidade de resolução contratual</p>
+                                <p>Os subcontratos dependiam do contrato base com a Federação</p>
+                                <p>Os serviços foram prestados individualmente por Fernando Santos, sem função real da sociedade</p>
+                                <p><strong className="conclusao">Conclusão:</strong> A função tangível da sociedade foi imputar obrigações tributárias na sua esfera</p>
+                                <p><strong className="nota">NOTA:</strong> Não está em causa a artificialidade global da sociedade, mas a utilização artificiosa neste contrato</p>
                                   </>
                                 )}
                               </div>
@@ -1617,20 +1617,20 @@ export default function Home() {
                           {slide.id === "manuel-luis-goucha-elementos" && privateElementStep === 0 ? (
                             <div className="private-elements-columns private-elements-single">
                               <div>
-                                <p>O Requerente alegou que a sociedade tem substância económica e que gera resultados económicos reais que não decorrem da pessoa do legislador.</p>
-                                <p>O CAAD concluiu que o que estava em causa não era a genuinidade da sociedade, mas antes a transferência para esta de direitos intuitu personae, como os direitos de imagem e voz do requerente.</p>
-                                <p>Todos os serviços serem sobre a pessoa física do Requerente e os rendimentos se circunscreverem à sua actividade individual parece, tal como mencionado no voto vencido, insuficiente para demonstrar o preenchimento do elemento meio.</p>
-                                <p>A linha traça-se no facto de o CAAD ter considerado a sociedade como &quot;oca&quot;, na medida em que não tinha uma estrutura material capaz da prestação de serviços. Todos os serviços necessários eram contratados a terceiros.</p>
-                                <p><strong className="conclusao">Conclusão:</strong> Se a sociedade não tem estrutura para realizar os serviços, então é desnecessária e o único motivo da sua existência é fiscal.</p>
+                                <p>O Requerente alegou que a sociedade tem substância económica e que gera resultados económicos reais que não decorrem da pessoa do legislador</p>
+                                <p>O CAAD concluiu que o que estava em causa não era a genuinidade da sociedade, mas antes a transferência para esta de direitos intuitu personae, como os direitos de imagem e voz do requerente</p>
+                                <p>Todos os serviços serem sobre a pessoa física do Requerente e os rendimentos se circunscreverem à sua actividade individual parece, tal como mencionado no voto vencido, insuficiente para demonstrar o preenchimento do elemento meio</p>
+                                <p>A linha traça-se no facto de o CAAD ter considerado a sociedade como &quot;oca&quot;, na medida em que não tinha uma estrutura material capaz da prestação de serviços. Todos os serviços necessários eram contratados a terceiros</p>
+                                <p><strong className="conclusao">Conclusão:</strong> Se a sociedade não tem estrutura para realizar os serviços, então é desnecessária e o único motivo da sua existência é fiscal</p>
                               </div>
                             </div>
                           ) : null}
                           {slide.id === "manuel-luis-goucha-elementos" && privateElementStep === 1 ? (
                             <div className="private-elements-columns private-elements-single">
                               <div>
-                                <p>Se fosse tributado em IRS pagaria aproximadamente 48% de imposto. Em IRC foi pago aproximadamente 28%.</p>
-                                <p>Apesar de estes rendimentos voltarem a ser tributados aquando da distribuição aos sócios, o Tribunal considerou que, no caso em apreço, era provável um longo diferimento dessa distribuição, uma vez que a sociedade pretendia reinvestir o dinheiro na sua actividade &quot;genuína&quot;, agrícola/pecuária.</p>
-                                <p><strong className="conclusao">Conclusão:</strong> Não só o diferimento é visto como uma vantagem, como no caso em apreço se previa que os valores nunca viessem a ser distribuídos.</p>
+                                <p>Se fosse tributado em IRS pagaria aproximadamente 48% de imposto. Em IRC foi pago aproximadamente 28%</p>
+                                <p>Apesar de estes rendimentos voltarem a ser tributados aquando da distribuição aos sócios, o Tribunal considerou que, no caso em apreço, era provável um longo diferimento dessa distribuição, uma vez que a sociedade pretendia reinvestir o dinheiro na sua actividade &quot;genuína&quot;, agrícola/pecuária</p>
+                                <p><strong className="conclusao">Conclusão:</strong> Não só o diferimento é visto como uma vantagem, como no caso em apreço se previa que os valores nunca viessem a ser distribuídos</p>
                               </div>
                             </div>
                           ) : null}
@@ -1638,21 +1638,21 @@ export default function Home() {
                             <div className="private-elements-columns private-elements-single">
                               <div>
                                 <p>O Tribunal considerou que &quot;O Requerente sabe que a constituição da sociedade e o seu uso para faturar os rendimentos oriundos da sua actividade (que antes obtinha a título individual) aumentou significativamente o seu rendimento líquido, e que tal decorre do pagamento de menos impostos. Vantagem com que o Recorrente, no mínimo, se conformou.&quot;</p>
-                                <p><strong className="conclusao">Conclusão:</strong> Está preenchido o Elemento Intelectual.</p>
+                                <p><strong className="conclusao">Conclusão:</strong> Está preenchido o Elemento Intelectual</p>
                               </div>
                             </div>
                           ) : null}
                           {slide.id === "manuel-luis-goucha-elementos" && privateElementStep === 3 ? (
                             <div className="private-elements-columns private-elements-single">
                               <div>
-                                <p>Foram elididas normas de IRS ao transferir as obrigações para o âmbito do IRC. O Direito reprova esta transmissão na medida em que estes rendimentos deviam ter sido tributados a título individual.</p>
+                                <p>Foram elididas normas de IRS ao transferir as obrigações para o âmbito do IRC. O Direito reprova esta transmissão na medida em que estes rendimentos deviam ter sido tributados a título individual</p>
                               </div>
                             </div>
                           ) : null}
                           {slide.id === "manuel-luis-goucha-elementos" && privateElementStep === 4 ? (
                             <div className="private-elements-columns private-elements-single">
                               <div>
-                                <p>Levantou-se a questão de não ter a AT deduzido os impostos já pagos em IRC do valor da liquidação adicional. O Tribunal referiu que a AT provavelmente teria de acertar os valores já pagos, mas que não era competência deste tribunal pronunciar-se quanto a essa questão.</p>
+                                <p>Levantou-se a questão de não ter a AT deduzido os impostos já pagos em IRC do valor da liquidação adicional. O Tribunal referiu que a AT provavelmente teria de acertar os valores já pagos, mas que não era competência deste tribunal pronunciar-se quanto a essa questão</p>
                               </div>
                             </div>
                           ) : null}

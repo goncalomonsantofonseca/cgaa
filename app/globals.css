@@ -304,6 +304,68 @@ body {
 }
 @keyframes fadeInTimeline { from {opacity:.35; transform: translateY(4px);} to {opacity:1; transform:none;} }
 
+.timeline-progress {
+  margin-top: 6px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(56px, 1fr));
+  gap: 8px;
+  align-items: end;
+  position: relative;
+}
+.timeline-progress-fixed {
+  margin-top: 12px;
+}
+.timeline-progress-line {
+  position: absolute;
+  left: 8.33%;
+  right: 8.33%;
+  top: 4px;
+  height: 2px;
+  background: rgba(31, 94, 132, 0.2);
+  border-radius: 999px;
+  z-index: 0;
+}
+.timeline-progress-line-active {
+  display: block;
+  height: 100%;
+  background: rgba(31, 94, 132, 0.9);
+  border-radius: 999px;
+  transition: width 280ms ease;
+}
+.timeline-progress-item {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  opacity: 0.3;
+  transition: opacity 260ms ease;
+  position: relative;
+  z-index: 1;
+}
+.timeline-progress-item.is-active {
+  opacity: 1;
+}
+.timeline-progress-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(31, 94, 132, 0.35);
+  box-shadow: 0 0 0 2px rgba(31, 94, 132, 0.12);
+}
+.timeline-progress-item.is-active .timeline-progress-dot {
+  background: rgba(31, 94, 132, 0.95);
+  box-shadow: 0 0 0 4px rgba(31, 94, 132, 0.2);
+}
+.timeline-progress-year {
+  font-size: clamp(0.64rem, 0.8vw, 0.82rem);
+  font-weight: 800;
+  color: rgba(17, 17, 17, 0.72);
+  white-space: nowrap;
+  text-align: center;
+}
+.timeline-progress-item.is-active .timeline-progress-year {
+  color: rgba(17, 17, 17, 0.95);
+}
+
 .justice-scale {
   position: relative;
   height: 220px;
@@ -496,6 +558,99 @@ body {
   margin: 0;
   font-size: clamp(0.96rem, 1.08vw, 1.04rem);
   line-height: 1.45;
+}
+
+.contexto-europeu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  min-height: 280px;
+  position: relative;
+}
+.contexto-europeu-left,
+.contexto-europeu-right {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+.contexto-europeu::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: rgba(17, 17, 17, 0.18);
+}
+.contexto-europeu-left {
+  display: grid;
+  align-content: space-between;
+  padding: 18px;
+}
+.contexto-europeu-left p {
+  margin: 0;
+  color: #1f5e84;
+  font-size: clamp(1.28rem, 1.95vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+.contexto-europeu-left p strong {
+  display: inline-block;
+  font-size: clamp(2.35rem, 3.5vw, 3.4rem);
+  font-weight: 950;
+  line-height: 1;
+  color: #143f5c;
+  margin-bottom: 8px;
+}
+.contexto-europeu-footnote {
+  margin: 12px 0 0;
+  color: rgba(17, 17, 17, 0.68) !important;
+  font-size: clamp(0.82rem, 1.02vw, 0.98rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.32 !important;
+}
+.contexto-europeu-right {
+  position: relative;
+  padding: 12px;
+}
+.venn-eu {
+  position: relative;
+  width: 100%;
+  height: 320px;
+}
+.venn-circle {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  border: 1px solid rgba(17, 17, 17, 0.22);
+  background: transparent;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+  padding: 12px;
+}
+.venn-circle p {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+.venn-circle span {
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Twemoji Mozilla", sans-serif;
+  font-size: 1.12rem;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+}
+.venn-circle-a { left: 0; top: 58px; }
+.venn-circle-b { left: 170px; top: 20px; }
+.venn-circle-c { left: 340px; top: 58px; }
+.venn-note {
+  margin: 10px 0 0;
+  font-size: 0.8rem;
+  color: rgba(17,17,17,.78);
+  text-align: center;
 }
 
 .final-questions {

@@ -61,13 +61,14 @@ const privateElementQuestions: Record<(typeof privateElementsTabs)[number], stri
   Sancionatório: "De que forma deve ser sancionado?",
 };
 const timelineMoments = [
-  { year: "1999", text: "Versão Originária da CGAA.\n\nA Cláusula Geral Anti-Abuso é introduzida em Portugal em janeiro de 1999, no artigo 32.º-A do CPPT. Esta versão nunca chegou a ser utilizada, tendo sido rapidamente substituída em julho de 1999.\n\nFoi com esta atualização que a CGAA passou a constar no artigo 30.º/2 LGT, ficando ali até aos dias de hoje." },
-  { year: "2000", text: "Com a Lei n.º 30-G/2000, de 29 de dezembro, a CGAA passou a assumir contornos de eficácia no sistema fiscal português, tendo finalmente capacidade para ser utilizada." },
-  { year: "2012", text: "Começa a discussão no G20 acerca da necessidade de prevenção do BEPS. Deste momento histórico surgem vários contributos: a Ação 6 do BEPS, que introduz uma Cláusula Geral Anti-Abuso ao nível da OCDE, e o desenvolvimento do Principal Purpose Test (PPT).\n\nA convenção modelo da OCDE acabou por absorver este critério." },
-  { year: "2013-2015", text: "Entre os anos 2013 e 2015 houve um grande aumento de casos de CGAA em Portugal, face ao problema da transformação de sociedades por quotas em sociedades anónimas para beneficiar de regime mais favorável na transmissão." },
-  { year: "2016", text: "Em 2016 a ATAD estabelece um nível mínimo de proteção contra a elisão fiscal. Na ATAD surge a CGAA inspirada nos trabalhos da OCDE, com o objetivo de ser aplicada em todos os Estados-Membros.\n\nNeste momento o TJUE desempenhou um papel essencial na construção da atual CGAA Europeia." },
-  { year: "2019", text: "A transposição da ATAD para a legislação portuguesa fez surgir alterações que resultaram numa abrangência maior da cláusula, com menos requisitos para preencher os vários elementos." },
+  { year: "1999", text: "Versão Originária da CGAA.\n\nA Cláusula Geral Anti-Abuso é introduzida em Portugal em janeiro de 1999, no artigo 32.º-A do CPPT. Esta versão nunca chegou a ser utilizada, tendo sido rapidamente substituída em julho de 1999\n\nFoi com esta atualização atualização que a CGAA passou a constar no artigo 38.º/2 LGT, ficando ali até aos dias de hoje" },
+  { year: "2000", text: "Com a Lei n.º 30-G/2000, de 29 de dezembro, a CGAA passou a assumir contornos de eficácia no sistema fiscal português, tendo finalmente capacidade para ser utilizada" },
+  { year: "2012", text: "Começa a discussão no G20 acerca da necessidade de prevenção do BEPS. Deste momento histórico surgem vários contributos: a Ação 6 do BEPS, que introduz uma Cláusula Geral Anti-Abuso ao nível da OCDE, e o desenvolvimento do Principal Purpose Test (PPT).\n\nA convenção modelo da OCDE acabou por absorver este critério" },
+  { year: "2013-2015", text: "Entre os anos 2013 e 2015 houve um grande aumento de casos de CGAA em Portugal, face ao problema da transformação de sociedades por quotas em sociedades anónimas para beneficiar de regime mais favorável na transmissão" },
+  { year: "2016", text: "Em 2016 a ATAD estabelece um nível mínimo de proteção contra a elisão fiscal. Na ATAD surge a CGAA inspirada nos trabalhos da OCDE, com o objetivo de ser aplicada em todos os Estados-Membros.\n\nNeste momento o TJUE desempenhou um papel essencial na construção da atual CGAA Europeia" },
+  { year: "2019", text: "A transposição da ATAD para a legislação portuguesa fez surgir alterações que resultaram numa abrangência maior da cláusula, com menos requisitos para preencher os vários elementos" },
 ];
+const timelineYears = ["1999", "2000", "2012", "2013-2015", "2016", "2019"] as const;
 const privateClientCardImages: Partial<Record<string, string>> = {
   "cristina-ferreira": "/Cristina_Ferreira_1080X1920.png",
   "joana-vasconcelos": "/Joana_Vasconcelos_1080x1920.png",
@@ -105,9 +106,9 @@ const slides: Slide[] = [
     kicker: "O impacto da CGAA",
     heading: "O Fenómeno",
     bullets: [
-      "As sociedades como diferimento de tributação do rendimento.",
-      "Alvos: Futebolistas, Artistas e Profissionais Liberais.",
-      "A utilização de estruturas societárias para converter rendimentos que seriam tributados em IRS (esfera individual) para o regime mais favorável do IRC (esfera coletiva) [cite: 1, p. 38].",
+      "As sociedades como diferimento de tributação do rendimento",
+      "Alvos: Futebolistas, Artistas e Profissionais Liberais",
+      "A utilização de estruturas societárias para converter rendimentos que seriam tributados em IRS (esfera individual) para o regime mais favorável do IRC (esfera coletiva) [cite: 1, p. 38]",
     ],
     footer: sharedFooter,
   },
@@ -118,9 +119,9 @@ const slides: Slide[] = [
     heading: "Caso Fernando Santos",
     highlightAmount: 4492494.2,
     bullets: [
-      "Desconsideração da estrutura societária.",
-      "Consequência: Tributação direta na esfera do IRS.",
-      "O tribunal considerou que os serviços eram prestados pessoalmente, faltando substância económica à estrutura utilizada para justificar a tributação em sede de IRC [cite: 1, p. 35, 38].",
+      "Desconsideração da estrutura societária",
+      "Consequência: Tributação direta na esfera do IRS",
+      "O tribunal considerou que os serviços eram prestados pessoalmente, faltando substância económica à estrutura utilizada para justificar a tributação em sede de IRC [cite: 1, p. 35, 38]",
     ],
     footer: sharedFooter,
   },
@@ -131,19 +132,8 @@ const slides: Slide[] = [
     heading: "Caso Manuel Luís Goucha",
     highlightAmount: 1171006.3,
     bullets: [
-      "Prestação de serviços: Pessoal vs. Formal.",
-      "O conflito de esferas: A dificuldade de dissociar a atividade da figura pública da atividade da sociedade controlada pela própria [cite: 1, p. 39-40].",
-    ],
-    footer: sharedFooter,
-  },
-  {
-    id: "choque-financeiro",
-    kind: "content",
-    kicker: "Impacto",
-    heading: "O Choque Financeiro",
-    bullets: [
-      "Liquidações Corretivas e Juros.",
-      "Desconsideração de algumas deduções de custos.",
+      "Prestação de serviços: Pessoal vs. Formal",
+      "O conflito de esferas: A dificuldade de dissociar a atividade da figura pública da atividade da sociedade controlada pela própria [cite: 1, p. 39-40]",
     ],
     footer: sharedFooter,
   },
@@ -153,42 +143,8 @@ const slides: Slide[] = [
     kicker: "Princípios",
     heading: "Autonomia Privada",
     bullets: [
-      "Liberdade de iniciativa e gestão empresarial.",
-      "Base: Artigos 61.o e 80.o da Constituição da República Portuguesa (CRP) [cite: 1, p. 9].",
-    ],
-    footer: sharedFooter,
-  },
-  {
-    id: "homo-economicus",
-    kind: "content",
-    kicker: "Princípios",
-    heading: 'O "Homo Economicus"',
-    bullets: [
-      "A procura legítima pela via menos onerosa.",
-      `Citação: "O contribuinte agindo como um 'homo economicus' que procura maximizar os seus proveitos vai estar permanentemente atento às consequências fiscais e económicas dos seus negócios" [cite: 1, p. 9].`,
-    ],
-    footer: sharedFooter,
-  },
-  {
-    id: "dever-fundamental",
-    kind: "content",
-    kicker: "Princípios",
-    heading: "O Dever Fundamental",
-    bullets: [
-      "O pagamento de impostos como dever social e de cidadania [cite: 1, p. 10].",
-      "Capacidade Contributiva: Artigos 103.o e 104.o da CRP [cite: 1, p. 10].",
-    ],
-    footer: sharedFooter,
-  },
-  {
-    id: "valvula-seguranca",
-    kind: "content",
-    kicker: "Princípios",
-    heading: 'A "Válvula de Segurança"',
-    bullets: [
-      "Será necessária uma Cláusula Geral?",
-      "Problema: Os mecanismos de elisão fiscal são de desenvolvimento mais rápido que o processo legislativo que os visa combater.",
-      "Combater a elisão onde a lei específica falha: A CGAA permite ao Estado reagir a montagens artificiais que frustram o espírito da lei, mesmo que respeitem formalmente a sua letra",
+      "Liberdade de iniciativa e gestão empresarial",
+      "Base: Artigos 61.o e 80.o da Constituição da República Portuguesa (CRP) [cite: 1, p. 9]",
     ],
     footer: sharedFooter,
   },
@@ -198,7 +154,7 @@ const slides: Slide[] = [
     kicker: "Conflitos",
     heading: "Autonomia vs.\nProteção do Erário",
     bullets: [
-      "Derrogação da autonomia para proteger o Estado.",
+      "Derrogação da autonomia para proteger o Estado",
       "O conflito é entre a liberdade que deve ser conferida ao contribuinte e a necessidade de precaver situações em que a atuação do contribuinte coloca em risco os interesses do Estado",
     ],
     footer: sharedFooter,
@@ -209,35 +165,41 @@ const slides: Slide[] = [
     kicker: "Conflitos",
     heading: "O Preço da Justiça",
     bullets: [
-      "A CGAA é forçosamente uma fonte de insegurança jurídica, especialmente face ao uso constante de conceitos indeterminados.",
-      "Será a insegurança jurídica uma condição necessária?",
-      "Justiça material (tributar de acordo com a realidade) vs. Previsibilidade (certeza do direito)",
+      "A CGAA foi criada para promover a segurança jurídica através da estabilidade legislativa. No entanto, a criação do direito pelo aplicador tem sido forçosamente uma fonte de insegurança jurídica, especialmente face ao uso constante de conceitos indeterminados",
+      "Será a insegurança jurídica uma condição necessária? Ou uma jurisprudência uniformizada e robusta pode mitigar este problema?",
+      "Justiça material vs. Previsibilidade",
       "Que valor pesa mais na balança?",
     ],
     footer: sharedFooter,
   },
   {
-    id: "estatisticas-caad",
+    id: "homo-economicus",
     kind: "content",
-    kicker: "A Realidade nos Tribunais",
-    heading: "Estatísticas CAAD (2013-2023)",
-    paragraph: "A amostra considerada corresponde a 91 casos analisados no CAAD.",
-    table: [
-      { label: "Favorável ao Contribuinte", value: "61%" },
-      { label: "Desfavorável ao Contribuinte", value: "23%" },
-      { label: "Parcialmente Favorável", value: "16%" },
+    kicker: "Princípios",
+    heading: 'O "Homo Economicus"',
+    bullets: [
+      "A procura legítima pela via menos onerosa",
+      `Citação: "O contribuinte agindo como um 'homo economicus' que procura maximizar os seus proveitos vai estar permanentemente atento às consequências fiscais e económicas dos seus negócios" [cite: 1, p. 9]`,
     ],
-    conclusion:
-      'Conclusão: A CGAA não é uma "arma automática" da AT, mas um instrumento que exige uma fundamentação robusta e uma análise detalhada dos casos concretos',
     footer: sharedFooter,
   },
   {
-    id: "rigor-juizes",
+    id: "contexto-europeu",
     kind: "content",
-    kicker: "A Realidade nos Tribunais",
-    heading: "O Rigor dos Juízes",
+    kicker: "Princípios",
+    heading: "O contexto Europeu",
+    bullets: [],
+    footer: sharedFooter,
+  },
+  {
+    id: "valvula-seguranca",
+    kind: "content",
+    kicker: "Princípios",
+    heading: 'A "Válvula de Segurança"',
     bullets: [
-      "A AT perde a maioria dos processos arbitrais devido a falhas na fundamentação ou prova dos elementos do abuso.",
+      "Será necessária uma Cláusula Geral?",
+      "Problema: Os mecanismos de elisão fiscal são de desenvolvimento mais rápido que o processo legislativo que os visa combater",
+      "Combater a elisão onde a lei específica falha: A CGAA permite ao Estado reagir a montagens artificiais que frustram o espírito da lei, mesmo que respeitem formalmente a sua letra",
     ],
     footer: sharedFooter,
   },
@@ -250,23 +212,12 @@ const slides: Slide[] = [
     footer: sharedFooter,
   },
   {
-    id: "garantias-contribuinte",
-    kind: "content",
-    kicker: "Requisitos e Procedimento",
-    heading: "Garantias do Contribuinte",
-    bullets: [
-      "O contribuinte tem o Direito de audição prévia e a possibilidade de obeter informações vinculativas que afastam a aplicação da cláusula.",
-      "É proibida a utilização de suposições ou presunções: A fundamentação deve ser clara, específica e circunstanciada, o que se pode verificar pela profundidade das inspeções tributárias levadas a cabo nos casos decididos contra o contribuinte.",
-    ],
-    footer: sharedFooter,
-  },
-  {
     id: "elemento-meio",
     kind: "content",
     kicker: "Os 5 Elementos",
     heading: "Elemento 1: Meio",
     bullets: [
-      "O Elemento Meio é a forma utilizada pelo constribuinte.",
+      "O Elemento Meio é a forma utilizada pelo constribuinte",
       "São as Construções ou séries de construções realizadas com abuso das formas jurídicas ou que não sejam consideradas genuinas",
       "A escolha de uma via anómala ou supérflua para alcançar o resultado económico",
       'Antes da transposição da ATAD exigia-se que fossem praticados "atos ou negócios jurídicos” em vez de “construção”, a redação atual é mais ampla e abrange qualquer tipo de comportamento por parte do contribuinte.',
@@ -279,7 +230,7 @@ const slides: Slide[] = [
     kicker: "Os 5 Elementos",
     heading: "Step Transaction Doctrine",
     bullets: [
-      "Artigo 38º/3 b) LGT - Análise de várias etapas coordenadas temporalmente.",
+      "Artigo 38º/3 b) LGT - Análise de várias etapas coordenadas temporalmente",
       "Uma construção pode ser constituída por mais do que uma etapa ou parte",
       "Conexão de atos para obter uma vantagem que não seria alcançada numa transação única",
     ],
@@ -291,8 +242,8 @@ const slides: Slide[] = [
     kicker: "Os 5 Elementos",
     heading: "O Teste da Genuinidade",
     bullets: [
-      "Ausência de razões económicas válidas.",
-      "Critério: A estrutura deve refletir a substância económica e comercial real, não sendo puramente artificial.",
+      "Ausência de razões económicas válidas",
+      "Critério: A estrutura deve refletir a substância económica e comercial real, não sendo puramente artificial",
       'Será artificial se for uma construção "não genuína".',
       "Na versão anterior tinha de ser Fraudulenta ou Artificiosa",
       "Acordão do TJUE - Foggia ajuda-nos a compreender que “razões económicas válidas” correspondem a construções que vão para lá da simples tentativa de obter uma vantagem fiscal. Esta doutrina do acórdão foggia, no entanto, já está desatualizada na medida em que se exige hoje apenas que uma das finalidades principais seja a de obter uma vantagem fiscal, como veremos quanto ao elemento Intelectual.  ",
@@ -306,10 +257,10 @@ const slides: Slide[] = [
     kicker: "Os 5 Elementos",
     heading: "Elemento 2: Resultado",
     bullets: [
-      "O Elemento Resultado é a vantagem fiscal obtida.",
-      "Tem de ser uma vantagem fiscal indevida (redução, eliminação ou diferimento) que frustre o objeto ou a finalidade do direito fiscal aplicável.",
-      "A elisão fiscal decorre imediatamente disto, na medida em que consiste na prática de comportamentos não desejados pelo legislador no espírito das suas normas.",
-      "Com a transposição da ATAD, o Elemento Resultado, já não encontra tantas limitações como antes."
+      "O Elemento Resultado é a vantagem fiscal obtida",
+      "Tem de ser uma vantagem fiscal indevida (redução, eliminação ou diferimento) que frustre o objeto ou a finalidade do direito fiscal aplicável",
+      "A elisão fiscal decorre imediatamente disto, na medida em que consiste na prática de comportamentos não desejados pelo legislador no espírito das suas normas",
+      "Com a transposição da ATAD, o Elemento Resultado, já não encontra tantas limitações como antes"
     ],
     footer: sharedFooter,
   },
@@ -332,9 +283,9 @@ const slides: Slide[] = [
     kicker: "Os 5 Elementos",
     heading: 'A "Prova Diabólica"',
     bullets: [
-      "O Elemento Intelectual é a intenção do contribuinte.",
-      "É muito difícil de provar a intenção subjetiva do contribuinte.",
-      "Há o risco de a norma abranger decisões lícitas de gestão tomadas com eficiência fiscal em mente.",
+      "O Elemento Intelectual é a intenção do contribuinte",
+      "É muito difícil de provar a intenção subjetiva do contribuinte",
+      "Há o risco de a norma abranger decisões lícitas de gestão tomadas com eficiência fiscal em mente",
     ],
     footer: sharedFooter,
   },
@@ -344,10 +295,10 @@ const slides: Slide[] = [
     kicker: "Os 5 Elementos",
     heading: "Elemento 4: Normativo",
     bullets: [
-      "O Elemento Normativo não está expresso na lei.",
-      "É a reprovação pelo espírito da norma da vantagem obtida, ainda que formal e expressamente a lei não a reprove.",
+      "O Elemento Normativo não está expresso na lei",
+      "É a reprovação pelo espírito da norma da vantagem obtida, ainda que formal e expressamente a lei não a reprove",
       "A conduta, embora lícita formalmente, é orientada para um ganho abusivo contrário ao sistema jurídico-tributário global",
-      "Tem de ser “clara e inequívoca a intenção do legislador de tributar” as operações postas em prática pelo contribuinte. Só assim se poderá censurar o contribuinte.",
+      "Tem de ser “clara e inequívoca a intenção do legislador de tributar” as operações postas em prática pelo contribuinte. Só assim se poderá censurar o contribuinte",
     ],
     footer: sharedFooter,
   },
@@ -357,7 +308,7 @@ const slides: Slide[] = [
     kicker: "Os 5 Elementos",
     heading: "Elemento 5: Sancionatório",
     bullets: [
-      "A ATAD dá liberdade aos EM para definirem um elemento sancionatório.",
+      "A ATAD dá liberdade aos EM para definirem um elemento sancionatório",
       "O Elemento Sancionatório está estabelecido na estatuição da norma e apenas se verificará se os elementos anteriores estiverem todos preenchidos",
       "O Efeito normal é a ineficácia tributária dos atos e negócios. Ou seja, a desconsideração da construção, consequente ineficácia da mesma",
       'A isto segue-se a Reconstrução: Tributação de acordo com os negócios ou atos ("construção") que correspondam à substância económica real.',
@@ -365,10 +316,21 @@ const slides: Slide[] = [
     footer: sharedFooter,
   },
   {
+    id: "garantias-contribuinte",
+    kind: "content",
+    kicker: "Requisitos e Procedimento",
+    heading: "Garantias do Contribuinte",
+    bullets: [
+      "O contribuinte tem o Direito de audição prévia e a possibilidade de obeter informações vinculativas que afastam a aplicação da cláusula",
+      "É proibida a utilização de suposições ou presunções: A fundamentação deve ser clara, específica e circunstanciada, o que se pode verificar pela profundidade das inspeções tributárias levadas a cabo nos casos decididos contra o contribuinte",
+    ],
+    footer: sharedFooter,
+  },
+  {
     id: "casos-estudo",
     kind: "module",
     kicker: "Private Clients",
-    heading: "Casos atuais",
+    heading: "Casos actuais",
     subheading: "",
     footer: sharedFooter,
   },
@@ -378,9 +340,9 @@ const slides: Slide[] = [
     kicker: "Private Clients",
     heading: "Fernando Santos",
     bullets: [
-      "CGAA - Sociedade sem substância económica.",
-      "Gastos não relacionados com a atividade prosseguida e atividade insuficiente para justificar a opção pela sociedade.",
-      "A liberdade na prestação de serviços era limitada pelos contratos assinados com a Seleção.",
+      "CGAA - Sociedade sem substância económica",
+      "Gastos não relacionados com a atividade prosseguida e atividade insuficiente para justificar a opção pela sociedade",
+      "A liberdade na prestação de serviços era limitada pelos contratos assinados com a Seleção",
       "Sociedade como um mero veículo de contratação",
     ],
     footer: sharedFooter,
@@ -399,8 +361,8 @@ const slides: Slide[] = [
     kicker: "Private Clients",
     heading: "Manuel Luís Goucha",
     bullets: [
-      "CGAA - Cariz pessoal das prestações sem justificação para a opção pela sociedade.",
-      "Configuração como rendimentos pessoais (Categoria B) em vez de rendimentos empresariais (IRC).",
+      "CGAA - Cariz pessoal das prestações sem justificação para a opção pela sociedade",
+      "Configuração como rendimentos pessoais (Categoria B) em vez de rendimentos empresariais (IRC)",
     ],
     footer: sharedFooter,
   },
@@ -419,7 +381,7 @@ const slides: Slide[] = [
     heading: "Cristina Ferreira",
     bullets: [
       "DESCONSIDERAÇÃO DE GASTOS",
-      "Tributação em IRS como rendimentos de capitais (Categoria E) devido à confusão de esferas pessoal e empresarial.",
+      "Tributação em IRS como rendimentos de capitais (Categoria E) devido à confusão de esferas pessoal e empresarial",
     ],
     footer: sharedFooter,
   },
@@ -429,8 +391,8 @@ const slides: Slide[] = [
     kicker: "Private Clients",
     heading: "Joana Vasconcelos",
     bullets: [
-      "TRANSPARÊNCIA FISCAL.",
-      "Consequência: Imputação direta dos lucros aos sócios e tributação em sede de IRS.",
+      "TRANSPARÊNCIA FISCAL",
+      "Consequência: Imputação direta dos lucros aos sócios e tributação em sede de IRS",
     ],
     footer: sharedFooter,
   },
@@ -443,6 +405,31 @@ const slides: Slide[] = [
     bullets: [
       "Pode um gestor diligente ignorar o impacto fiscal das suas decisões?",
       "Escolher a via fiscalmente mais barata é sempre um indício de abuso?",
+    ],
+    footer: sharedFooter,
+  },
+  {
+    id: "estatisticas-caad",
+    kind: "content",
+    kicker: "A Realidade nos Tribunais",
+    heading: "Estatísticas CAAD (2013-2023)",
+    paragraph: "A amostra considerada corresponde a 91 casos analisados no CAAD",
+    table: [
+      { label: "Favorável ao Contribuinte", value: "61%" },
+      { label: "Desfavorável ao Contribuinte", value: "23%" },
+      { label: "Parcialmente Favorável", value: "16%" },
+    ],
+    conclusion:
+      'Conclusão: A CGAA não é uma "arma automática" da AT, mas um instrumento que exige uma fundamentação robusta e uma análise detalhada dos casos concretos',
+    footer: sharedFooter,
+  },
+  {
+    id: "rigor-juizes",
+    kind: "content",
+    kicker: "A Realidade nos Tribunais",
+    heading: "O Rigor dos Juízes",
+    bullets: [
+      "A AT perde a maioria dos processos arbitrais devido a falhas na fundamentação ou prova dos elementos do abuso",
     ],
     footer: sharedFooter,
   },
@@ -673,7 +660,7 @@ export default function Home() {
   const isHomoEconomicusSlide =
     slide.kind === "content" && slide.id === "homo-economicus";
   const impactParagraph = isImpactCaseSlide
-    ? "Consequ\u00eancia: Tributa\u00e7\u00e3o direta na esfera do IRS."
+    ? "Consequ\u00eancia: Tributa\u00e7\u00e3o direta na esfera do IRS"
     : slide.kind === "content"
       ? slide.paragraph
       : undefined;
@@ -1162,6 +1149,37 @@ export default function Home() {
                         </div>
                       </div>
                     ) : null}
+                    {slide.id === "contexto-europeu" ? (
+                      <div className="contexto-europeu">
+                        <div className="contexto-europeu-left">
+                          <p>
+                            <strong>26/28 E.M.</strong>
+                            <br />
+                            já tinham cláusulas anti-abuso gerais ou específicas pré-ATAD
+                          </p>
+                          <p className="contexto-europeu-footnote">
+                            No entanto, estas não eram suficientes para colmatar os problemas de planeamento fiscal abusivo, ou porque eram limitadas na sua aplicação subjetiva, ou porque só se aplicavam a determinados casos, ou por não estarem harmonizadas
+                          </p>
+                        </div>
+                        <div className="contexto-europeu-right">
+                          <div className="venn-eu">
+                            <div className="venn-circle venn-circle-a">
+                              <p>CGAA não formais</p>
+                              <span>🇩🇰 🇳🇱 🇵🇱</span>
+                            </div>
+                            <div className="venn-circle venn-circle-b">
+                              <p>CGAA formais</p>
+                              <span>🇫🇷 🇪🇸 🇷🇴 🇦🇹 🇵🇹 🇧🇪 🇩🇪 🇸🇰 🇫🇮 🇮🇹 🇸🇪 🇮🇪 🇬🇧</span>
+                            </div>
+                            <div className="venn-circle venn-circle-c">
+                              <p>Princípios anti-abuso codificados</p>
+                              <span>🇭🇷 🇨🇿 🇭🇺 🇸🇮</span>
+                            </div>
+                          </div>
+                          <p className="venn-note">Outros Países: casos com princípios não codificados</p>
+                        </div>
+                      </div>
+                    ) : null}
                     {isFinalQuestionsSlide ? (
                       <div className="final-questions">
                         {slide.bullets?.map((bullet) => (
@@ -1175,6 +1193,7 @@ export default function Home() {
                     slide.id !== "fenomeno" &&
                     slide.id !== "valvula-seguranca" &&
                     slide.id !== "garantias-contribuinte" &&
+                    slide.id !== "contexto-europeu" &&
                     slide.id !== "rigor-juizes" &&
                     !isFinalQuestionsSlide &&
                     !isAutonomiaPrivadaSlide &&
@@ -1211,36 +1230,57 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="corr-col">
-                          <p>segurança</p>
+                          <p>Receita</p>
                           <div className="corr-bar corr-bar-seguranca"><span style={{height:`${100 - liberdadeLevel}%`}}/></div>
                         </div>
                       </div>
                     ) : null}
                     {isTimelineSlide ? (
-                      <div className="timeline-shell">
-                        <div className="timeline-head">
-                          <button type="button" onClick={() => setTimelineIndex((v) => Math.max(0, v - 1))}>◀</button>
-                          <p>{timelineMoments[timelineIndex].year}</p>
-                          <button type="button" onClick={() => setTimelineIndex((v) => Math.min(timelineMoments.length - 1, v + 1))}>▶</button>
-                        </div>
-                        {timelineIndex === 0 ? (
-                          <>
-                            <p className="timeline-subtitle">Versão Originária da CGAA.</p>
-                            <p className="timeline-text">
-                              {timelineMoments[timelineIndex].text.replace("Versão Originária da CGAA.\n\n", "")}
-                            </p>
-                          </>
-                        ) : (
-                          <p className="timeline-text">{timelineMoments[timelineIndex].text}</p>
-                        )}
-                        {timelineMoments[timelineIndex].year === "2013-2015" ? (
-                          <div className="timeline-cards">
-                            <div>Lda.</div>
-                            <span>→</span>
-                            <div>S.A.</div>
+                      <>
+                        <div className="timeline-shell">
+                          <div className="timeline-head">
+                            <button type="button" onClick={() => setTimelineIndex((v) => Math.max(0, v - 1))}>◀</button>
+                            <p>{timelineMoments[timelineIndex].year}</p>
+                            <button type="button" onClick={() => setTimelineIndex((v) => Math.min(timelineMoments.length - 1, v + 1))}>▶</button>
                           </div>
-                        ) : null}
-                      </div>
+                          {timelineIndex === 0 ? (
+                            <>
+                              <p className="timeline-subtitle">Versão Originária da CGAA.</p>
+                              <p className="timeline-text">
+                                {timelineMoments[timelineIndex].text.replace("Versão Originária da CGAA.\n\n", "")}
+                              </p>
+                            </>
+                          ) : (
+                            <p className="timeline-text">{timelineMoments[timelineIndex].text}</p>
+                          )}
+                          {timelineMoments[timelineIndex].year === "2013-2015" ? (
+                            <div className="timeline-cards">
+                              <div>Lda.</div>
+                              <span>→</span>
+                              <div>S.A.</div>
+                            </div>
+                          ) : null}
+                        </div>
+                        <div className="timeline-progress timeline-progress-fixed" aria-label="Linha temporal da evolução da CGAA">
+                          <div className="timeline-progress-line" aria-hidden="true">
+                            <span
+                              className="timeline-progress-line-active"
+                              style={{
+                                width: `${(timelineIndex / (timelineYears.length - 1)) * 100}%`,
+                              }}
+                            />
+                          </div>
+                          {timelineYears.map((year, index) => (
+                            <div
+                              key={year}
+                              className={`timeline-progress-item ${index <= timelineIndex ? "is-active" : ""}`}
+                            >
+                              <span className="timeline-progress-dot" />
+                              <span className="timeline-progress-year">{year}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </>
                     ) : null}
                     {slide.kind === "content" && slide.id === "preco-justica" ? (
                       <div className="justice-scale" aria-hidden="true">
@@ -1475,3 +1515,4 @@ export default function Home() {
     </main>
   );
 }
+

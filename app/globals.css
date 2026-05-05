@@ -1000,6 +1000,16 @@ body {
   line-height: 1.45;
 }
 
+.figuras-proximas-card-strong {
+  border-color: rgba(31, 94, 132, 0.34);
+  background: rgba(31, 94, 132, 0.12);
+}
+
+.figuras-proximas-card-strong p {
+  color: #174b6b;
+  font-weight: 900;
+}
+
 .final-questions {
   display: grid;
   gap: 14px;

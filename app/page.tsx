@@ -53,7 +53,7 @@ const module6ElementSlideTargets = [
   "elemento-sancionatorio",
 ] as const;
 const module6ElementSubtitles: Partial<Record<string, string>> = {
-  "elemento-meio": "forma utilizada pelo contribuinte",
+  "elemento-meio": "Forma utilizada pelo contribuinte",
   "step-transaction": "Uma construção pode ser constituída por mais do que uma etapa ou parte",
   "teste-genuinidade": "É artificial se for uma construção \"Não Genuína\" => Ausência De Razões Económicas Válidas",
   "elemento-resultado": "Vantagem Fiscal Obtida",
@@ -72,7 +72,7 @@ const privateElementQuestions: Record<(typeof privateElementsTabs)[number], stri
 const timelineMoments = [
   { year: "1999", text: "Versão Originária da CGAA\n\nA Cláusula Geral Anti-Abuso é introduzida em Portugal em janeiro de 1999, no artigo 32.º-A do CPPT. Esta versão nunca chegou a ser utilizada, tendo sido rapidamente substituída em julho de 1999\n\nFoi com esta atualização atualização que a CGAA passou a constar no artigo 38.º/2 LGT, ficando ali até aos dias de hoje" },
   { year: "2000", text: "Com a Lei n.º 30-G/2000, de 29 de dezembro, a CGAA passou a assumir contornos de eficácia no sistema fiscal português, tendo finalmente capacidade para ser utilizada" },
-  { year: "2012", text: "Começa a discussão no G20 acerca da necessidade de prevenção do BEPS. Deste momento histórico surgem vários contributos: a Ação 6 do BEPS, que introduz uma Cláusula Geral Anti-Abuso ao nível da OCDE, e o desenvolvimento do Principal Purpose Test (PPT)\n\nA convenção modelo da OCDE acabou por absorver este critério" },
+  { year: "2012", text: "Começa a discussão no G20 acerca da necessidade de prevenção do BEPS. Deste momento histórico surgem vários contributos: a Acção 6 do BEPS, que introduz uma Cláusula Geral Anti-Abuso ao nível da OCDE, e o desenvolvimento do Principal Purpose Test (PPT)\n\nA convenção modelo da OCDE acabou por absorver este critério" },
   { year: "2013-2015", text: "Entre os anos 2013 e 2015 houve um grande aumento de casos de CGAA em Portugal, face ao problema da transformação de sociedades por quotas em sociedades anónimas para beneficiar de regime mais favorável na transmissão" },
   { year: "2016", text: "Em 2016 a ATAD estabelece um nível mínimo de protecção contra a elisão fiscal. Na ATAD surge a CGAA inspirada nos trabalhos da OCDE, com o objectivo de ser aplicada em todos os Estados-Membros\n\nNeste momento o TJUE desempenhou um papel essencial na construção da atual CGAA Europeia" },
   { year: "2019", text: "A transposição da ATAD para a legislação portuguesa fez surgir alterações que resultaram numa abrangência maior da cláusula, com menos requisitos para preencher os vários elementos" },
@@ -1422,6 +1422,11 @@ export default function Home() {
                           </p>
                           <p>
                             No entanto, a CGAA consegue ir mais além e tributar casos como o do Manuel Luís Goucha, em que parecem preenchidos todos os pressupostos da Transparência Fiscal, excepto o da actividade estar na lista de actividades previstas para este regime, ao que se soma, logicamente, um planeamento fiscal abusivo
+                          </p>
+                        </article>
+                        <article className="figuras-proximas-card figuras-proximas-card-strong">
+                          <p>
+                            A receita substâncial das empresas de Fernando Santos e Manuel Luís Goucha derivava de um só contrato com uma determinada entidade, e na qual o carácter personalizante da prestação era determinante
                           </p>
                         </article>
                       </div>
